@@ -35,7 +35,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<tab>", ":bnext<CR>", opts)
 keymap("n", "<S-tab>", ":bprevious<CR>", opts)
 keymap("n", "<leader>d", ":bdelete<CR>", opts)
-keymap("n", "<F3>",":Autoformat<CR>", opts)
 
 
 -- Move text up and down
