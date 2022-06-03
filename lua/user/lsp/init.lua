@@ -1,4 +1,4 @@
-local status_ok, _ = pcall(require, "lspconfig")
+local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
   return
 end
@@ -6,5 +6,7 @@ end
 require "user.lsp.lsp-installer"
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
-require "user.lsp.settings.emmet_ls"
-require "user.lsp.themes.github_theme_config"
+
+lspconfig.emmet_ls.setup({
+  filetypes = { 'html', '*.js','*.jsx', '*.ts','*.tsx', 'css', 'sass', 'scss', 'less' },
+})
