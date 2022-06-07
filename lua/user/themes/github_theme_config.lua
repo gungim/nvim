@@ -2,7 +2,7 @@ require("github-theme").setup({
   theme_style = "dark_default",
   function_style = "italic",
   comment_style = "italic",
-  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
   dev= true,
 
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
