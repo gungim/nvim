@@ -3,6 +3,12 @@ if not status_ok then
   return
 end
 
+local bg_gray = "#262C34"
+local error = "#f44336"
+local warning = "orange"
+local black = "#000208"
+local sky = "#3D85C6"
+
 
 
 bufferline.setup {
@@ -12,7 +18,7 @@ bufferline.setup {
     left_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 
-    indicator_icon = "▎",
+    indicator_icon = "",
     buffer_close_icon = "",
     modified_icon = "●",
     close_icon = "",
@@ -40,7 +46,7 @@ bufferline.setup {
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
+    separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -48,10 +54,104 @@ bufferline.setup {
     --   return buffer_a.modified > buffer_b.modified
     -- end
   },
-  highlights ={
-    tab_selected = {
-      guifg = '#dcfa09',
-      guibg = '#a26c5f'
-    }
-  } 
+  highlights = {
+    fill = {
+      guibg = bg_gray,
+    },
+    background = {
+      guibg = bg_gray
+    },
+    diagnostic_visible = {
+      guibg = bg_gray
+    },
+
+    info = {
+
+      guibg = bg_gray,
+      guifg = sky
+    },
+    info_visible = {
+      guibg = black,
+      guifg = sky
+    },
+    info_selected = {
+      guibg = black,
+      guifg = sky,
+      gui = "default",
+    },
+    info_diagnostic = {
+      guibg = bg_gray,
+      guifg = sky
+    },
+    info_diagnostic_visible = {
+      guibg = black,
+      guifg = sky
+    },
+    -- info_diagnostic_selected = {
+    -- },
+
+    warning = {
+      guibg = bg_gray,
+      guifg = warning
+    },
+    warning_visible = {
+      guibg = black,
+      guifg = warning
+    },
+    warning_selected = {
+      guibg = black,
+      guifg = warning,
+      gui = "default",
+    },
+    warning_diagnostic = {
+      guibg = bg_gray,
+      guifg = warning
+    },
+    warning_diagnostic_visible = {
+      guibg = black,
+      guifg = warning
+    },
+
+    error = {
+      guibg = bg_gray,
+      guifg = error
+    },
+    error_visible = {
+      guibg = black,
+      guifg = error
+    },
+    error_diagnostic = {
+      guibg = bg_gray,
+      guifg = error
+    },
+    error_diagnostic_visible = {
+      guibg = black,
+      guifg = error
+    },
+    error_selected = {
+      gui = "default",
+      guibg = black,
+      guifg = error
+    },
+
+    separator_selected = {
+      guibg = bg_gray,
+    },
+    separator_visible = {
+      guibg = bg_gray,
+    },
+    separator = {
+      guibg = bg_gray,
+    },
+
+    modified = {
+      guibg = bg_gray
+    },
+    modified_visible = {
+      guibg = black,
+    },
+    modified_selected = {
+      guibg = black,
+    },
+  };
 }
