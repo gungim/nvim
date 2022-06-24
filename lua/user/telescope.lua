@@ -22,8 +22,8 @@ telescope.setup {
 
         ["<C-c>"] = actions.close,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
+        -- ["<Down>"] = actions.move_selection_next,
+        -- ["<Up>"] = actions.move_selection_previous,
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
