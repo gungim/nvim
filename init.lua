@@ -1,3 +1,4 @@
+
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
@@ -20,3 +21,5 @@ require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
 require "user.autotag"
+require "user.nvim-ts-rainbow"
+
