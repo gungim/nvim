@@ -3,12 +3,7 @@ if not status_ok then
   return
 end
 
-local bg_gray = "#262C34"
-local error = "#f44336"
-local warning = "orange"
-local black = "#000208"
-local sky = "#3D85C6"
-
+local custom_colors = require("user.custom_colors")
 
 
 bufferline.setup {
@@ -53,105 +48,73 @@ bufferline.setup {
     --   -- add custom logic
     --   return buffer_a.modified > buffer_b.modified
     -- end
+    highlights = {
+      buffer_selected = {
+        gui = "default"
+      },
+      warning = {
+        guifg = custom_colors.warning,
+        -- guisp = custom_colors.warning,
+      },
+      warning_visible = {
+        guifg = custom_colors.warning,
+      },
+      warning_selected = {
+        guifg = custom_colors.warning,
+        gui = "default",
+        -- guisp = custom_colors.warning
+      },
+      warning_diagnostic = {
+        guifg = custom_colors.warning,
+        guisp = custom_colors.warning,
+      },
+      warning_diagnostic_visible = {
+        guifg = custom_colors.warning,
+      },
+      warning_diagnostic_selected = {
+        guifg = custom_colors.warning,
+        gui = "default",
+      },
+      error = {
+        guifg = custom_colors.error,
+      },
+      error_visible = {
+        guifg = custom_colors.error,
+      },
+      error_selected = {
+        guifg = custom_colors.error,
+        gui = "default",
+      },
+      error_diagnostic = {
+        guifg = custom_colors.error,
+      },
+      error_diagnostic_visible = {
+        guifg = custom_colors.error,
+      },
+      error_diagnostic_selected = {
+        guifg = custom_colors.error,
+        gui = "default",
+      },
+      info = {
+        guifg = custom_colors.sky,
+      },
+      info_visible = {
+        guifg = custom_colors.sky,
+      },
+      info_selected = {
+        guifg = custom_colors.sky,
+        gui = "default",
+      },
+      info_diagnostic = {
+        guifg = custom_colors.sky,
+      },
+      info_diagnostic_visible = {
+        guifg = custom_colors.sky,
+      },
+      info_diagnostic_selected = {
+        guifg = custom_colors.sky,
+        gui = "default",
+      },
+    }
   },
-  highlights = {
-    fill = {
-      guibg = bg_gray,
-    },
-    background = {
-      guibg = bg_gray
-    },
-    diagnostic_visible = {
-      guibg = bg_gray
-    },
-
-    info = {
-
-      guibg = bg_gray,
-      guifg = sky
-    },
-    info_visible = {
-      guibg = black,
-      guifg = sky
-    },
-    info_selected = {
-      guibg = black,
-      guifg = sky,
-      gui = "default",
-    },
-    info_diagnostic = {
-      guibg = bg_gray,
-      guifg = sky
-    },
-    info_diagnostic_visible = {
-      guibg = black,
-      guifg = sky
-    },
-    -- info_diagnostic_selected = {
-    -- },
-
-    warning = {
-      guibg = bg_gray,
-      guifg = warning
-    },
-    warning_visible = {
-      guibg = black,
-      guifg = warning
-    },
-    warning_selected = {
-      guibg = black,
-      guifg = warning,
-      gui = "default",
-    },
-    warning_diagnostic = {
-      guibg = bg_gray,
-      guifg = warning
-    },
-    warning_diagnostic_visible = {
-      guibg = black,
-      guifg = warning
-    },
-
-    error = {
-      guibg = bg_gray,
-      guifg = error
-    },
-    error_visible = {
-      guibg = black,
-      guifg = error
-    },
-    error_diagnostic = {
-      guibg = bg_gray,
-      guifg = error
-    },
-    error_diagnostic_visible = {
-      guibg = black,
-      guifg = error
-    },
-    error_selected = {
-      gui = "default",
-      guibg = black,
-      guifg = error
-    },
-
-    separator_selected = {
-      guibg = bg_gray,
-    },
-    separator_visible = {
-      guibg = bg_gray,
-    },
-    separator = {
-      guibg = bg_gray,
-    },
-
-    modified = {
-      guibg = bg_gray
-    },
-    modified_visible = {
-      guibg = black,
-    },
-    modified_selected = {
-      guibg = black,
-    },
-  };
 }
