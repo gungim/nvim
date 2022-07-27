@@ -22,5 +22,4 @@ require "user.whichkey"
 require "user.autocommands"
 require "user.autotag"
 require "user.nvim-ts-rainbow"
-
 require "user.devicons"
