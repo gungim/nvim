@@ -46,8 +46,11 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use { "kyazdani42/nvim-tree.lua",
+    requires = {
+      "kyazdani42/nvim-web-devicons"
+    },
+    tag = 'nightly' }
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
@@ -64,13 +67,8 @@ return packer.startup(function(use)
   use "tpope/vim-repeat"
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
-  use "sainnhe/everforest"
-
-  use "projekt0n/github-nvim-theme"
-  use "drewtempelmeyer/palenight.vim"
-
+  use 'norcalli/nvim-colorizer.lua'
+  use "~/Documents/gungim_theme"
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
