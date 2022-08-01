@@ -1,4 +1,3 @@
-
 require "user.colorscheme"
 require "user.options"
 require "user.keymaps"
@@ -23,3 +22,4 @@ require "user.autocommands"
 require "user.autotag"
 require "user.nvim-ts-rainbow"
 require "user.devicons"
+require "user.colorizer"
