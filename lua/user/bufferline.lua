@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local custom_colors = require("user.custom_colors")
+local colors = require("user.gungim_theme.core")
 
 
 bufferline.setup {
@@ -50,69 +50,70 @@ bufferline.setup {
     -- end
     highlights = {
       buffer_selected = {
-        gui = "default"
+        gui = "default",
+        guifg = colors.color16
       },
       warning = {
-        guifg = custom_colors.warning,
-        -- guisp = custom_colors.warning,
+        guifg = colors.warning,
+        -- guisp = colors.warning,
       },
       warning_visible = {
-        guifg = custom_colors.warning,
+        guifg = colors.warning,
       },
       warning_selected = {
-        guifg = custom_colors.warning,
+        guifg = colors.warning,
         gui = "default",
-        -- guisp = custom_colors.warning
+        -- guisp = colors.warning
       },
       warning_diagnostic = {
-        guifg = custom_colors.warning,
-        guisp = custom_colors.warning,
+        guifg = colors.warning,
+        guisp = colors.warning,
       },
       warning_diagnostic_visible = {
-        guifg = custom_colors.warning,
+        guifg = colors.warning,
       },
       warning_diagnostic_selected = {
-        guifg = custom_colors.warning,
+        guifg = colors.warning,
         gui = "default",
       },
       error = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
       },
       error_visible = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
       },
       error_selected = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
         gui = "default",
       },
       error_diagnostic = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
       },
       error_diagnostic_visible = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
       },
       error_diagnostic_selected = {
-        guifg = custom_colors.error,
+        guifg = colors.error,
         gui = "default",
       },
       info = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
       },
       info_visible = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
       },
       info_selected = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
         gui = "default",
       },
       info_diagnostic = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
       },
       info_diagnostic_visible = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
       },
       info_diagnostic_selected = {
-        guifg = custom_colors.sky,
+        guifg = colors.sky,
         gui = "default",
       },
     }
