@@ -4,12 +4,12 @@ vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
   git = {
-    unstaged = "",
-    staged = "S",
+    unstaged = "✗",
+    staged = "✓",
     unmerged = "",
     renamed = "➜",
+    untracked = "",
     deleted = "",
-    untracked = "U",
     ignored = "◌",
   },
   folder = {
@@ -59,17 +59,27 @@ nvim_tree.setup {
       error = "",
     },
   },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
+
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true
+    },
   },
   system_open = {
     cmd = nil,
     args = {},
   },
+
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = {},
   },
   git = {
@@ -82,7 +92,7 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    -- auto_resize = true,
+    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
@@ -98,20 +108,10 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  renderer = {
-    add_trailing = false,
-    group_empty = false,
-    highlight_git = false,
-    highlight_opened_files = "none",
-    root_folder_modifier = ":~",
-    indent_markers = {
-      enable = true,
-      icons = {
-        corner = "└ ",
-        edge = "│ ",
-        none = "  ",
-      },
-    },
-    special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
   },
 }
