@@ -1,4 +1,5 @@
 local status_ok, lualine = pcall(require, "lualine")
+local icons              = require "user.icons"
 if not status_ok then
   return
 end
@@ -11,7 +12,7 @@ local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
-  symbols = { error = " ", warn = " " },
+  symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
   colored = false,
   update_in_insert = false,
   always_visible = true,
@@ -20,14 +21,14 @@ local diagnostics = {
 local diff = {
   "diff",
   colored = false,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
   cond = hide_in_width
 }
 
 local mode = {
   "mode",
   fmt = function(str)
-    return "-- " .. str .. " --"
+    return icons.ui.Vim .. str .. icons.ui.Terminal
   end,
 }
 
@@ -40,7 +41,7 @@ local filetype = {
 local branch = {
   "branch",
   icons_enabled = true,
-  icon = "",
+  icon = icons.git.Branch,
 }
 
 local location = {
@@ -65,7 +66,7 @@ end
 lualine.setup({
   options = {
     icons_enabled = true,
-    theme = "auto",
+    theme = "gungim_theme",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
@@ -76,13 +77,13 @@ lualine.setup({
     lualine_b = { mode },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { 'fileformat',diff, spaces, "encoding", filetype },
+    lualine_x = { 'fileformat', diff, spaces, "encoding", filetype },
     lualine_y = { location },
     lualine_z = { progress },
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = { },
+    lualine_b = {},
     lualine_c = { "filename" },
     lualine_x = { "location" },
     lualine_y = {},

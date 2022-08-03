@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -43,9 +45,9 @@ local setup = {
     scroll_up = "<c-u>", -- binding to scroll up inside the popup
   },
   window = {
-    border = "none", -- none, single, double, shadow
+    border = border, -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+    margin = { 0, 0, 3, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 0, 2, 0 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
   },

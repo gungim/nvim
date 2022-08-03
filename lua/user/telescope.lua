@@ -4,12 +4,13 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local icons = require "user.icons"
 
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = icons.ui.Telescope,
+    selection_caret = icons.ui.Share .. " ",
     path_display = { "smart" },
 
     mappings = {
