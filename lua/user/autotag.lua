@@ -25,14 +25,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 require('nvim-ts-autotag').setup {
-  filetypes = { 'xml',
-    'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-    'php',
-    'markdown',
-    'glimmer', 'handlebars', 'hbs'
-  },
-  skip_tags = {
-    'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
-    'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'menuitem'
-  }
+  filetypes = filetypes,
+  skip_tags = skip_tags
 }
