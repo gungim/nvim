@@ -40,36 +40,45 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
+  -- Plugin manager
   use "wbthomason/packer.nvim" -- Have packer manage itself
+
+  -- Lua development
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
-  use { "kyazdani42/nvim-tree.lua",
-    requires = {
-      "kyazdani42/nvim-web-devicons"
-    },
-    tag = 'nightly' }
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- File explorer
+  use "kyazdani42/nvim-tree.lua"
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
-  use { "akinsho/toggleterm.nvim", tag = 'v1.*', }
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
+
+  -- Terminal
+  use { "akinsho/toggleterm.nvim", tag = 'v1.*', }
+
+  -- Start window
   use "goolord/alpha-nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+
   use {
     "ur4ltz/surround.nvim",
   }
-  use "tpope/vim-repeat"
+  -- use "tpope/vim-repeat"
 
-  -- Colorschemes
+  -- Finder
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
+
+  -- Colors and theme
   use 'norcalli/nvim-colorizer.lua'
   use "~/Documents/gungim_theme"
-  -- cmp plugins
+  use "lukas-reineke/indent-blankline.nvim"
+  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use "nvim-lualine/lualine.nvim"
+
+  -- Completion
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -80,6 +89,7 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "alvan/vim-closetag"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -89,28 +99,23 @@ return packer.startup(function(use)
   use 'folke/lsp-colors.nvim'
 
   -- Formatter
-
   use('MunifTanjim/prettier.nvim')
-
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-media-files.nvim"
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
-  use "alvan/vim-closetag"
   use "nvim-treesitter/playground"
   use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
 
-
+  -- Comment
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "numToStr/Comment.nvim" -- Easily comment stuff
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
