@@ -1,8 +1,9 @@
-local custom_colors = require("user.custom_colors")
+local gungim_theme = require('gungim_theme.core')
+local colors = gungim_theme.get_colors()
 
 require("lsp-colors").setup({
-  Error = custom_colors.error,
-  Warning = custom_colors.warning,
-  Information = custom_colors.information,
-  Hint = custom_colors.hint
+  Error = colors.error,
+  Warning = colors.warning,
+  Information = colors.info,
+  Hint = colors.hint
 })
