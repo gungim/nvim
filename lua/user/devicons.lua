@@ -1,7 +1,3 @@
-local icons = {
-
-}
-
 require("nvim-web-devicons").set_icon {
   [".prettierrc"]        = {
     icon = "",
