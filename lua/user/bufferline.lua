@@ -3,9 +3,6 @@ if not status_ok then
   return
 end
 
-local colors = require("user.gungim_theme.core")
-
-
 bufferline.setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -48,74 +45,5 @@ bufferline.setup {
     --   -- add custom logic
     --   return buffer_a.modified > buffer_b.modified
     -- end
-    highlights = {
-      buffer_selected = {
-        gui = "default",
-        guifg = colors.color16
-      },
-      warning = {
-        guifg = colors.warning,
-        -- guisp = colors.warning,
-      },
-      warning_visible = {
-        guifg = colors.warning,
-      },
-      warning_selected = {
-        guifg = colors.warning,
-        gui = "default",
-        -- guisp = colors.warning
-      },
-      warning_diagnostic = {
-        guifg = colors.warning,
-        guisp = colors.warning,
-      },
-      warning_diagnostic_visible = {
-        guifg = colors.warning,
-      },
-      warning_diagnostic_selected = {
-        guifg = colors.warning,
-        gui = "default",
-      },
-      error = {
-        guifg = colors.error,
-      },
-      error_visible = {
-        guifg = colors.error,
-      },
-      error_selected = {
-        guifg = colors.error,
-        gui = "default",
-      },
-      error_diagnostic = {
-        guifg = colors.error,
-      },
-      error_diagnostic_visible = {
-        guifg = colors.error,
-      },
-      error_diagnostic_selected = {
-        guifg = colors.error,
-        gui = "default",
-      },
-      info = {
-        guifg = colors.sky,
-      },
-      info_visible = {
-        guifg = colors.sky,
-      },
-      info_selected = {
-        guifg = colors.sky,
-        gui = "default",
-      },
-      info_diagnostic = {
-        guifg = colors.sky,
-      },
-      info_diagnostic_visible = {
-        guifg = colors.sky,
-      },
-      info_diagnostic_selected = {
-        guifg = colors.sky,
-        gui = "default",
-      },
-    }
   },
 }
