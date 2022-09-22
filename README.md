@@ -25,9 +25,10 @@ Next we need to install python support (node is optional)
 
 **NOTE** make sure you have [node](https://nodejs.org/en/) installed, I recommend a node manager like [fnm](https://github.com/Schniz/fnm).
 
-
 - npm plugins
-using command `npm i -g 'package'` to install package
+  using command `npm i -g 'package'` to install package
+
+```bash
 ├── @tailwindcss/language-server
 ├── cssmodules-language-server
 ├── eslint
@@ -38,7 +39,14 @@ using command `npm i -g 'package'` to install package
 ├── typescript-language-server
 ├── typescript
 └── vscode-langservers-extracted
+
+```
+
 - brew plugins
-using command `brew install 'package'` to install package
+  using command `brew install 'package'` to install package
+
+```bash
 ├── gcc
 └── vscode-langservers-extracted@4.4.0
+
+```
