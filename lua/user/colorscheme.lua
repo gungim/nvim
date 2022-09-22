@@ -1,3 +1,3 @@
 local gungim_theme = require("gungim_theme")
+gungim_theme.setup({ mode = "dark_pink" })
 
-gungim_theme.setup({ nvim_tree = { contrast = false} })

@@ -72,11 +72,12 @@ return packer.startup(function(use)
 
   -- Colors and theme
   use("norcalli/nvim-colorizer.lua")
-  use("~/Documents/gungim_theme")
   use("lukas-reineke/indent-blankline.nvim")
   use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
   use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
   use("nvim-lualine/lualine.nvim")
+  -- theme
+  use("~/Documents/gungim_theme")
 
   -- Completion
   use("hrsh7th/nvim-cmp") -- The completion plugin
