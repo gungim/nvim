@@ -3,22 +3,52 @@ if not lspconfig_status_ok then
 	return
 end
 
-vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+	return
+end
+
+local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_1 then
+	return
+end
 
 local servers = {
 	'pyright',
 	'tsserver',
 	'tailwindcss',
 	'sumneko_lua',
-	"clangd",
 	"cmake",
 	"cssmodules_ls",
 	"diagnosticls",
 	"eslint",
 	"html",
 	"jsonls",
-	"volar"
+	"volar",
+	"clangd"
 }
+
+local settings = {
+	ui = {
+		border = "rounded",
+		icons = {
+			package_installed = "◍",
+			package_pending = "◍",
+			package_uninstalled = "◍",
+		},
+	},
+	log_level = vim.log.levels.INFO,
+	max_concurrent_installers = 4,
+}
+
+mason.setup(settings)
+mason_lspconfig.setup {
+	ensure_installed = servers,
+	automatic_installation = true,
+}
+
+vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
+
 
 local opts = {}
 

@@ -17,8 +17,18 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set('n', 'gl', "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
 end
 
+local function attach_navic(client, bufnr)
+	vim.g.navic_silence = true
+	local status_ok, navic = pcall(require, "nvim-navic")
+	if not status_ok then
+		return
+	end
+	navic.attach(client, bufnr)
+end
+
 M.on_attach = function(client, bufnr)
 	lsp_keymap(bufnr)
+	attach_navic(client, bufnr)
 	if client.server_capabilities.documentFormattingProvider then
 		api.nvim_create_autocmd('BufWritePre', {
 			pattern = client.config.filetypes,
