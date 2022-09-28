@@ -10,9 +10,7 @@ null_ls.setup({
   debug = false,
   sources = {
     formatting.prettier,
-    formatting.black.with({ extra_args = { "--fast" } }),
-    formatting.shfmt,
-    diagnostics.shellcheck,
-    diagnostics.eslint,
+    --[[ formatting.black.with({ extra_args = { "--fast" } }), ]]
+    --[[ formatting.shfmt, ]]
   },
 })

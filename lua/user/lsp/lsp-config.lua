@@ -8,8 +8,8 @@ M.capabilities = require('cmp_nvim_lsp').update_capabilities(M.capabilities)
 
 
 local function lsp_keymap(bufnr)
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	vim.keymap.set('n', 'gD', "<cmd>Telescope lsp_declarations<CR>", bufopts)
 	vim.keymap.set('n', 'gd', "<cmd>Telescope lsp_definitions<CR>", bufopts)
 	vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<CR>", bufopts)
@@ -29,17 +29,6 @@ end
 M.on_attach = function(client, bufnr)
 	lsp_keymap(bufnr)
 	attach_navic(client, bufnr)
-	if client.server_capabilities.documentFormattingProvider then
-		api.nvim_create_autocmd('BufWritePre', {
-			pattern = client.config.filetypes,
-			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					async = true,
-				})
-			end,
-		})
-	end
 end
 
 M.setup = function()

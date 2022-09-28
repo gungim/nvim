@@ -19,13 +19,12 @@ local servers = {
 	'tailwindcss',
 	'sumneko_lua',
 	"cmake",
-	"cssmodules_ls",
 	"diagnosticls",
 	"eslint",
 	"html",
 	"jsonls",
 	"volar",
-	"clangd"
+	"clangd",
 }
 
 local settings = {
@@ -72,6 +71,11 @@ for _, server in ipairs(servers) do
 	if server == "clangd" then
 		local clangd_opts = require "user.lsp.settings.clangd"
 		opts = vim.tbl_deep_extend("force", clangd_opts, opts)
+	end
+
+	if server == "eslint" then
+		local eslint_opts = require "user.lsp.settings.eslint"
+		opts = vim.tbl_deep_extend("force", eslint_opts, opts)
 	end
 
 	if server == "sumneko_lua" then
