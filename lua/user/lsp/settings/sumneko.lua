@@ -3,7 +3,7 @@ return {
 		Lua = {
 			diagnostics = {
 				enable = true,
-				globals = { 'vim' },
+				globals = { 'vim', 'system', 'display' },
 			},
 			runtime = { version = 'LuaJIT' },
 			workspace = {

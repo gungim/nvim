@@ -120,6 +120,12 @@ local options = {
 	},
 
 	extensions_list = { "themes", "terms" },
+	extensions = {
+		aerial = {
+			-- Display symbols as <root>.<parent>.<symbol>
+			show_nesting = true
+		}
+	}
 }
 
 telescope.setup(options)

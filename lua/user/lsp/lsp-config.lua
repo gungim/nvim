@@ -26,13 +26,22 @@ local function attach_navic(client, bufnr)
 	navic.attach(client, bufnr)
 end
 
+local function attach_aerial(client, bufnr)
+	--[[ local aerial_status_ok, aerial = pcall(require, "aerial") ]]
+	--[[ if not aerial_status_ok then ]]
+	--[[ 	return ]]
+	--[[ end ]]
+	--[[ aerial.on_attach(client, bufnr) ]]
+  require("aerial").on_attach(client, bufnr)
+end
+
 M.on_attach = function(client, bufnr)
 	lsp_keymap(bufnr)
 	attach_navic(client, bufnr)
+	attach_aerial(client, bufnr)
 end
 
 M.setup = function()
-
 	local signs = {
 		{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
 		{ name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },

@@ -25,6 +25,7 @@ local servers = {
 	"jsonls",
 	"volar",
 	"clangd",
+	"lemminx"
 }
 
 local settings = {

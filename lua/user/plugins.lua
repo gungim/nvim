@@ -62,9 +62,7 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 
-	use({
-		"ur4ltz/surround.nvim",
-	})
+	use("ur4ltz/surround.nvim")
 
 	-- Finder
 	use("nvim-telescope/telescope.nvim")
@@ -73,13 +71,14 @@ return packer.startup(function(use)
 	-- Colors and theme
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
+	--[[ use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight ]]
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
 	use("~/Documents/gungim_theme")
 
 	use 'gen740/SmoothCursor.nvim'
+	use "declancm/cinnamon.nvim"
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -100,9 +99,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
 	use("RRethy/vim-illuminate")
-	use({
-		"ray-x/lsp_signature.nvim",
-	})
+	use("ray-x/lsp_signature.nvim")
 	use("SmiteshP/nvim-navic")
 	use {
 		"williamboman/mason.nvim",
@@ -119,7 +116,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
 	use("p00f/nvim-ts-rainbow")
-
+	use("stevearc/aerial.nvim")
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
