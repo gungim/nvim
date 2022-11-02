@@ -46,7 +46,7 @@ return packer.startup(function(use)
 	-- Lua development
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("folke/lua-dev.nvim")
+	use("folke/neodev.nvim")
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 
 	-- Terminal
-	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
 	-- Start window
 	use("goolord/alpha-nvim")
@@ -75,7 +75,13 @@ return packer.startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
-	use("~/Documents/gungim_theme")
+--	use("~/Documents/gungim_theme")
+	use 'akai54/2077.nvim'
+	use 'shaunsingh/nord.nvim'
+	use "EdenEast/nightfox.nvim" -- Packer
+	use "rayes0/blossom.vim"
+	use "catppuccin/vim"
+	use "lunarvim/darkplus.nvim"
 
 	use 'gen740/SmoothCursor.nvim'
 	use "declancm/cinnamon.nvim"

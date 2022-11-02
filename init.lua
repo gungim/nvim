@@ -31,5 +31,5 @@ require "user.distand"
 require "user.prettier"
 require "user.navic"
 require "user.smooth_cursor"
-require "user.cinnamon"
+--[[ require "user.cinnamon" ]]
 require "user.aerial"

@@ -24,10 +24,10 @@ return {
     Unit = "",
     Value = "",
     Enum = "",
-    -- Keyword = "",
-    Keyword = "",
-    -- Snippet = "",
-    Snippet = "",
+    Keyword = "",
+    --[[ Keyword = "", ]]
+    Snippet = "",
+    --[[ Snippet = "", ]]
     Color = "",
     File = "",
     Reference = "",
@@ -104,7 +104,7 @@ return {
     Warning = "",
     Information = "",
     Question = "",
-    Hint = "",
+    Hint = "",
   },
   misc = {
     Robot = "ﮧ",
