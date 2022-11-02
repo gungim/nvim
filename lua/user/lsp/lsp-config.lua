@@ -1,10 +1,9 @@
 local M = {}
-local api = vim.api
 local icons = require "user.icons"
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
-M.capabilities = require('cmp_nvim_lsp').update_capabilities(M.capabilities)
+M.capabilities = require('cmp_nvim_lsp').default_capabilities(M.capabilities)
 
 
 local function lsp_keymap(bufnr)

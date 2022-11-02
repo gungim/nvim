@@ -80,17 +80,8 @@ for _, server in ipairs(servers) do
 	end
 
 	if server == "sumneko_lua" then
-		local l_status_ok, lua_dev = pcall(require, "lua-dev")
-		if not l_status_ok then
-			return
-		end
-		local luadev = lua_dev.setup {
-			lspconfig = {
-				on_attach = opts.on_attach,
-				capabilities = opts.capabilities,
-			},
-		}
-		lspconfig.sumneko_lua.setup(luadev)
+		local neodev_opts = require "user.lsp.settings.sumneko"
+		lspconfig.sumneko_lua.setup(neodev_opts)
 		goto continue
 	end
 

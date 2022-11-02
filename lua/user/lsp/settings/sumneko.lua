@@ -9,6 +9,9 @@ return {
 			workspace = {
 				library = vim.list_extend({ [vim.fn.expand('$VIMRUNTIME/lua')] = true }, {}),
 			},
+			completion = {
+				callSnippet = "Replace"
+			}
 		},
 	},
 }
