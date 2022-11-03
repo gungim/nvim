@@ -95,15 +95,11 @@ local lanuage_server = {
 
 		local clients = vim.lsp.buf_get_clients()
 		local client_names = {}
-		local copilot_active = false
 
 		-- add client
 		for _, client in pairs(clients) do
 			if client.name ~= "copilot" and client.name ~= "null-ls" then
 				table.insert(client_names, client.name)
-			end
-			if client.name == "copilot" then
-				copilot_active = true
 			end
 		end
 
@@ -136,11 +132,8 @@ local lanuage_server = {
 		if client_names_str_len ~= 0 then
 			language_servers = hl_str("", "SLSep") .. hl_str(client_names_str, "SLSeparator") .. hl_str("", "SLSep")
 		end
-		if copilot_active then
-			language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
-		end
 
-		if client_names_str_len == 0 and not copilot_active then
+		if client_names_str_len == 0 then
 			return ""
 		else
 			M.language_servers = language_servers
@@ -156,16 +149,18 @@ local lanuage_server = {
 local progress = function()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")
-	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+	local chars = { "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
 	local line_ratio = current_line / total_lines
 	local index = math.ceil(line_ratio * #chars)
 	return chars[index]
 end
 
 local spaces = function()
-	local type_tap = "spaces"
+	local type_tap = ""
 	if vim.api.nvim_buf_get_option(0, "expandtab") == false then
 		type_tap = "tab"
+	else
+		type_tap = "spaces"
 	end
 	return type_tap .. ": " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
