@@ -75,7 +75,7 @@ return packer.startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
---	use("~/Documents/gungim_theme")
+	--	use("~/Documents/gungim_theme")
 	use 'akai54/2077.nvim'
 	use 'shaunsingh/nord.nvim'
 	use "EdenEast/nightfox.nvim" -- Packer
@@ -134,6 +134,12 @@ return packer.startup(function(use)
 	-- Put this at the end after all plugins
 	-- ssh
 	use 'chipsenkbeil/distant.nvim'
+
+	-- heler code
+	use {
+		'xeluxee/competitest.nvim',
+		requires = 'MunifTanjim/nui.nvim',
+	}
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

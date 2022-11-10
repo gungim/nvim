@@ -88,8 +88,7 @@ local mappings = {
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>set nohlsearch!<CR>", "No Highlight" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -106,6 +105,16 @@ local mappings = {
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	},
+
+
+	c = {
+		name = "Competi",
+		c = { "<cmd>CompetiTestRun<cr>", "Run" },
+		a = { "<cmd>CompetiTestAdd<cr>", "Add" },
+		e = { "<cmd>CompetiTestEdit<cr>", "Edit" },
+		d = { "<cmd>CompetiTestDelete<cr>", "Delete" },
+		t = { "<cmd>CompetiTestReceive<cr>", "Download" },
 	},
 
 	g = {

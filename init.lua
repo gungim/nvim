@@ -33,3 +33,4 @@ require "user.navic"
 require "user.smooth_cursor"
 --[[ require "user.cinnamon" ]]
 require "user.aerial"
+require "user.competitest"
