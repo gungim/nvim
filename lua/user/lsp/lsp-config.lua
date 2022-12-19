@@ -5,7 +5,6 @@ M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.capabilities = require('cmp_nvim_lsp').default_capabilities(M.capabilities)
 
-
 local function lsp_keymap(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

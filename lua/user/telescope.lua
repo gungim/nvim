@@ -6,8 +6,6 @@ end
 local actions = require("telescope.actions")
 local icons = require("user.icons")
 
-
-
 local options = {
 	defaults = {
 		vimgrep_arguments = {
@@ -135,4 +133,4 @@ local options = {
 }
 
 telescope.setup(options)
-telescope.load_extension('aerial')
+telescope.load_extension('aerial', "media_files")

@@ -86,6 +86,7 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
+	["c"] = { "<cmd>CccPick<cr>", "Pick" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -108,7 +109,7 @@ local mappings = {
 	},
 
 
-	c = {
+	j = {
 		name = "Competi",
 		c = { "<cmd>CompetiTestRun<cr>", "Run" },
 		a = { "<cmd>CompetiTestAdd<cr>", "Add" },
@@ -116,6 +117,7 @@ local mappings = {
 		d = { "<cmd>CompetiTestDelete<cr>", "Delete" },
 		t = { "<cmd>CompetiTestReceive<cr>", "Download" },
 	},
+
 
 	g = {
 		name = "Git",
@@ -151,7 +153,7 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting_seq_sync()<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {

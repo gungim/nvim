@@ -25,8 +25,25 @@ local servers = {
 	"jsonls",
 	"volar",
 	"clangd",
-	"lemminx"
+	"lemminx",
+	"cssls",
+	"svelte"
 }
+
+--[[ ◍ cssmodules-language-server ]]
+--[[ ◍ diagnostic-languageserver ]]
+--[[ ◍ emmet-ls ]]
+--[[ ◍ eslint-lsp ]]
+--[[ ◍ html-lsp ]]
+--[[ ◍ json-lsp ]]
+--[[ ◍ lemminx ]]
+--[[ ◍ lua-language-server ]]
+--[[ ◍ pyright ]]
+--[[ ◍ tailwindcss-language-server ]]
+--[[ ◍ taplo ]]
+--[[ ◍ typescript-language-server ]]
+--[[ ◍ vue-language-server ]]
+--[[ ◍ yaml-language-server ]]
 
 local settings = {
 	ui = {
@@ -77,6 +94,11 @@ for _, server in ipairs(servers) do
 	if server == "eslint" then
 		local eslint_opts = require "user.lsp.settings.eslint"
 		opts = vim.tbl_deep_extend("force", eslint_opts, opts)
+	end
+
+	if server == "sccls" then
+		local css_opts = require "user.lsp.settings.cssls"
+		opts = vim.tbl_deep_extend("force", css_opts, opts)
 	end
 
 	if server == "sumneko_lua" then

@@ -99,6 +99,8 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 	use("alvan/vim-closetag")
 
+	use("uga-rosa/ccc.nvim")
+
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
@@ -140,6 +142,9 @@ return packer.startup(function(use)
 		'xeluxee/competitest.nvim',
 		requires = 'MunifTanjim/nui.nvim',
 	}
+
+	use 'eandrju/cellular-automaton.nvim'
+
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
