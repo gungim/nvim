@@ -99,7 +99,7 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 	use("alvan/vim-closetag")
 
-	use("uga-rosa/ccc.nvim")
+	--[[ use("uga-rsa/ccc.nvim") ]]
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP

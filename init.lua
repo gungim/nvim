@@ -1,3 +1,4 @@
+
 require "user.colorscheme"
 require "user.options"
 require "user.keymaps"
@@ -34,3 +35,4 @@ require "user.smooth_cursor"
 --[[ require "user.cinnamon" ]]
 require "user.aerial"
 require "user.competitest"
+

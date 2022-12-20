@@ -86,7 +86,6 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
-	["c"] = { "<cmd>CccPick<cr>", "Pick" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -108,8 +107,7 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
-
-	j = {
+	c = {
 		name = "Competi",
 		c = { "<cmd>CompetiTestRun<cr>", "Run" },
 		a = { "<cmd>CompetiTestAdd<cr>", "Add" },
