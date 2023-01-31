@@ -105,9 +105,6 @@ require('competitest').setup {
 	testcases_directory = ".",
 	testcases_use_single_file = false,
 	testcases_auto_detect_storage = true,
-	input_name = "input",
-	output_name = "output",
-	testcases_files_format = "$(FNOEXT)_$(INOUT)$(TCNUM).txt",
 	testcases_single_file_format = "$(FNOEXT).testcases",
 
 	companion_port = 27121,
