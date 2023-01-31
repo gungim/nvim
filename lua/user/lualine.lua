@@ -1,4 +1,5 @@
 local status_ok, lualine = pcall(require, "lualine")
+local git_blame = require('gitblame')
 
 local icons = require "user.icons"
 if not status_ok then
@@ -177,7 +178,9 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = {},
+		lualine_c = {
+			{ git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
+		},
 		lualine_x = { lanuage_server, diff, spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },

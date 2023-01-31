@@ -128,6 +128,8 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+	use 'f-person/git-blame.nvim'
+
 	-- Comment
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("numToStr/Comment.nvim") -- Easily comment stuff
