@@ -13,6 +13,7 @@ local icons = require "user.icons"
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
+      auto_reload_on_write = true,
   hijack_directories = {
     enable = true,
     auto_open = true
@@ -30,7 +31,7 @@ nvim_tree.setup {
   renderer = {
     add_trailing = false,
     group_empty = false,
-    highlight_git = false,
+    highlight_git = true,
     highlight_opened_files = "none",
     root_folder_modifier = ":t",
     indent_markers = {
@@ -103,7 +104,7 @@ nvim_tree.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = {"l", "<CR>" }, cb = tree_cb "edit" },
         { key = "h", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
       },
