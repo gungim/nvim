@@ -27,7 +27,7 @@ prettier.setup({
 			-- return false to skip running prettier
 			return true
 		end,
-		timeout = 5000,
+		timeout = 10000,
 	},
 	cli_options = {
 		arrow_parens = "always",

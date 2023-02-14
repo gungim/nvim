@@ -47,6 +47,6 @@ Next we need to install python support (node is optional)
 
 ```bash
 ├── gcc
-└── vscode-langservers-extracted@4.4.0
+└── vscode-langservers-extracted
 
 ```

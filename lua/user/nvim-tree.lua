@@ -16,12 +16,6 @@ nvim_tree.setup {
       auto_reload_on_write = true,
   hijack_directories = {
     enable = true,
-    auto_open = true
-  },
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
   },
   filters = {
     custom = { ".git" },
