@@ -36,3 +36,6 @@ if [ ! -d $HOME/.fonts/CascadiaCode ]; then
     mkdir -p ~/.fonts > /dev/null
     mv "$TEMP_DIR/CascadiaCode" ~/.fonts/ > /dev/null
 fi
+
+printf "\n-------------------------- Install NodeJs Package -----------------\n"
+
