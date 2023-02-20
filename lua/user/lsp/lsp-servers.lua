@@ -27,23 +27,9 @@ local servers = {
 	"clangd",
 	"lemminx",
 	"cssls",
-	"svelte"
+	"svelte",
+	"angularls"
 }
-
---[[ ◍ cssmodules-language-server ]]
---[[ ◍ diagnostic-languageserver ]]
---[[ ◍ emmet-ls ]]
---[[ ◍ eslint-lsp ]]
---[[ ◍ html-lsp ]]
---[[ ◍ json-lsp ]]
---[[ ◍ lemminx ]]
---[[ ◍ lua-language-server ]]
---[[ ◍ pyright ]]
---[[ ◍ tailwindcss-language-server ]]
---[[ ◍ taplo ]]
---[[ ◍ typescript-language-server ]]
---[[ ◍ vue-language-server ]]
---[[ ◍ yaml-language-server ]]
 
 local settings = {
 	ui = {
@@ -102,7 +88,7 @@ for _, server in ipairs(servers) do
 	end
 
 	if server == "sumneko_lua" then
-		local neodev_opts = require "user.lsp.settings.sumneko"
+		local neodev_opts = require "user.lsp.settings.lua_ls"
 		lspconfig.sumneko_lua.setup(neodev_opts)
 		goto continue
 	end

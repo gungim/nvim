@@ -37,6 +37,7 @@ Next we need to install python support (node is optional)
 ├── prettier
 ├── stylelint
 ├── typescript-language-server
+├── @angular/language-server
 ├── typescript
 └── vscode-langservers-extracted
 
@@ -47,6 +48,7 @@ Next we need to install python support (node is optional)
 
 ```bash
 ├── gcc
-└── vscode-langservers-extracted
+├── vscode-langservers-extracted
+└── lua-language-server
 
 ```
