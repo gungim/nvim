@@ -9,6 +9,7 @@ end
 colorizer.setup({
   '*';
   'css';
+	"postcss";
   'javascript';
   html = { mode = 'background' };
 }, { mode = 'background' })

@@ -17,18 +17,19 @@ local servers = {
 	'pyright',
 	'tsserver',
 	'tailwindcss',
-	'sumneko_lua',
-	"cmake",
+	'lua_ls',
+	"clangd",
 	"diagnosticls",
 	"eslint",
 	"html",
 	"jsonls",
 	"volar",
-	"clangd",
 	"lemminx",
 	"cssls",
 	"svelte",
-	"angularls"
+	"gopls",
+	"rust_analyzer"
+	--[[ "angularls" ]]
 }
 
 local settings = {
@@ -87,9 +88,9 @@ for _, server in ipairs(servers) do
 		opts = vim.tbl_deep_extend("force", css_opts, opts)
 	end
 
-	if server == "sumneko_lua" then
+	if server == "lua_ls" then
 		local neodev_opts = require "user.lsp.settings.lua_ls"
-		lspconfig.sumneko_lua.setup(neodev_opts)
+		lspconfig.lua_ls.setup(neodev_opts)
 		goto continue
 	end
 

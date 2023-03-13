@@ -72,7 +72,8 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 	--[[ use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight ]]
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	use("nvim-tree/nvim-web-devicons")
+	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
 	--	use("~/Documents/gungim_theme")
@@ -100,7 +101,6 @@ return packer.startup(function(use)
 	use("alvan/vim-closetag")
 
 	--[[ use("uga-rsa/ccc.nvim") ]]
-
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
