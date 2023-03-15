@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+require("telescope").load_extension("media_files")
+
 local actions = require("telescope.actions")
 local icons = require("user.icons")
 
@@ -126,8 +128,8 @@ local options = {
 		media_files = {
 			-- filetypes whitelist
 			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-			filetypes = { "png", "webp", "jpg", "jpeg" },
-			find_cmd = "rg" -- find command (defaults to `fd`)
+			filetypes = { "png", "webp", "jpg", "jpeg", "ico" },
+			find_cmd = "fd" -- find command (defaults to `fd`)
 		}
 	}
 }

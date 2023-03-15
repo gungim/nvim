@@ -49,6 +49,7 @@ Next we need to install python support (node is optional)
 ```bash
 ├── gcc
 ├── vscode-langservers-extracted
+├── chafa imagemagick ghostscript
 └── lua-language-server
 
 ```
