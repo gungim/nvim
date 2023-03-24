@@ -8,14 +8,18 @@ if not config_status_ok then
 	return
 end
 
+
 local icons = require "user.icons"
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local function open_nvim_tree()
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 nvim_tree.setup {
 	auto_reload_on_write = true,
-	open_on_setup = true,
-	open_on_setup_file = true,
 	filters = {
 		custom = { ".git" },
 		exclude = { ".gitignore" },
@@ -79,7 +83,7 @@ nvim_tree.setup {
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
-		ignore_list = {},
+		ignore_list = { "toggleterm" },
 	},
 	git = {
 		enable = true,
@@ -102,4 +106,15 @@ nvim_tree.setup {
 		number = true,
 		relativenumber = true,
 	},
+	actions = {
+		change_dir = {
+			enable = true,
+			global = false,
+			restrict_above_cwd = false,
+		},
+		expand_all = {
+			max_folder_discovery = 300,
+			exclude = {},
+		},
+	}
 }

@@ -44,13 +44,15 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
 	-- Lua development
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+	use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("folke/neodev.nvim")
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
-	use("kyazdani42/nvim-tree.lua")
+	use { "nvim-tree/nvim-tree.lua", requires = {
+		'nvim-tree/nvim-web-devicons', -- optional
+	}, }
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
@@ -65,44 +67,42 @@ return packer.startup(function(use)
 	use("ur4ltz/surround.nvim")
 
 	-- Finder
-	use("nvim-telescope/telescope.nvim")
+	use {
+		"nvim-telescope/telescope.nvim", tag = "0.1.1",
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
 	use("nvim-telescope/telescope-media-files.nvim")
 
 	-- Colors and theme
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 	--[[ use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight ]]
-	use("nvim-tree/nvim-web-devicons")
 	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
 	--	use("~/Documents/gungim_theme")
-	use 'akai54/2077.nvim'
-	use 'shaunsingh/nord.nvim'
-	use "EdenEast/nightfox.nvim" -- Packer
-	use "rayes0/blossom.vim"
-	use "catppuccin/vim"
-	use "lunarvim/darkplus.nvim"
+	--[[ use "EdenEast/nightfox.nvim" ]]
+	use 'folke/tokyonight.nvim'
 
 	use 'gen740/SmoothCursor.nvim'
 	use "declancm/cinnamon.nvim"
 
 	-- Completion
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
+	use("hrsh7th/nvim-cmp")        -- The completion plugin
+	use("hrsh7th/cmp-buffer")      -- buffer completions
+	use("hrsh7th/cmp-path")        -- path completions
+	use("hrsh7th/cmp-cmdline")     -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
+	use("L3MON4D3/LuaSnip")            --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 	use("alvan/vim-closetag")
 
 	--[[ use("uga-rsa/ccc.nvim") ]]
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
+	use("neovim/nvim-lspconfig")          -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
