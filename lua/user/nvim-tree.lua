@@ -116,5 +116,8 @@ nvim_tree.setup {
 			max_folder_discovery = 300,
 			exclude = {},
 		},
+	},
+	filesystem_watchers = {
+		enable = true
 	}
 }

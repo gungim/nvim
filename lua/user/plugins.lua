@@ -50,9 +50,8 @@ return packer.startup(function(use)
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
-	use { "nvim-tree/nvim-tree.lua", requires = {
-		'nvim-tree/nvim-web-devicons', -- optional
-	}, }
+	use { "nvim-tree/nvim-tree.lua" }
+	use 'nvim-tree/nvim-web-devicons'
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
@@ -76,7 +75,7 @@ return packer.startup(function(use)
 	-- Colors and theme
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
-	--[[ use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight ]]
+	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
 	use("nvim-lualine/lualine.nvim")
 	-- theme
