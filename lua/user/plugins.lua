@@ -97,7 +97,7 @@ return packer.startup(function(use)
 	-- snippets
 	use("L3MON4D3/LuaSnip")            --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-	use("alvan/vim-closetag")
+	--[[ use("nvim-ts-autotag") ]]
 
 	--[[ use("uga-rsa/ccc.nvim") ]]
 	-- LSP

@@ -27,8 +27,8 @@ local servers = {
 	"lemminx",
 	"cssls",
 	"svelte",
-	"gopls",
-	"rust_analyzer"
+	"rust_analyzer",
+	"bashls"
 	--[[ "angularls" ]]
 }
 
