@@ -24,8 +24,7 @@ local node = {
 
 require 'nvim-web-devicons'.set_icon {
 	zsh                        = {
-		icon = "",
-		color = "#428850",
+		icon = "", color = "#428850",
 		cterm_color = "65",
 		name = "Zsh"
 	},
@@ -41,7 +40,7 @@ require 'nvim-web-devicons'.set_icon {
 		color = "#F64D27",
 	},
 	[".prettierrc"]            = {
-		icon = "",
+		icon = "󰰙",
 		color = "#55B3B4",
 		cterm_color = "113",
 		name = "Prettier",
@@ -71,5 +70,6 @@ require 'nvim-web-devicons'.set_icon {
 	["webpack.config.prod.js"] = webpack,
 	webpack                    = webpack,
 	[".eslintrc"]              = eslint,
+	[".eslintignore"]              = eslint,
 	[".babelrc"]               = babel,
 }

@@ -20,7 +20,7 @@ local options = {
 			"--smart-case",
 		},
 		prompt_prefix = icons.ui.Telescope .. " ",
-		selection_caret = icons.ui.Share .. " ",
+		selection_caret = icons.ui.Watches .. " ",
 		entry_prefix = "  ",
 		initial_mode = "insert",
 		selection_strategy = "reset",

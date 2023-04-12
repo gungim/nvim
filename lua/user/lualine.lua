@@ -38,14 +38,15 @@ local diagnostics = {
 local diff = {
 	"diff",
 	colored = false,
-	symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
+	symbols = { added = icons.git.LineAdded .. " ", modified = icons.git.LineModified .. " ",
+		removed = icons.git.LineRemoved .. " " },                                                                                        -- changes diff symbols
 	cond = hide_in_width
 }
 
 local mode = {
 	"mode",
 	fmt = function(str)
-		return icons.ui.Vim .. str .. icons.ui.Terminal
+		return str
 	end,
 }
 
