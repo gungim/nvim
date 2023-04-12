@@ -1,11 +1,10 @@
 printf "\n------------------------- Install Dependencies -------------------------\n"
-sudo apt install -y git curl gcc python3-pip cmake ripgrep python-is-python3 > /dev/null
+brew install git curl gcc python3-pip cmake ripgrep python-is-python3 > /dev/null
 
 if ! command -v nvim &> /dev/null
 then
     printf "\n------------------------- Install Neovim -------------------------\n"
-    sudo curl -o /usr/bin/nvim -L https://github.com/neovim/neovim/releases/download/stable/nvim.appimage > /dev/null
-    sudo chmod a+x /usr/bin/nvim > /dev/null
+		brew install neovim
 fi
 
 # https://github.com/nodesource/distributions/blob/master/README.md#debinstall
@@ -13,7 +12,7 @@ if ! command -v node &> /dev/null
 then
     printf "\n------------------------- Install NodeJS-------------------------\n"
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - > /dev/null
-    sudo brew install node > /dev/null
+    brew install node
 fi
 
 if [ -d $HOME/.config/nvim ];
@@ -22,8 +21,8 @@ then
     mv  ~/.config/nvim ~/.config/nvim-bak > /dev/null
 fi
 
-printf "\n------------------------- Download s1n7ax neovim config --------------------------\n"
-git clone --recurse-submodules -j8 https://github.com/s1n7ax/dotnvim.git ~/.config/nvim > /dev/null
+printf "\n------------------------- Download gungim neovim config --------------------------\n"
+git clone git@github.com:gungim/nvim.git ~/.config/nvim
 
 if [ ! -d $HOME/.fonts/CascadiaCode ]; then
     printf "\n------------------------- Install nerdfont --------------------------\n"

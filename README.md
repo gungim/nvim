@@ -39,6 +39,7 @@ Next we need to install python support (node is optional)
 ├── typescript-language-server
 ├── @angular/language-server
 ├── typescript
+├── bash-language-server
 └── vscode-langservers-extracted
 
 ```
