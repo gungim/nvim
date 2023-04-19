@@ -20,7 +20,7 @@ local options = {
 			"--smart-case",
 		},
 		prompt_prefix = icons.ui.Telescope .. " ",
-		selection_caret = icons.ui.Watches .. " ",
+		selection_caret = icons.ui.BoldArrowRight .. " ",
 		entry_prefix = "  ",
 		initial_mode = "insert",
 		selection_strategy = "reset",
@@ -36,16 +36,13 @@ local options = {
 				width = 0.5,
 				prompt_position = "top",
 			},
-			width = 1.0,
-			height = 1.0,
-			preview_cutoff = 120,
 		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
 		file_ignore_patterns = { "node_modules" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
 		winblend = 0,
-		border = {},
+		border = true,
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
@@ -107,6 +104,11 @@ local options = {
 		},
 	},
 	extensions_list = { "themes", "terms" },
+	pickers = {
+		find_files = {
+			theme = "dropdown", -- ivy, cursor
+		}
+	},
 	extensions = {
 		aerial = {
 			-- Display symbols as <root>.<parent>.<symbol>
