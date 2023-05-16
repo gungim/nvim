@@ -1,12 +1,12 @@
 require "core.options"
 require("ui")
-require "lsp"
+require "modules"
+require("editor")
 require("themes")
 require "user.keymaps"
 require "user.plugins"
 require "user.telescope"
 require "user.treesitter"
-require("editor")
 require "user.comment"
 require "user.gitsigns"
 require "user.toggleterm"
@@ -21,6 +21,5 @@ require "user.code_action_utils"
 require "user.prettier"
 require "user.navic"
 require "user.smooth_cursor"
---[[ require "user.cinnamon" ]]
 require "user.aerial"
 require "user.competitest"
