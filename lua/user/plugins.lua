@@ -38,7 +38,6 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
 	-- Plugin manager
 	use("wbthomason/packer.nvim") -- Have packer manage itself
@@ -47,8 +46,9 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("folke/neodev.nvim")
+	-- Rust development
+	use 'simrat39/rust-tools.nvim'
 
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
 	use { "nvim-tree/nvim-tree.lua" }
 	use 'nvim-tree/nvim-web-devicons'
@@ -62,7 +62,6 @@ return packer.startup(function(use)
 	-- Start window
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-
 	use("ur4ltz/surround.nvim")
 
 	-- Finder
@@ -72,19 +71,15 @@ return packer.startup(function(use)
 	}
 	use("nvim-telescope/telescope-media-files.nvim")
 
-	-- Colors and theme
-	use("norcalli/nvim-colorizer.lua")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
-	use("nvim-lualine/lualine.nvim")
-	-- theme
-	--	use("~/Documents/gungim_theme")
-	--[[ use "EdenEast/nightfox.nvim" ]]
+	-- Theme and gui
 	use 'folke/tokyonight.nvim'
-
 	use 'gen740/SmoothCursor.nvim'
 	use "declancm/cinnamon.nvim"
+	use("norcalli/nvim-colorizer.lua")
+	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
+	use("lukas-reineke/indent-blankline.nvim")
+	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+	use("nvim-lualine/lualine.nvim")
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")        -- The completion plugin
@@ -93,12 +88,12 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")     -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")            --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-	--[[ use("nvim-ts-autotag") ]]
-	--[[ use("uga-rsa/ccc.nvim") ]]
+
 	-- LSP
 	use("neovim/nvim-lspconfig")          -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
@@ -111,7 +106,6 @@ return packer.startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	}
-	-- Formatter
 	use("MunifTanjim/prettier.nvim")
 
 	-- Treesitter
@@ -121,30 +115,22 @@ return packer.startup(function(use)
 	})
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
-	use("p00f/nvim-ts-rainbow")
 	use("stevearc/aerial.nvim")
-	-- Git
-	use("lewis6991/gitsigns.nvim")
-
-	use 'f-person/git-blame.nvim'
-
-	-- Comment
+	use("HiPhish/nvim-ts-rainbow2")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	-- Comment
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	-- ssh
-	use 'chipsenkbeil/distant.nvim'
+	-- Git
+	use("lewis6991/gitsigns.nvim")
+	use 'f-person/git-blame.nvim'
 
-	-- heler code
+
+	-- Test
 	use {
 		'xeluxee/competitest.nvim',
 		requires = 'MunifTanjim/nui.nvim',
 	}
-
-	use 'eandrju/cellular-automaton.nvim'
-
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

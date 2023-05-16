@@ -1,3 +1,4 @@
+local devicons = require("nvim-web-devicons")
 local webpack = {
 	color = "#75B2CF",
 	icon = "ﰩ",
@@ -22,7 +23,7 @@ local node = {
 	color = "#8fce00"
 }
 
-require 'nvim-web-devicons'.set_icon {
+devicons.set_icon {
 	zsh                        = {
 		icon = "", color = "#428850",
 		cterm_color = "65",

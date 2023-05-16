@@ -8,13 +8,16 @@ if not snip_status_ok then
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({
+	--[[ paths = { "./snippets/" } ]]
+})
 
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 local icons = require("user.icons")
+local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 
 cmp.setup {
 	snippet = {
@@ -72,18 +75,18 @@ cmp.setup {
 			vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
+				--[[ luasnip = "[LuaSnip]", ]]
 			})[entry.source.name]
 			return vim_item
 		end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		--[[ { name = "luasnip" }, ]]
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -94,8 +97,12 @@ cmp.setup {
 		native_menu = false,
 	},
 	window = {
-		documentation = cmp.config.window.bordered(),
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "x" },
-		completion = cmp.config.window.bordered()
+		documentation = {
+			border = border,
+			max_width = 500
+		},
+		completion = {
+			border = border,
+		}
 	}
 }

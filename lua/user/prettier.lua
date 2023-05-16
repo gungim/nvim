@@ -23,10 +23,6 @@ prettier.setup({
 				check_package_json = false,
 			})
 		end,
-		runtime_condition = function(params)
-			-- return false to skip running prettier
-			return true
-		end,
 		timeout = 10000,
 	},
 	cli_options = {

@@ -1,0 +1,2 @@
+--[[ require("autopairs") ]]
+require("cmp")

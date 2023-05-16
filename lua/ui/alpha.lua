@@ -1,5 +1,5 @@
 local status_ok, alpha = pcall(require, "alpha")
-local dash= require("user.alpha_das")
+local dash= require("alpha_das")
 if not status_ok then
 	return
 end

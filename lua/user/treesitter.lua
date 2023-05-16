@@ -4,23 +4,38 @@ if not status_ok then
 end
 
 configs.setup {
-	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	sync_install = true,     -- install languages synchronously (only applied to `ensure_installed`)
-	ignore_install = { "javascriptreact", "javascript" },  -- List of parsers to ignore installing
+	ensure_installed = "all",
+	sync_install = true,
+	ignore_install = { "javascriptreact", "javascript" },
 	autopairs = {
 		enable = true,
 	},
 	highlight = {
-		enable = true,    -- false will disable the whole extension
-		disable = { "" }, -- list of language that will be disabled
+		enable = true,
+		disable = { "" },
 		additional_vim_regex_highlighting = true,
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true, disable = { "yaml", "python" } },
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
+		config = {
+			typescript = "// %s",
+			css = "/* %s */",
+			scss = "/* %s */",
+			html = "<!-- %s -->",
+			svelte = "<!-- %s -->",
+			vue = "<!-- %s -->",
+			json = "",
+		},
 	},
 	autotag = {
-		enable = true
+		enable = true,
+	},
+	rainbow = {
+		enable = true,
+		query = 'rainbow-parens',
+		strategy = require('ts-rainbow').strategy.global,
 	}
+
 }
