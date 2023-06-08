@@ -11,8 +11,7 @@ bufferline.setup {
 		left_mouse_command = "none", -- can be a string | function, see "Mouse actions"
 		middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 		indicator = {
-			icon = icons.ui.LineMiddle,             -- this should bbe omitted if indicator style is not 'icon'
-			style = 'icon'
+			style = 'underline'
 		},
 		buffer_close_icon = icons.ui.BoldClose,
 		modified_icon = icons.ui.BoldClose,
@@ -34,14 +33,8 @@ bufferline.setup {
 		show_close_icon = false,
 		show_tab_indicators = false,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-		-- can also be a table containing 2 custom separators
-		-- [focused and unfocused]. eg: { '|', '|' }
-		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
-		-- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
-		--   -- add custom logic
-		--   return buffer_a.modified > buffer_b.modified
-		-- end
 	},
 }

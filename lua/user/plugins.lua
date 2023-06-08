@@ -76,15 +76,25 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+	use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
 	use("nvim-lualine/lualine.nvim")
+	use("willothy/nvim-cokeline")
+	-- .
 	-- theme
 	--	use("~/Documents/gungim_theme")
 	--[[ use "EdenEast/nightfox.nvim" ]]
 	use 'folke/tokyonight.nvim'
-
 	use 'gen740/SmoothCursor.nvim'
 	use "declancm/cinnamon.nvim"
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		after = "nvim-web-devicons",  -- keep this if you're using NvChad
+	})
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")        -- The completion plugin
@@ -115,10 +125,7 @@ return packer.startup(function(use)
 	use("MunifTanjim/prettier.nvim")
 
 	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
 	use("p00f/nvim-ts-rainbow")
