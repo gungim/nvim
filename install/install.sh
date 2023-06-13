@@ -7,7 +7,7 @@ then
 		brew install neovim
 fi
 
-# https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+# https://github.com/nodesource/distribuions/blob/master/README.md#debinstall
 if ! command -v node &> /dev/null
 then
     printf "\n------------------------- Install NodeJS-------------------------\n"
@@ -15,10 +15,11 @@ then
     brew install node
 fi
 
-if [ -d $HOME/.config/nvim ];
+if ! command -v nvim &> /dev/null 
 then
     printf "\n------------------------- Backup existing config --------------------------\n"
-    mv  ~/.config/nvim ~/.config/nvim-bak > /dev/null
+		mkdir ~/.config/nvim-bak
+    mv  ~/.config/nvim ~/.config/nvim-bak
 fi
 
 printf "\n------------------------- Download gungim neovim config --------------------------\n"

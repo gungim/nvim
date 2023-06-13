@@ -5,10 +5,10 @@ end
 
 configs.setup {
 	ensure_installed = { "lua", "cpp", "html", "javascript", "svelte", "typescript", "rust", "gdscript", "scss", "css" },
-	sync_install = true,
+	sync_install = false,
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
 
 	autopairs = {
@@ -22,7 +22,9 @@ configs.setup {
 	autotag = {
 		enable = true
 	},
-	rainbow = {
-		enable = true,
-	}
+  rainbow = {
+    enable = true,
+    query = 'rainbow-parens',
+    strategy = require('ts-rainbow').strategy.global,
+  }
 }
