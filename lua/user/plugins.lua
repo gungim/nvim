@@ -73,9 +73,7 @@ return packer.startup(function(use)
 	-- UI
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
-	--[[ use { 'willothy/nvim-cokeline', requires = 'nvim-tree/nvim-web-devicons' } ]]
 	use("nvim-lualine/lualine.nvim")
 	use 'folke/tokyonight.nvim'
 	use 'gen740/SmoothCursor.nvim'
@@ -100,6 +98,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	use("L3MON4D3/LuaSnip")            --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	use("ziontee113/color-picker.nvim") -- color picker
 
 	-- LSP
 	use("neovim/nvim-lspconfig")          -- enable LSP
@@ -113,8 +112,12 @@ return packer.startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	}
-	-- Formatter
+	use('mfussenegger/nvim-dap')
+
+	-- Formatter, Comment
 	use("MunifTanjim/prettier.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("numToStr/Comment.nvim") -- Easily comment stuff
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -126,10 +129,6 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use 'f-person/git-blame.nvim'
-
-	-- Comment
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("numToStr/Comment.nvim") -- Easily comment stuff
 
 	-- Test
 	use {

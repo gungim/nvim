@@ -46,7 +46,7 @@ prettier.setup({
 		single_quote = false,
 		tab_width = 2,
 		trailing_comma = "es5",
-		use_tabs = false,
+		use_tabs = true,
 		vue_indent_script_and_style = false,
 	},
 })

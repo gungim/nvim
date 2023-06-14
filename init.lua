@@ -9,11 +9,11 @@ require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
 require "user.nvim_tree"
-require "user.lualine"
+require ("user.lualine").config()
 require "user.toggleterm"
 require "user.project"
 require "user.impatient"
-require "user.indentline"
+require("user.indentline").config()
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
@@ -35,3 +35,4 @@ require("user.barbecue")
 require "user.bufferline"
 --[[ require("user.cokeline") ]]
 require "user.treesitter"
+require("user.color_picker")
