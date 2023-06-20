@@ -59,37 +59,37 @@ local opts = {}
 for _, server in ipairs(servers) do
 	opts = {
 		on_attach =
-		require("user.lsp.lsp-config").on_attach,
-		capabilities = require("user.lsp.lsp-config").capabilities
+		require("gungim.lsp.lsp-config").on_attach,
+		capabilities = require("gungim.lsp.lsp-config").capabilities
 	}
 
 	if server == "tailwindcss" then
-		local tw_opts = require("user.lsp.settings.tailwindcss")
+		local tw_opts = require("gungim.lsp.settings.tailwindcss")
 		opts = vim.tbl_deep_extend("force", tw_opts, opts)
 	end
 
 	if server == "tsserver" then
-		local tsserver_opts = require "user.lsp.settings.tsserver"
+		local tsserver_opts = require "gungim.lsp.settings.tsserver"
 		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
 	end
 
 	if server == "clangd" then
-		local clangd_opts = require "user.lsp.settings.clangd"
+		local clangd_opts = require "gungim.lsp.settings.clangd"
 		opts = vim.tbl_deep_extend("force", clangd_opts, opts)
 	end
 
 	if server == "eslint" then
-		local eslint_opts = require "user.lsp.settings.eslint"
+		local eslint_opts = require "gungim.lsp.settings.eslint"
 		opts = vim.tbl_deep_extend("force", eslint_opts, opts)
 	end
 
 	if server == "cssls" then
-		local css_opts = require "user.lsp.settings.cssls"
+		local css_opts = require "gungim.lsp.settings.cssls"
 		opts = vim.tbl_deep_extend("force", css_opts, opts)
 	end
 
 	if server == "lua_ls" then
-		local neodev_opts = require "user.lsp.settings.lua_ls"
+		local neodev_opts = require "gungim.lsp.settings.lua_ls"
 		lspconfig.lua_ls.setup(neodev_opts)
 		goto continue
 	end

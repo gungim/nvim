@@ -1,4 +1,4 @@
-local icons = require("user.icons")
+local icons = require("gungim.icons")
 require("barbecue").setup({
 	kinds = icons.kind
 })

@@ -9,7 +9,7 @@ require("nvim-lsp-installer").setup({
 	}
 })
 
-require("user.lsp.null-ls")
-require("user.lsp.lsp-signature")
-require("user.lsp.lsp-config").setup()
-require("user.lsp.lsp-servers")
+require("gungim.lsp.null-ls")
+require("gungim.lsp.lsp-signature")
+require("gungim.lsp.lsp-config").setup()
+require("gungim.lsp.lsp-servers")

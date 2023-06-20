@@ -1,5 +1,5 @@
 local lualine = require('lualine')
-local icons = require("user.icons")
+local icons = require("gungim.icons")
 local colors = require("tokyonight.colors").setup()
 
 local M = {}

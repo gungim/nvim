@@ -1,5 +1,5 @@
 local M = {}
-local icons = require "user.icons"
+local icons = require "gungim.icons"
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 

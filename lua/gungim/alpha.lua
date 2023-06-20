@@ -1,5 +1,5 @@
 local status_ok, alpha = pcall(require, "alpha")
-local dash= require("user.alpha_das")
+local dash= require("gungim.alpha_das")
 if not status_ok then
 	return
 end
@@ -28,7 +28,7 @@ dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
--- vim.cmd([[autocmd User AlphaReady echo 'ready']])
+-- vim.cmd([[autocmd gungim AlphaReady echo 'ready']])
 alpha.setup(dashboard.opts)
 
 

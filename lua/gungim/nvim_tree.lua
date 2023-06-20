@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local icons = require "user.icons"
+local icons = require "gungim.icons"
 
 local function on_attach(bufnr)
 	local api = require('nvim-tree.api')
@@ -14,28 +14,29 @@ local function on_attach(bufnr)
 	-- Default mappings. Feel free to modify or remove as you wish.
 	--
 	-- BEGIN_DEFAULT_ON_ATTACH
-	vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
-	vim.keymap.set('n', '<C-x>', api.node.open.horizontal, opts('Open: Horizontal Split'))
-	vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-	vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Open Preview'))
-	vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
-	vim.keymap.set('n', 'c', api.fs.copy.node, opts('Copy'))
-	vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
-	vim.keymap.set('n', 'e', api.fs.rename_basename, opts('Rename: Basename'))
-	vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Dotfiles'))
-	vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
-	vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
-	vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
-	vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
-	vim.keymap.set('n', 'S', api.tree.search_node, opts('Search'))
-	vim.keymap.set('n', 'x', api.fs.cut, opts('Cut'))
-	vim.keymap.set('n', 'y', api.fs.copy.filename, opts('Copy Name'))
-	vim.keymap.set('n', 'Y', api.fs.copy.relative_path, opts('Copy Relative Path'))
-	-- END_DEFAULT_ON_ATTACH
-	vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
-	vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-	vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
-	vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+	local userful_keys = {
+		['<C-v>'] = { api.node.open.vertical, opts 'Open: Vertical Split' },
+		['<C-x>'] = { api.node.open.horizontal, opts 'Open: Horizontal Split' },
+		['<Tab>'] = { api.node.open.preview, opts 'Open Preview' },
+		['a'] = { api.fs.create, opts 'Create' },
+		['c'] = { api.fs.copy.node, opts 'Copy' },
+		['d'] = { api.fs.remove, opts 'Delete' },
+		['e'] = { api.fs.rename_basename, opts 'Rename: Basename' },
+		['H'] = { api.tree.toggle_hidden_filter, opts 'Toggle Dotfiles' },
+		['o'] = { api.node.open.edit, opts 'Open' },
+		['p'] = { api.fs.paste, opts 'Paste' },
+		['r'] = { api.fs.rename, opts 'Rename' },
+		['R'] = { api.tree.reload, opts 'Refresh' },
+		['S'] = { api.tree.search_node, opts 'Search' },
+		['x'] = { api.fs.cut, opts 'Cut' },
+		['y'] = { api.fs.copy.filename, opts 'Copy Name' },
+		['Y'] = { api.fs.copy.relative_path, opts 'Copy Relative Path' },
+		['l'] = { api.node.open.edit, opts 'Open' },
+		['<CR>'] = { api.node.open.edit, opts 'Open' },
+		['h'] = { api.node.navigate.parent_close, opts 'Close Directory' },
+		['v'] = { api.node.open.vertical, opts 'Open: Vertical Split' },
+	}
+	require("gungim.config.keymaps").load_mode("n", userful_keys)
 end
 
 nvim_tree.setup {

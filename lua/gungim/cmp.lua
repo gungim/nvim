@@ -16,12 +16,12 @@ local check_backspace = function()
 	local col = vim.fn.col "." - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
-local icons = require("user.icons")
+local icons = require("gungim.icons")
 
 cmp.setup {
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body) -- For `luasnip` gungims.
 		end,
 	},
 	mapping = {

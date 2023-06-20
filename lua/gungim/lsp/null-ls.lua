@@ -10,7 +10,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier,
-		diagnostics.eslint_d.with {
+		diagnostics.eslint.with {
 			condition = function(utils)
 				return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
 			end,

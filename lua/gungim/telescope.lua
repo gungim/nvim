@@ -6,7 +6,7 @@ end
 require("telescope").load_extension("media_files")
 
 local actions = require("telescope.actions")
-local icons = require("user.icons")
+local icons = require("gungim.icons")
 
 local options = {
 	defaults = {
