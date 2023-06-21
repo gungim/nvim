@@ -1,8 +1,6 @@
-local lualine = require('lualine')
+local M = {}
 local icons = require("gungim.icons")
 local colors = require("tokyonight.colors").setup()
-
-local M = {}
 
 local mode = function()
 	local mod = vim.fn.mode()
@@ -49,7 +47,13 @@ local mode = function()
 	return normal_icons[selector]
 end
 
-M.config = function()
+
+function M.setup()
+	local status_ok, lualine = pcall(require, 'lualine')
+	if not status_ok then
+		return
+	end
+
 	local mode_color = {
 		n = colors.red,
 		i = colors.green,
@@ -273,4 +277,5 @@ M.config = function()
 	-- Now don't forget to initialize lualine
 	lualine.setup(config)
 end
+
 return M

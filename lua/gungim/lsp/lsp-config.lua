@@ -1,18 +1,35 @@
 local M = {}
 local icons = require "gungim.icons"
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+function M.commont_capabilities()
+	local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+	if status_ok then
+		return cmp_nvim_lsp.default_capabilities()
+	end
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	capabilities.textDocument.completion.completionItem.resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	}
 
-M.capabilities = require('cmp_nvim_lsp').default_capabilities(M.capabilities)
+	return capabilities
+end
 
 local function lsp_keymap(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-	vim.keymap.set('n', 'gD', "<cmd>Telescope lsp_declarations<CR>", bufopts)
-	vim.keymap.set('n', 'gd', "<cmd>Telescope lsp_definitions<CR>", bufopts)
-	vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<CR>", bufopts)
-	vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<CR>", bufopts)
-	vim.keymap.set('n', 'gl', "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
+	local keymaps = {
+		['gD'] = { "<cmd>Telescope lsp_declarations<CR>", bufopts },
+		['gd'] = { "<cmd>Telescope lsp_definitions<CR>", bufopts },
+		['gi'] = { "<cmd>Telescope lsp_implementations<CR>", bufopts },
+		['gr'] = { "<cmd>Telescope lsp_references<CR>", bufopts },
+		['gl'] = { "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts },
+	}
+	require("gungim.config.keymaps").load_mode("n", keymaps)
 end
 
 local function attach_navic(client, bufnr)
@@ -24,7 +41,7 @@ local function attach_navic(client, bufnr)
 	navic.attach(client, bufnr)
 end
 
-M.on_attach = function(client, bufnr)
+M.common_on_attach = function(client, bufnr)
 	lsp_keymap(bufnr)
 	attach_navic(client, bufnr)
 end

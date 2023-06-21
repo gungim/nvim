@@ -1,11 +1,7 @@
 local M = {}
 
-M.config = function()
-	local status_ok, indent_blankline = pcall(require, "indent_blankline")
-	if not status_ok then
-		return
-	end
-	indent_blankline.setup({
+function M.config()
+	return {
 		enabled = true,
 		show_end_of_line = true,
 		space_char_blankline = " ",
@@ -47,6 +43,14 @@ M.config = function()
 			"operation_type",
 		},
 		buftype_exclude = { "terminal", "nofile" }
-	})
+	}
+end
+
+M.setup = function()
+	local status_ok, indent_blankline = pcall(require, "indent_blankline")
+	if not status_ok then
+		return
+	end
+	indent_blankline.setup(M.config())
 end
 return M

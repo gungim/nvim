@@ -14,17 +14,26 @@ configs.setup {
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true, disable = { "yaml", "python" } },
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
+		config = {
+			typescript = "// %s",
+			css = "/* %s */",
+			scss = "/* %s */",
+			html = "<!-- %s -->",
+			svelte = "<!-- %s -->",
+			vue = "<!-- %s -->",
+			json = "",
+		}
 	},
 	autotag = {
 		enable = true
 	},
-  rainbow = {
-    enable = true,
-    query = 'rainbow-parens',
-    strategy = require('ts-rainbow').strategy.global,
-  }
+	rainbow = {
+		enable = true,
+		query = 'rainbow-parens',
+		strategy = require('ts-rainbow').strategy.global,
+	}
 }

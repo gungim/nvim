@@ -9,7 +9,7 @@ if not snip_status_ok then
 end
 
 require("luasnip.loaders.from_vscode").lazy_load({
-	--[[ paths = { './snippets/' }, ]]
+	paths = { './snippets/' },
 })
 
 local check_backspace = function()

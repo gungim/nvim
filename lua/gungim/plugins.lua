@@ -50,7 +50,7 @@ return packer.startup(function(use)
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
-	use { "nvim-tree/nvim-tree.lua" }
+	use({ "nvim-tree/nvim-tree.lua" })
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
@@ -73,11 +73,11 @@ return packer.startup(function(use)
 	-- UI
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
-	use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
+	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
 	use("nvim-lualine/lualine.nvim")
-	use 'folke/tokyonight.nvim'
-	use 'gen740/SmoothCursor.nvim'
-	use "declancm/cinnamon.nvim"
+	use('folke/tokyonight.nvim')
+	use('gen740/SmoothCursor.nvim')
+	use("declancm/cinnamon.nvim")
 	use({
 		"utilyre/barbecue.nvim",
 		tag = "*",
@@ -87,7 +87,8 @@ return packer.startup(function(use)
 		},
 		after = "nvim-web-devicons",  -- keep this if you're using NvChad
 	})
-	use 'nvim-tree/nvim-web-devicons'
+	use('nvim-tree/nvim-web-devicons')
+	use('RRethy/vim-illuminate')
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")            -- The completion plugin
@@ -105,13 +106,12 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
-	use("RRethy/vim-illuminate")
 	use("ray-x/lsp_signature.nvim")
 	use("SmiteshP/nvim-navic")
-	use {
+	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-	}
+	})
 	use('mfussenegger/nvim-dap')
 
 	-- Formatter, Comment
@@ -129,12 +129,11 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	--[[ use 'f-person/git-blame.nvim' ]]
-
 	-- Test
-	use {
+	use({
 		'xeluxee/competitest.nvim',
 		requires = 'MunifTanjim/nui.nvim',
-	}
+	})
 
 
 	if PACKER_BOOTSTRAP then

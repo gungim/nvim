@@ -59,8 +59,8 @@ local opts = {}
 for _, server in ipairs(servers) do
 	opts = {
 		on_attach =
-		require("gungim.lsp.lsp-config").on_attach,
-		capabilities = require("gungim.lsp.lsp-config").capabilities
+		require("gungim.lsp.lsp-config").common_on_attach,
+		capabilities = require("gungim.lsp.lsp-config").commont_capabilities()
 	}
 
 	if server == "tailwindcss" then
