@@ -50,8 +50,7 @@ return packer.startup(function(use)
 	use 'simrat39/rust-tools.nvim'
 
 	-- File explorer
-	use { "nvim-tree/nvim-tree.lua" }
-	use 'nvim-tree/nvim-web-devicons'
+	use({ "nvim-tree/nvim-tree.lua" })
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
@@ -71,66 +70,72 @@ return packer.startup(function(use)
 	}
 	use("nvim-telescope/telescope-media-files.nvim")
 
-	-- Theme and gui
-	use 'folke/tokyonight.nvim'
-	use 'gen740/SmoothCursor.nvim'
-	use "declancm/cinnamon.nvim"
+	-- UI
 	use("norcalli/nvim-colorizer.lua")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("lukas-reineke/indent-blankline.nvim")
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
 	use("nvim-lualine/lualine.nvim")
+	use('folke/tokyonight.nvim')
+	use('gen740/SmoothCursor.nvim')
+	use("declancm/cinnamon.nvim")
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		after = "nvim-web-devicons",  -- keep this if you're using NvChad
+	})
+	use('nvim-tree/nvim-web-devicons')
+	use('RRethy/vim-illuminate')
 
 	-- Completion
-	use("hrsh7th/nvim-cmp")        -- The completion plugin
-	use("hrsh7th/cmp-buffer")      -- buffer completions
-	use("hrsh7th/cmp-path")        -- path completions
-	use("hrsh7th/cmp-cmdline")     -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("hrsh7th/nvim-cmp")            -- The completion plugin
+	use("hrsh7th/cmp-buffer")          -- buffer completions
+	use("hrsh7th/cmp-path")            -- path completions
+	use("hrsh7th/cmp-cmdline")         -- cmdline completions
+	use("saadparwaiz1/cmp_luasnip")    -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-
-	-- snippets
 	use("L3MON4D3/LuaSnip")            --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	use("ziontee113/color-picker.nvim") -- color picker
 
 	-- LSP
 	use("neovim/nvim-lspconfig")          -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
-	use("RRethy/vim-illuminate")
 	use("ray-x/lsp_signature.nvim")
 	use("SmiteshP/nvim-navic")
-	use {
+	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-	}
-	use("MunifTanjim/prettier.nvim")
-
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
 	})
-	use("windwp/nvim-ts-autotag")
-	use("nvim-treesitter/playground")
-	use("stevearc/aerial.nvim")
-	use("HiPhish/nvim-ts-rainbow2")
+	use('mfussenegger/nvim-dap')
+
+	-- Formatter, Comment
+	use("MunifTanjim/prettier.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	-- Comment
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("windwp/nvim-ts-autotag")
+	use("nvim-treesitter/playground")
+	use("HiPhish/nvim-ts-rainbow2")
+	use("stevearc/aerial.nvim")
+
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use 'f-person/git-blame.nvim'
-
-
+	--[[ use 'f-person/git-blame.nvim' ]]
 	-- Test
-	use {
+	use({
 		'xeluxee/competitest.nvim',
 		requires = 'MunifTanjim/nui.nvim',
-	}
+	})
+
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

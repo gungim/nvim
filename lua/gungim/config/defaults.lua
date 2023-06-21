@@ -1,0 +1,4 @@
+return {
+	leader = "space",
+	keys = {}
+}

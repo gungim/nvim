@@ -1,12 +1,13 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
+	vim.notify("Missing telescope")
 	return
 end
 
 require("telescope").load_extension("media_files")
 
 local actions = require("telescope.actions")
-local icons = require("user.icons")
+local icons = require("gungim.icons")
 
 local options = {
 	defaults = {
