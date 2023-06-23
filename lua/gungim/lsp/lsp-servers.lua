@@ -23,12 +23,13 @@ local servers = {
 	"eslint",
 	"html",
 	"jsonls",
-	"volar",
 	"lemminx",
 	"cssls",
 	"svelte",
 	"rust_analyzer",
-	"bashls"
+	"bashls",
+	--[[ "vuels", ]]
+	"volar"
 	--[[ "angularls" ]]
 }
 
@@ -59,7 +60,7 @@ local opts = {}
 for _, server in ipairs(servers) do
 	opts = {
 		on_attach =
-		require("gungim.lsp.lsp-config").common_on_attach,
+				require("gungim.lsp.lsp-config").common_on_attach,
 		capabilities = require("gungim.lsp.lsp-config").commont_capabilities()
 	}
 
@@ -93,6 +94,11 @@ for _, server in ipairs(servers) do
 		lspconfig.lua_ls.setup(neodev_opts)
 		goto continue
 	end
+	if server == "volar" then
+		local vue_opts = require "gungim.lsp.settings.vue"
+		opts = vim.tbl_deep_extend("force", vue_opts, opts)
+	end
+
 
 	lspconfig[server].setup(opts)
 	::continue::
