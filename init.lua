@@ -2,10 +2,8 @@ require "gungim.plugins"
 require "gungim.colorscheme"
 require "gungim.options"
 require("gungim.config"):load()
-require "gungim.cmp"
 require "gungim.telescope"
 require "gungim.autopairs"
-require "gungim.comment"
 require "gungim.gitsigns"
 require "gungim.nvim_tree"
 require "gungim.toggleterm".setup()
@@ -30,3 +28,4 @@ require("gungim.treesitter").setup()
 require("gungim.color_picker")
 require("gungim.ui").setup()
 require("gungim.noice").setup()
+require("gungim.coding")
