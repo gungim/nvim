@@ -76,6 +76,11 @@ return packer.startup(function(use)
 	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
 	use("nvim-lualine/lualine.nvim")
 	use('folke/tokyonight.nvim')
+	use { 'folke/noice.nvim', require = {
+		"MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify",
+	} }
+	use("oxfist/night-owl.nvim")
 	use('gen740/SmoothCursor.nvim')
 	use("declancm/cinnamon.nvim")
 	use({

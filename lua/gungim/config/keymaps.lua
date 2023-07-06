@@ -33,11 +33,11 @@ local defaults = {
 		["<C-k>"] = "<C-w>k",
 		["<C-l>"] = "<C-w>l",
 		--[[Resize window]]
-		["<Up>"] = ":resize -2<CR>",
-		["<Down>"] = ":resize +2<CR>",
-		["<Left>"] = ":vertical resize -2<CR>",
-		["<Right>"] = ":vertical resize +2<CR>",
-		-- Tab/ Next tab
+		--[[ ["<Up>"] = ":resize -2<CR>", ]]
+		--[[ ["<Down>"] = ":resize +2<CR>", ]]
+		--[[ ["<Left>"] = ":vertical resize -2<CR>", ]]
+		--[[ ["<Right>"] = ":vertical resize +2<CR>", ]]
+		--[[ -- Tab/ Next tab ]]
 		["<tab>"] = ":bnext<CR>",
 		["<S-tab>"] = ":bprevious<CR>",
 		["<A-j>"] = "<Esc>:m .+1<CR>==gi",

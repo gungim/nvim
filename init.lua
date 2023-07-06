@@ -1,7 +1,7 @@
+require "gungim.plugins"
 require "gungim.colorscheme"
 require "gungim.options"
 require("gungim.config"):load()
-require "gungim.plugins"
 require "gungim.cmp"
 require "gungim.telescope"
 require "gungim.autopairs"
@@ -12,11 +12,9 @@ require "gungim.toggleterm".setup()
 require "gungim.project"
 require "gungim.impatient"
 require("gungim.indentline").setup()
-require "gungim.alpha"
+require("gungim.alpha").setup()
 require "gungim.whichkey"
 require "gungim.autocommands"
-require "gungim.autotag"
-require "gungim.nvim_ts_rainbow"
 require "gungim.devicons"
 require "gungim.colorizer"
 require "gungim.symbol_outline"
@@ -26,8 +24,9 @@ require "gungim.illuminate"
 require "gungim.code_action_utils"
 require "gungim.prettier"
 require "gungim.navic"
-require "gungim.aerial"
+require("gungim.aerial").setup()
 require "gungim.competitest"
-require "gungim.treesitter"
+require("gungim.treesitter").setup()
 require("gungim.color_picker")
 require("gungim.ui").setup()
+require("gungim.noice").setup()

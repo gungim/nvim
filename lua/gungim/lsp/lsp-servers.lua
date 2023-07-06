@@ -28,9 +28,8 @@ local servers = {
 	"svelte",
 	"rust_analyzer",
 	"bashls",
-	--[[ "vuels", ]]
-	"volar"
-	--[[ "angularls" ]]
+	"vuels",
+	"emmet_ls"
 }
 
 local settings = {
@@ -94,10 +93,15 @@ for _, server in ipairs(servers) do
 		lspconfig.lua_ls.setup(neodev_opts)
 		goto continue
 	end
-	if server == "volar" then
-		local vue_opts = require "gungim.lsp.settings.vue"
-		opts = vim.tbl_deep_extend("force", vue_opts, opts)
+
+	if server == "emmet_ls" then
+		local emmet_opts = require "gungim.lsp.settings.emmet_ls"
+		opts = vim.tbl_deep_extend("force", emmet_opts, opts)
 	end
+	--[[ if server == "" then ]]
+	--[[ 	local vue_opts = require "gungim.lsp.settings.vue" ]]
+	--[[ 	opts = vim.tbl_deep_extend("force", vue_opts, opts) ]]
+	--[[ end ]]
 
 
 	lspconfig[server].setup(opts)

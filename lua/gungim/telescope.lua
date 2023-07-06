@@ -4,8 +4,6 @@ if not status_ok then
 	return
 end
 
-require("telescope").load_extension("media_files")
-
 local actions = require("telescope.actions")
 local icons = require("gungim.icons")
 
@@ -125,4 +123,5 @@ local options = {
 }
 
 telescope.setup(options)
-telescope.load_extension('aerial', "media_files")
+telescope.load_extension('aerial')
+telescope.load_extension("media_files")

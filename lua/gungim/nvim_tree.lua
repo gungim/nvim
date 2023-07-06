@@ -42,6 +42,9 @@ end
 nvim_tree.setup {
 	on_attach = on_attach,
 	auto_reload_on_write = true,
+	root_dirs = {},
+	prefer_startup_root = true,
+	sync_root_with_cwd = false,
 	filters = {
 		custom = { ".git", "node_modules", "\\.cache" },
 		exclude = { ".gitignore" },
@@ -105,7 +108,7 @@ nvim_tree.setup {
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_cwd = false,
 		ignore_list = { "toggleterm" },
 	},
 	git = {

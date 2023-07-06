@@ -156,10 +156,14 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	--[[ 	b={ ]]
-	--[[ name="Buffer", ]]
-	--[[ 		 ]]
-	--[[ 	}, ]]
+	b = {
+		name = "Buffer",
+		l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffer left" },
+		r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffer left" },
+		o = { "<cmd>BufferLineCloseOthers<CR>", "Close all buffer other" },
+		p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+		m = { "<cmd>BufferLineTogglePin<CR>", "Toggle buffer pin" },
+	},
 	s = {
 		name = "Search",
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },

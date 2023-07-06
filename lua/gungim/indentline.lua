@@ -3,22 +3,13 @@ local M = {}
 function M.config()
 	return {
 		enabled = true,
-		show_end_of_line = true,
+		show_end_of_line = false,
 		space_char_blankline = " ",
 		show_current_context_start = true,
 		show_current_context = true,
-		use_treesitter = true,
+		use_treesitter = false,
 		show_first_indent_level = true,
 		show_trailing_blankline_indent = false,
-		filetype_exclude = {
-			"help",
-			"startify",
-			"dashboard",
-			"packer",
-			"neogitstatus",
-			"NvimTree",
-			"Trouble",
-		},
 		char = "▏",
 		context_patterns = {
 			"class",
@@ -42,7 +33,7 @@ function M.config()
 			"import_statement",
 			"operation_type",
 		},
-		buftype_exclude = { "terminal", "nofile" }
+		buftype_exclude = { "terminal", "nofile", "NvimTree", "Telescope" }
 	}
 end
 
@@ -51,6 +42,11 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
+	if false then
+		vim.opt.list = true
+		vim.opt.listchars:append "eol:↴"
+	end
 	indent_blankline.setup(M.config())
 end
+
 return M

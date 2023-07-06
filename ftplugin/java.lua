@@ -149,7 +149,6 @@ local config = {
         -- }
       },
     },
-    signatureHelp = { enabled = true },
     completion = {
       favoriteStaticMembers = {
         "org.hamcrest.MatcherAssert.assertThat",
