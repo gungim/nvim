@@ -33,10 +33,10 @@ local defaults = {
 		["<C-k>"] = "<C-w>k",
 		["<C-l>"] = "<C-w>l",
 		--[[Resize window]]
-		--[[ ["<Up>"] = ":resize -2<CR>", ]]
-		--[[ ["<Down>"] = ":resize +2<CR>", ]]
-		--[[ ["<Left>"] = ":vertical resize -2<CR>", ]]
-		--[[ ["<Right>"] = ":vertical resize +2<CR>", ]]
+		["<Up>"] = ":resize -2<CR>",
+		["<Down>"] = ":resize +2<CR>",
+		["<Left>"] = ":vertical resize -2<CR>",
+		["<Right>"] = ":vertical resize +2<CR>",
 		--[[ -- Tab/ Next tab ]]
 		["<tab>"] = ":bnext<CR>",
 		["<S-tab>"] = ":bprevious<CR>",
@@ -87,13 +87,11 @@ function M.load(keymaps)
 end
 
 function M.load_defaults()
-  M.load(M.get_defaults())
+	M.load(M.get_defaults())
 end
-
 
 function M.get_defaults()
-  return defaults
+	return defaults
 end
-
 
 return M

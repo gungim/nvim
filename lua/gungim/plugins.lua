@@ -58,11 +58,6 @@ return packer.startup(function(use)
 	-- Terminal
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
-	-- Start window
-	use("goolord/alpha-nvim")
-	use("folke/which-key.nvim")
-	use("ur4ltz/surround.nvim")
-
 	-- Finder
 	use {
 		"nvim-telescope/telescope.nvim", tag = "0.1.1",
@@ -71,12 +66,10 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 
 	-- UI
-	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
-	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
 	use("nvim-lualine/lualine.nvim")
 	use('folke/tokyonight.nvim')
-	use { 'folke/noice.nvim', require = {
+	use { 'folke/noice.nvim', requires = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	} }
@@ -94,17 +87,25 @@ return packer.startup(function(use)
 	})
 	use('nvim-tree/nvim-web-devicons')
 	use('RRethy/vim-illuminate')
+	use("goolord/alpha-nvim")
+	use("folke/which-key.nvim")
+	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
+	use('echasnovski/mini.starter')
 
-	-- Completion
-	use("hrsh7th/nvim-cmp")            -- The completion plugin
-	use("hrsh7th/cmp-buffer")          -- buffer completions
-	use("hrsh7th/cmp-path")            -- path completions
-	use("hrsh7th/cmp-cmdline")         -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip")    -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("L3MON4D3/LuaSnip")            --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	-- Coding
+	use { "hrsh7th/nvim-cmp", requires = {
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"saadparwaiz1/cmp_luasnip"
+	} } -- The completion plugin
+	use 'echasnovski/mini.surround'
+	use 'echasnovski/mini.comment'
 	use("ziontee113/color-picker.nvim") -- color picker
+	use("norcalli/nvim-colorizer.lua")
+	use { "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp"
+	}
 
 	-- LSP
 	use("neovim/nvim-lspconfig")          -- enable LSP
@@ -112,7 +113,6 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
 	use("ray-x/lsp_signature.nvim")
-	use("SmiteshP/nvim-navic")
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -122,7 +122,6 @@ return packer.startup(function(use)
 	-- Formatter, Comment
 	use("MunifTanjim/prettier.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("numToStr/Comment.nvim") -- Easily comment stuff
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

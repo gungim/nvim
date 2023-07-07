@@ -8,6 +8,8 @@ end
 function M:load()
 	vim.g.mapleader = ("space" and " ")
 	require("gungim.config.keymaps").load_defaults()
+	require("gungim.config.autocommands")
+	require("gungim.config.options")
 end
 
 return M

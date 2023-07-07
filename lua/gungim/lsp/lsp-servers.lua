@@ -29,7 +29,7 @@ local servers = {
 	"rust_analyzer",
 	"bashls",
 	"vuels",
-	"emmet_ls"
+	-- "emmet_ls"
 }
 
 local settings = {
