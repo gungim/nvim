@@ -2,7 +2,6 @@ local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
 end
-
 local icons = require "gungim.icons"
 
 local function on_attach(bufnr)

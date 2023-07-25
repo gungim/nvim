@@ -47,6 +47,8 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("folke/neodev.nvim")
+	-- C++ development
+	use('Civitasv/cmake-tools.nvim')
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
@@ -90,7 +92,6 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
-	use('echasnovski/mini.starter')
 
 	-- Coding
 	use { "hrsh7th/nvim-cmp", requires = {
@@ -124,10 +125,10 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", commit = "51ea343f705a89326cff8dd7a0542d7fe0e6699a" })
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
-	use("HiPhish/nvim-ts-rainbow2")
+	use("p00f/nvim-ts-rainbow")
 	use("stevearc/aerial.nvim")
 
 	-- Git

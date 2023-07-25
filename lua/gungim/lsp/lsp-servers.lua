@@ -29,6 +29,8 @@ local servers = {
 	"rust_analyzer",
 	"bashls",
 	"vuels",
+	"phpactor",
+	"cmake"
 	-- "emmet_ls"
 }
 
@@ -97,6 +99,10 @@ for _, server in ipairs(servers) do
 	if server == "emmet_ls" then
 		local emmet_opts = require "gungim.lsp.settings.emmet_ls"
 		opts = vim.tbl_deep_extend("force", emmet_opts, opts)
+	end
+	if server == "cmake-language-server" then
+		local cmake_opts = require "gungim.lsp.settings.cmake"
+		opts = vim.tbl_deep_extend("force", cmake_opts, opts)
 	end
 	--[[ if server == "" then ]]
 	--[[ 	local vue_opts = require "gungim.lsp.settings.vue" ]]

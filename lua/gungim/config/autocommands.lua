@@ -30,7 +30,6 @@ vim.cmd [[
   augroup end
 
 ]]
-
 -- Autoformat
 -- augroup _lsp
 --   autocmd!

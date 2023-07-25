@@ -8,7 +8,7 @@ M.setup = function()
 	end
 
 	local dashboard = require("alpha.themes.dashboard")
-	dashboard.section.header.val = dash.hero
+	dashboard.section.header.val = dash.default
 
 	dashboard.section.buttons.val = {
 		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),

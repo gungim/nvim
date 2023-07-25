@@ -1,6 +1,6 @@
 require "gungim.plugins"
-require "gungim.colorscheme"
 require("gungim.config"):load()
+require("gungim.ui").setup()
 require("gungim.telescope").setup()
 require "gungim.autopairs"
 require "gungim.gitsigns"
@@ -12,10 +12,8 @@ require "gungim.symbol_outline"
 require "gungim.hover"
 require "gungim.lsp"
 require "gungim.code_action_utils"
-require "gungim.prettier"
 require "gungim.competitest"
-require("gungim.treesitter").setup()
 require("gungim.color_picker")
-require("gungim.ui").setup()
 require("gungim.coding").setup()
 require("gungim.log")
+require("gungim.treesitter").setup()

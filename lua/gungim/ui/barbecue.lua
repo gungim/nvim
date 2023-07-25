@@ -7,7 +7,8 @@ function M.setup()
 	end
 	local icons = require("gungim.icons")
 	barbecue.setup({
-		kinds = icons.kind
+		kinds = icons.kind,
+		theme = 'tokyonight',
 	})
 end
 
