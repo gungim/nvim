@@ -10,6 +10,7 @@ local function buf_try_add(server_name, bufnr)
 end
 
 local function reslove_config(server_name, ...)
+		Log:debug("add key map ")
 	local defaults = {
 		on_attack = require("gungim.lsp").common_on_attach,
 		on_init = require("gungim.lsp").common_on_init,

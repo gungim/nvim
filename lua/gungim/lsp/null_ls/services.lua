@@ -3,7 +3,7 @@ local M = {}
 local Log = require "gungim.log"
 
 local function find_root_dir()
-	local util = require "lspconfig/util"
+	local util = require "lspconfig".util
 	local lsp_utils = require "gungim.lsp.utils"
 
 	local ts_client = lsp_utils.is_client_active "typescript"

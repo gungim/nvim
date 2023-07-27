@@ -17,7 +17,7 @@ local Log = require("gungim.log")
 local icons = require "gungim.icons"
 
 local function add_lsp_buffer_options(bufnr)
-  for k, v in pairs(lvim.lsp.buffer_options) do
+  for k, v in pairs(gungim.lsp.buffer_options) do
     vim.api.nvim_buf_set_option(bufnr, k, v)
   end
 end
@@ -43,7 +43,6 @@ end
 
 local function add_lsp_keymap(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
 	local keymaps = {
 		['gD'] = { "<cmd>Telescope lsp_declarations<CR>", bufopts },
 		['gd'] = { "<cmd>Telescope lsp_definitions<CR>", bufopts },
@@ -122,7 +121,7 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 	require("gungim.lsp.lsp-servers").setup()
-	require("gungim.lsp.null-ls").setup()
+	require("gungim.lsp.null_ls").setup()
 	require("gungim.lsp.lsp-signature")
 end
 

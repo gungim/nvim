@@ -9,7 +9,17 @@ function M.setup()
 	end
 
 	local default_opts = require("gungim.lsp").get_common_opts()
+	local opts = {
+		sources = {
+			null_ls.builtins.formatting.prettier,
+			null_ls.builtins.diagnostics.eslint.with({
+				diagnostics_format = '[eslint] #{m}\n(#{c})'
+			}),
+			null_ls.builtins.diagnostics.fish
+		},
+	}
 	null_ls.setup(vim.tbl_deep_extend("force", default_opts, gungim.lsp.null_ls.setup))
+	-- null_ls.setup(vim.tbl_deep_extend("force", default_opts, opts))
 end
 
 return M
