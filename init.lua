@@ -1,4 +1,6 @@
+require("gungim.builtins")
 require "gungim.plugins"
+require("gungim.config"):init()
 require("gungim.config"):load()
 require("gungim.ui").setup()
 require("gungim.telescope").setup()
@@ -10,7 +12,6 @@ require "gungim.impatient"
 require "gungim.devicons"
 require "gungim.symbol_outline"
 require "gungim.hover"
-require "gungim.lsp"
 require "gungim.code_action_utils"
 require "gungim.competitest"
 require("gungim.color_picker")

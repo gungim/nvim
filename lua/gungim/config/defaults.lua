@@ -1,4 +1,7 @@
 return {
 	leader = "space",
-	keys = {}
+	keys = {},
+	icons = require("gungim.icons"),
+	lang = {},
+	builtin = {},	
 }

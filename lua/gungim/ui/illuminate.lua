@@ -1,6 +1,6 @@
 local M = {}
 function M.config()
-	local config = {
+	gungim.builtin.illuminate = {
 		active = true,
 		on_config_done = nil,
 		options = {
@@ -27,17 +27,20 @@ function M.config()
 			providers_regex_syntax_denylist = {},
 			providers_regex_syntax_allowlist = {},
 			under_cursor = true,
-		},
+		}
 	}
-	return config
 end
 
 function M.setup()
+	local active = gungim.builtin.illuminate.active
+	if not active then
+		return
+	end
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return
 	end
-	illuminate.setup(M.config)
+	illuminate.setup(gungim.builtin.illuminate)
 end
 
 return M

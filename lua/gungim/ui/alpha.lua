@@ -1,37 +1,76 @@
 local M = {}
+M.config = function()
+	local gg_dash = require("gungim.ui.alpha.dashboard")
+	gungim.builtin.alpha = {
+		dashboard = {
+			section = gg_dash.get_section(),
+			config = {}
+		},
+		active = true,
+		mode = "dashboard",
+	}
+end
+
+local function resolve_buttons(theme_name, button_section)
+  if button_section.val and #button_section.val > 0 then
+    return button_section.val
+  end
+
+  local selected_theme = require("alpha.themes." .. theme_name)
+  local val = {}
+  for _, entry in pairs(button_section.entries) do
+    local on_press = function()
+      local sc_ = entry[1]:gsub("%s", ""):gsub("SPC", "<leader>")
+      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+      vim.api.nvim_feedkeys(key, "normal", false)
+    end
+    local button_element = selected_theme.button(entry[1], entry[2], entry[3])
+    -- this became necessary after recent changes in alpha.nvim (06ade3a20ca9e79a7038b98d05a23d7b6c016174)
+    button_element.on_press = on_press
+
+    button_element.opts = vim.tbl_extend("force", button_element.opts, entry[4] or button_section.opts or {})
+
+    table.insert(val, button_element)
+  end
+  return val
+end
+
+local function resolve_config(theme_name)
+  local selected_theme = require("alpha.themes." .. theme_name)
+  local resolved_section = selected_theme.section
+  local section = gungim.builtin.alpha[theme_name].section
+
+  for name, el in pairs(section) do
+    for k, v in pairs(el) do
+      if name:match "buttons" and k == "entries" then
+        resolved_section[name].val = resolve_buttons(theme_name, el)
+      elseif v then
+        resolved_section[name][k] = v
+      end
+    end
+
+    resolved_section[name].opts = el.opts or {}
+  end
+
+  local opts = gungim.builtin.alpha[theme_name].opts or {}
+  selected_theme.config.opts = vim.tbl_extend("force", selected_theme.config.opts, opts)
+
+  return selected_theme.config
+end
 
 M.setup = function()
 	local status_ok, alpha = pcall(require, "alpha")
-	local dash = require("gungim.alpha_das")
 	if not status_ok then
 		return
 	end
 
-	local dashboard = require("alpha.themes.dashboard")
-	dashboard.section.header.val = dash.default
+	local mode = gungim.builtin.alpha.mode
+	local config = gungim.builtin.alpha[mode].config
 
-	dashboard.section.buttons.val = {
-		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-		dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-		dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
-		dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-		dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-		dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-		dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
-	}
+  if vim.tbl_isempty(config) then
+    config = resolve_config(mode)
+  end
 
-	local function footer()
-		return "GUNGIM LOVE GUNGIM"
-	end
-
-	dashboard.section.footer.val = footer()
-
-	dashboard.section.footer.opts.hl = "Type"
-	dashboard.section.header.opts.hl = "Include"
-	dashboard.section.buttons.opts.hl = "Keyword"
-
-	dashboard.opts.opts.noautocmd = true
-	-- vim.cmd([[autocmd gungim AlphaReady echo 'ready']])
-	alpha.setup(dashboard.opts)
+	alpha.setup(config)
 end
 return M

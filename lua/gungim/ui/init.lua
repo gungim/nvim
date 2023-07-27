@@ -9,7 +9,8 @@ function M.setup()
 	require("gungim.ui.whichkey")
 	require("gungim.ui.alpha").setup()
 	-- require("gungim.ui.mini").setup()
-	require "gungim.ui.illuminate"
+	require("gungim.ui.illuminate")
+	require("gungim.ui.mason").setup()
 	require("gungim.ui.aerial").setup()
 	require "gungim.ui.navic"
 	require("gungim.ui.noice").setup()

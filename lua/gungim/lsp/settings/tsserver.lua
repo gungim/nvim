@@ -1,15 +1,7 @@
-return {
-	--[[ settings = { ]]
-	--[[ 	typescript = { ]]
-	--[[ 		inlayHints = { ]]
-	--[[ 			includeInlayEnumMemberValueHints = true, ]]
-	--[[ 			includeInlayFunctionLikeReturnTypeHints = true, ]]
-	--[[ 			includeInlayFunctionParameterTypeHints = true, ]]
-	--[[ 			includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'; ]]
-	--[[ 			includeInlayParameterNameHintsWhenArgumentMatchesName = true, ]]
-	--[[ 			includeInlayPropertyDeclarationTypeHints = true, ]]
-	--[[ 			includeInlayVariableTypeHints = true, ]]
-	--[[ 		}, ]]
-	--[[ 	}, ]]
-	--[[ }, ]]
+local lspconfig = require 'lspconfig'
+
+local opts = {
+	root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json")
 }
+
+return opts

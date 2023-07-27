@@ -1,7 +1,6 @@
 local lspconfig = require 'lspconfig'
-return {
+local opts = {
 	settings = {
-
 		codeAction = {
 			disableRuleComment = {
 				enable = true,
@@ -31,3 +30,5 @@ return {
 	root_dir = lspconfig.util.root_pattern('.eslintrc.js', ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml",
 		".eslintrc.json", ".eslintrc")
 }
+
+return opts
