@@ -28,6 +28,7 @@ function M.common_capabilities()
 	if status_ok then
 		return cmp_nvim_lsp.default_capabilities()
 	end
+
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
 	capabilities.textDocument.completion.completionItem.resolveSupport = {

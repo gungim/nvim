@@ -13,13 +13,15 @@ function M.setup()
 		sources = {
 			null_ls.builtins.formatting.prettier,
 			null_ls.builtins.diagnostics.eslint.with({
-				diagnostics_format = '[eslint] #{m}\n(#{c})'
+				condition = function(utils)
+					return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+				end,
+				prefer_local = "node_modules/.bin",
 			}),
-			null_ls.builtins.diagnostics.fish
 		},
 	}
-	null_ls.setup(vim.tbl_deep_extend("force", default_opts, gungim.lsp.null_ls.setup))
-	-- null_ls.setup(vim.tbl_deep_extend("force", default_opts, opts))
+	-- null_ls.setup(vim.tbl_deep_extend("force", default_opts, gungim.lsp.null_ls.setup))
+	null_ls.setup(vim.tbl_deep_extend("force", default_opts, opts))
 end
 
 return M

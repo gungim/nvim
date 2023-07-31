@@ -55,7 +55,7 @@ M.setup = function()
 			enable = true,
 			enable_rename = true,
 			enable_close = true,
-			enable_close_on_slash = true,
+			enable_close_on_slash = false,
 			filetypes = {
 				'xml', 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx',
 				'rescript', 'php', 'markdown', 'glimmer', 'handlebars', 'hbs', 'tpl'
