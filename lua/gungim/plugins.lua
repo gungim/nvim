@@ -55,7 +55,6 @@ return packer.startup(function(use)
 	use({ "nvim-tree/nvim-tree.lua" })
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
-	use("lewis6991/impatient.nvim")
 
 	-- Terminal
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
@@ -77,7 +76,6 @@ return packer.startup(function(use)
 	} }
 	use("oxfist/night-owl.nvim")
 	use('gen740/SmoothCursor.nvim')
-	use("declancm/cinnamon.nvim")
 	use({
 		"utilyre/barbecue.nvim",
 		tag = "*",
@@ -104,7 +102,7 @@ return packer.startup(function(use)
 	use 'echasnovski/mini.surround'
 	use 'echasnovski/mini.comment'
 	use("ziontee113/color-picker.nvim") -- color picker
-	use("norcalli/nvim-colorizer.lua")
+	use("NvChad/nvim-colorizer.lua")
 	use { "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp"
 	}
 
@@ -136,11 +134,6 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	--[[ use 'f-person/git-blame.nvim' ]]
 	-- Test
-	use({
-		'xeluxee/competitest.nvim',
-		requires = 'MunifTanjim/nui.nvim',
-	})
-
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

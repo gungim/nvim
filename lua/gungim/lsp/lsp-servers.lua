@@ -10,12 +10,7 @@ local function buf_try_add(server_name, bufnr)
 end
 
 local function reslove_config(server_name, ...)
-	local defaults = {
-		on_attack = require("gungim.lsp").common_on_attach,
-		on_init = require("gungim.lsp").common_on_init,
-		on_exit = require("gungim.lsp").common_on_exit,
-		capabilities = require("gungim.lsp").common_capabilities(),
-	}
+	local defaults = require("gungim.lsp").get_common_opts()
 
 	local has_custom_setting, custom_config = pcall(require, "gungim/lsp/settings/" .. server_name)
 	if has_custom_setting then

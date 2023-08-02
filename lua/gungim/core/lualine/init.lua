@@ -3,7 +3,7 @@ local M = {}
 M.config = function()
 	gungim.builtin.lualine = {
 		active = true,
-		setup = require("gungim.ui.lualine.component")
+		setup = require("gungim.core.lualine.component")
 	}
 end
 

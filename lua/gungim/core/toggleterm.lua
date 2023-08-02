@@ -1,19 +1,15 @@
 local M = {}
 
-local status_ok, toggleterm = pcall(require, "toggleterm")
-if not status_ok then
-	return
-end
-
-function M.setup()
-	toggleterm.setup {
+M.config = function()
+	gungim.builtin.toggleterm = {
+		active = true,
 		size = function(term)
-		if term.direction == "horizontal" then
-			return 15
-		elseif term.direction == "vertical" then
-			return vim.o.columns * 0.4
-		end
-	end,
+			if term.direction == "horizontal" then
+				return 15
+			elseif term.direction == "vertical" then
+				return vim.o.columns * 0.4
+			end
+		end,
 		open_mapping = [[<c-\>]],
 		hide_numbers = true,
 		shade_filetypes = {},
@@ -41,6 +37,16 @@ function M.setup()
 			end
 		},
 	}
+end
+
+
+function M.setup()
+	local config = gungim.builtin.toggleterm
+	local status_ok, toggleterm = pcall(require, "toggleterm")
+	if not status_ok then
+		return
+	end
+	toggleterm.setup(config)
 end
 
 function M.lazygit_toggle()

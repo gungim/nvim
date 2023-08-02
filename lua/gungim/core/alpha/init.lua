@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	local gg_dash = require("gungim.ui.alpha.dashboard")
+	local gg_dash = require("gungim.core.alpha.dashboard")
 	gungim.builtin.alpha = {
 		dashboard = {
 			section = gg_dash.get_section(),

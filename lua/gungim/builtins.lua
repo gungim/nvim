@@ -1,12 +1,23 @@
 local M = {}
 local builtins = {
-	"gungim.ui.alpha",
-	"gungim.ui.barbecue",
-	"gungim.ui.lualine",
-	"gungim.ui.aerial",
-	"gungim.ui.bufferline",
-	"gungim.ui.illuminate",
-	"gungim.ui.mason"
+	"gungim.core.theme",
+	"gungim.core.whichkey",
+	"gungim.core.alpha",
+	"gungim.core.barbecue",
+	"gungim.core.lualine",
+	"gungim.core.aerial",
+	"gungim.core.bufferline",
+	"gungim.core.illuminate",
+	"gungim.core.mason",
+	"gungim.core.color_picker",
+	"gungim.core.treesitter",
+	"gungim.core.toggleterm",
+	"gungim.core.hover",
+	"gungim.core.autopairs",
+	"gungim.core.telescope",
+	"gungim.core.gitsigns",
+	"gungim.core.colorizer",
+	"gungim.core.indentline",
 }
 
 M.config = function()

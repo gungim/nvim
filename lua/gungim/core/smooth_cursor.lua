@@ -13,7 +13,7 @@ function M.setup()
 			type = "default",    -- define cursor movement calculate function, "default" or "exp" (exponential).
 			fancy = {
 				enable = false,    -- enable fancy mode
-				head = { cursor = "▷", texthl = "SmoothCursor", linehl = nil },
+				head = { cursor = gungim.icons.ui.Pencil, texthl = "SmoothCursor", linehl = nil },
 				body = {
 					{ cursor = "", texthl = "SmoothCursorRed" },
 					{ cursor = "", texthl = "SmoothCursorOrange" },

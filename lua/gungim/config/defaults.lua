@@ -1,7 +1,9 @@
 return {
 	leader = "space",
+	colorscheme = "tokyonight-night",
 	keys = {},
 	icons = require("gungim.icons"),
 	lang = {},
-	builtin = {},	
+	builtin = {},
+  transparent_window = false,
 }

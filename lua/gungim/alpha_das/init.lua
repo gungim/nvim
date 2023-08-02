@@ -1,4 +1,22 @@
 local M = {
+	luu_ly = {
+		[[ LLLLLLLLLLL             UUUUUUUU     UUUUUUUUUUUUUUUU     UUUUUUUU     LLLLLLLLLLL             YYYYYYY       YYYYYYY ]],
+		[[ L:::::::::L             U::::::U     U::::::UU::::::U     U::::::U     L:::::::::L             Y:::::Y       Y:::::Y ]],
+		[[ L:::::::::L             U::::::U     U::::::UU::::::U     U::::::U     L:::::::::L             Y:::::Y       Y:::::Y ]],
+		[[ LL:::::::LL             UU:::::U     U:::::UUUU:::::U     U:::::UU     LL:::::::LL             Y::::::Y     Y::::::Y ]],
+		[[   L:::::L                U:::::U     U:::::U  U:::::U     U:::::U        L:::::L               YYY:::::Y   Y:::::YYY ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                  Y:::::Y Y:::::Y    ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                   Y:::::Y:::::Y     ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                    Y:::::::::Y      ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                     Y:::::::Y       ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                      Y:::::Y        ]],
+		[[   L:::::L                U:::::D     D:::::U  U:::::D     D:::::U        L:::::L                      Y:::::Y        ]],
+		[[   L:::::L         LLLLLL U::::::U   U::::::U  U::::::U   U::::::U        L:::::L         LLLLLL       Y:::::Y        ]],
+		[[ LL:::::::LLLLLLLLL:::::L U:::::::UUU:::::::U  U:::::::UUU:::::::U      LL:::::::LLLLLLLLL:::::L       Y:::::Y        ]],
+		[[ L::::::::::::::::::::::L  UU:::::::::::::UU    UU:::::::::::::UU       L::::::::::::::::::::::L    YYYY:::::YYYY     ]],
+		[[ L::::::::::::::::::::::L    UU:::::::::UU        UU:::::::::UU         L::::::::::::::::::::::L    Y:::::::::::Y     ]],
+		[[ LLLLLLLLLLLLLLLLLLLLLLLL      UUUUUUUUU            UUUUUUUUU           LLLLLLLLLLLLLLLLLLLLLLLL    YYYYYYYYYYYYY     ]]
+	},
 	default = {
 		[[                  'c.            admin@gungim.local              ]],
 		[[                ,xNMM.          ---------------------------------             ]],

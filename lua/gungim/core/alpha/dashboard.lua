@@ -5,7 +5,7 @@ local M = {}
 function M.get_section()
 	local header = {
 		type = "text",
-		val = dash.default,
+		val = dash.luu_ly,
 		opts = {
 			hl = "Label",
 			position = "center"
@@ -28,7 +28,7 @@ function M.get_section()
 	}
 	local footer = {
 		val = function()
-			return "GUNGIM LOVE GUNGIM"
+			return "GUNGIM LOVE LUULY"
 		end,
 		opts = {
 			hl = "Type",

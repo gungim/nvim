@@ -91,7 +91,6 @@ end
 
 M.setup = function()
 	Log:debug "Setting up LSP"
-
 	local signs = {
 		{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
 		{ name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },

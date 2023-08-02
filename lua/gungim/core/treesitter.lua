@@ -1,15 +1,12 @@
 local M = {}
 
-M.setup = function()
-	local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
-	if not status_ok then
-		return
-	end
+M.config = function()
+	gungim.builtin.treesitter = {
+		active = true,
+		on_config_done = nil,
 
-
-	configs.setup {
 		ensure_installed = {
-			'lua', 'cpp', 'html', 'javascript', "tsx", 'svelte', 'typescript',
+			'lua', 'c', 'cpp', 'html', 'javascript', "tsx", 'svelte', 'typescript',
 			'rust', 'scss', 'css', 'vue', 'regex', 'bash', 'markdown', 'markdown_inline'
 		},
 		sync_install = false,
@@ -71,6 +68,20 @@ M.setup = function()
 			extended_mode = true,
 		},
 	}
+end
+
+M.setup = function()
+	local status_ok, tressiter = pcall(require, 'nvim-treesitter.configs')
+	if not status_ok then
+		return
+	end
+
+	local config = vim.deepcopy(gungim.builtin.treesitter)
+	tressiter.setup(config)
+
+	if gungim.builtin.treesitter.on_config_done then
+		gungim.builtin.treesitter.on_config_done(tressiter)
+	end
 end
 
 return M

@@ -2,16 +2,11 @@ local Log   = require("gungim.log")
 local icons = require("gungim.icons")
 
 local M     = {}
-M.setup     = function()
-	local status_ok, telescope = pcall(require, "telescope")
-	if not status_ok then
-		Log:error("Missing telescope")
-		return
-	end
-
+M.config    = function()
 	local actions = require("telescope.actions")
-
-	local options = {
+	gungim.builtin.telescope = {
+		active = true,
+		on_config_done = nil,
 		defaults = {
 			vimgrep_arguments = {
 				"rg",
@@ -125,10 +120,22 @@ M.setup     = function()
 			}
 		}
 	}
+end
 
-	telescope.setup(options)
-	telescope.load_extension('aerial')
-	telescope.load_extension("media_files")
-	telescope.load_extension("notify")
+M.setup     = function()
+	local status_ok, telescope = pcall(require, "telescope")
+	if not status_ok then
+		Log:error("Missing telescope")
+		return
+	end
+	telescope.setup(gungim.builtin.telescope)
+
+	if gungim.builtin.telescope.active then
+		pcall(function()
+			require("telescope").load_extension "aerial"
+			require("telescope").load_extension "media_files"
+			require("telescope").load_extension "notify"
+		end)
+	end
 end
 return M
