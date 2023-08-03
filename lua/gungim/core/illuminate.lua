@@ -32,15 +32,15 @@ function M.config()
 end
 
 function M.setup()
-	local active = gungim.builtin.illuminate.active
-	if not active then
-		return
-	end
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return
 	end
 	illuminate.setup(gungim.builtin.illuminate)
+
+  if gungim.builtin.illuminate.on_config_done then
+    gungim.builtin.illuminate.on_config_done()
+  end
 end
 
 return M

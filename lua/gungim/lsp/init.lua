@@ -17,9 +17,9 @@ local Log = require("gungim.log")
 local icons = require "gungim.icons"
 
 local function add_lsp_buffer_options(bufnr)
-  for k, v in pairs(gungim.lsp.buffer_options) do
-    vim.api.nvim_buf_set_option(bufnr, k, v)
-  end
+	for k, v in pairs(gungim.lsp.buffer_options) do
+		vim.api.nvim_buf_set_option(bufnr, k, v)
+	end
 end
 
 
@@ -73,11 +73,24 @@ end
 
 M.common_on_attach = function(client, bufnr)
 	add_lsp_keymap(bufnr)
+	local lu = require("gungim.lsp.utils")
+
+	if gungim.lsp.on_attach_callback then
+		gungim.lsp.on_attach_callback(client, bufnr)
+		Log:debug "Called lsp.on_attach_callback"
+	end
+
+	if gungim.lsp.document_highlight then
+		lu.setup_document_highlight(client, bufnr)
+	end
+
 	attach_navic(client, bufnr)
-  add_lsp_buffer_options(bufnr)
+	add_lsp_buffer_options(bufnr)
 end
 M.common_on_exit = function(_, _)
-
+	if gungim.lsp.document_highlight then
+		gungim.clear_augroup "lsp_document_highlight"
+	end
 end
 
 function M.get_common_opts()
