@@ -25,6 +25,7 @@ function M.setup()
 	require("gungim.core.telescope").setup()
 	require("gungim.core.gitsigns").setup()
 	require("gungim.core.colorizer").setup()
+	require("gungim.core.cmake").setup()
 end
 
 return M

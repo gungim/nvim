@@ -39,7 +39,6 @@ M.config = function()
 					jsx_attribute = '// %s',
 					comment = '// %s',
 				},
-
 				css = '/* %s */',
 				scss = '/* %s */',
 				html = '<!-- %s -->',

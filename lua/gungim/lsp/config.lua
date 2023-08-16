@@ -13,7 +13,7 @@ local skipped_servers = {
 	"svelte",
 	"rust_analyzer",
 	"bashls",
-	"vuels",
+	"volar",
 	"phpactor",
 	"cmake"
 }
@@ -34,7 +34,6 @@ return {
 			debug = false,
 		},
 		config = {},
-
 	},
 	buffer_options = {
 		--- enable completion triggered by <c-x><c-o>

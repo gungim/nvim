@@ -18,6 +18,7 @@ local builtins = {
 	"gungim.core.gitsigns",
 	"gungim.core.colorizer",
 	"gungim.core.indentline",
+	"gungim.core.cmake",
 }
 
 M.config = function()

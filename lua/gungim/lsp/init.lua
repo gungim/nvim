@@ -11,8 +11,6 @@ require("nvim-lsp-installer").setup({
 	}
 })
 
-
-
 local Log = require("gungim.log")
 local icons = require "gungim.icons"
 
@@ -21,7 +19,6 @@ local function add_lsp_buffer_options(bufnr)
 		vim.api.nvim_buf_set_option(bufnr, k, v)
 	end
 end
-
 
 function M.common_capabilities()
 	local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

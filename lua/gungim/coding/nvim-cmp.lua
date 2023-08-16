@@ -1,6 +1,6 @@
 local M = {}
 M.setup = function()
-	local snip_status_ok, luasnip = pcall(require, "luasnip")
+	local _, luasnip = pcall(require, "luasnip")
 	local cmp_status_ok, cmp = pcall(require, "cmp")
 	if not cmp_status_ok then
 		return
