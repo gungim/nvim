@@ -69,27 +69,26 @@ return packer.startup(function(use)
 	-- UI
 	use("lukas-reineke/indent-blankline.nvim")
 	use("nvim-lualine/lualine.nvim")
-	use('folke/tokyonight.nvim')
 	use { 'folke/noice.nvim', requires = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	} }
 	use("oxfist/night-owl.nvim")
 	use('gen740/SmoothCursor.nvim')
-	use({
-		"utilyre/barbecue.nvim",
-		tag = "*",
-		requires = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		after = "nvim-web-devicons",  -- keep this if you're using NvChad
-	})
+	use({ "SmiteshP/nvim-navic" })
 	use('nvim-tree/nvim-web-devicons')
 	use('RRethy/vim-illuminate')
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
+
+	-- Theme
+	use('folke/tokyonight.nvim')
+	use { "catppuccin/nvim", as = "catppuccin" }
+	use { 'projekt0n/github-nvim-theme' }
+	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	use {"akinsho/horizon.nvim", tag = "*"}
+	use "rebelot/kanagawa.nvim"
 
 	-- Coding
 	use { "hrsh7th/nvim-cmp", requires = {
@@ -98,7 +97,8 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"saadparwaiz1/cmp_luasnip"
-	} } -- The completion plugin
+	} }
+	-- The completion plugin
 	use 'echasnovski/mini.surround'
 	use 'echasnovski/mini.comment'
 	use("ziontee113/color-picker.nvim") -- color picker

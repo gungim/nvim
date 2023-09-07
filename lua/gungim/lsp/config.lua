@@ -15,7 +15,8 @@ local skipped_servers = {
 	"bashls",
 	"volar",
 	"phpactor",
-	"cmake"
+	"cmake",
+	"angularls"
 }
 
 local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }

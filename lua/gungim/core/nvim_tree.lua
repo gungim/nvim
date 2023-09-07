@@ -122,11 +122,6 @@ nvim_tree.setup {
 		hide_root_folder = false,
 		side = "left",
 		-- auto_resize = true,
-		mappings = {
-			custom_only = false,
-			list = {
-			},
-		},
 		number = true,
 		relativenumber = true,
 	},

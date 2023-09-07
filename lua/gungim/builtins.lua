@@ -3,7 +3,6 @@ local builtins = {
 	"gungim.core.theme",
 	"gungim.core.whichkey",
 	"gungim.core.alpha",
-	"gungim.core.barbecue",
 	"gungim.core.lualine",
 	"gungim.core.aerial",
 	"gungim.core.bufferline",

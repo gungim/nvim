@@ -1,5 +1,5 @@
 local icons = require("gungim.icons")
-local colors = require("tokyonight.colors").setup()
+local colors = require("gungim.core.theme").colors()
 local M = {}
 
 

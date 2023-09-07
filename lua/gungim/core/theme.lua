@@ -1,12 +1,53 @@
 local M = {}
 M.config = function()
 	gungim.builtin.theme = {
-		name = "tokyonight",
+		name = "kanagawa",
+		kanagawa = {
+			options = {}
+		},
+		horizon = {
+			options = {
+				styles = {
+					comments = { italic = true },
+					keywords = { italic = true },
+					functions = { italic = true },
+				}
+			}
+		},
+		["rose-pine"] = {
+			options = {
+				--- @usage 'auto'|'main'|'moon'|'dawn'
+				variant = 'main',
+				--- @usage 'main'|'moon'|'dawn'
+				dark_variant = 'dawn',
+				bold_vert_split = false,
+				dim_nc_background = false,
+				disable_background = false,
+				disable_float_background = false,
+				disable_italics = false,
+			},
+			highlight_groups = {
+				IndentBlanklineChar = {
+					fg = "gold"
+				},
+			}
+		},
+		["github-theme"] = {
+			options = {},
+		},
+		catppuccin = {
+			options = {
+				highlight_overrides = {},
+				custom_highlights = function(colors)
+					return {}
+				end
+			}
+		},
 		tokyonight = {
 			options = {
 				on_highlights = function(hl, c)
 					hl.IndentBlanklineContextChar = {
-						fg = c.dark5,
+						fg = c.yellow,
 					}
 					hl.TSConstructor = {
 						fg = c.blue1,
@@ -14,23 +55,21 @@ M.config = function()
 					hl.TSTagDelimiter = {
 						fg = c.dark5,
 					}
+					hl.ColorColumn = {
+						bg = c.dark3,
+					}
 				end,
-				style = "night",                   -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-				transparent = gungim.transparent_window, -- Enable this to disable setting the background color
-
-				terminal_colors = true,            -- Configure the colors used when opening a `:terminal` in Neovim
+				style = "night",
+				transparent = gungim.transparent_window,
+				terminal_colors = true,
 				styles = {
-					-- Style to be applied to different syntax groups
-					-- Value is any valid attr-list value for `:help nvim_set_hl`
 					comments = { italic = true },
 					keywords = { italic = true },
-					functions = {},
+					functions = { italic = true },
 					variables = {},
-					-- Background styles. Can be "dark", "transparent" or "normal"
-					sidebars = "dark", -- style for sidebars, see below
-					floats = "dark", -- style for floating windows
+					sidebars = "dark",
+					floats = "dark",
 				},
-				-- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
 				sidebars = {
 					"qf",
 					"vista_kind",
@@ -40,15 +79,61 @@ M.config = function()
 					"NeogitStatus",
 					"help",
 				},
-				day_brightness = 0.3,         -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-				hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-				dim_inactive = false,         -- dims inactive windows
-				lualine_bold = false,         -- When `true`, section headers in the lualine theme will be bold
-				use_background = true,        -- can be light/dark/auto. When auto, background will be set to vim.o.background
+				day_brightness = 0.3,
+				hide_inactive_statusline = false,
+				dim_inactive = false,
+				lualine_bold = false,
+				use_background = true,
+				on_colors = function(colors)
+					-- colors.bg = "#0d1117"
+					-- colors.bg = "#010409"
+				end,
 			},
 		}
 	}
 end
+M.colors = function()
+	local colors = {
+		none = "NONE",
+		bg_dark = "#16161e",
+		bg = "#1a1b26",
+		bg_highlight = "#292e42",
+		terminal_black = "#414868",
+		fg = "#c0caf5",
+		fg_dark = "#a9b1d6",
+		fg_gutter = "#3b4261",
+		dark3 = "#545c7e",
+		comment = "#565f89",
+		dark5 = "#737aa2",
+		blue0 = "#3d59a1",
+		blue = "#7aa2f7",
+		cyan = "#7dcfff",
+		blue1 = "#2ac3de",
+		blue2 = "#0db9d7",
+		blue5 = "#89ddff",
+		blue6 = "#b4f9f8",
+		blue7 = "#394b70",
+		magenta = "#bb9af7",
+		magenta2 = "#ff007c",
+		purple = "#9d7cd8",
+		orange = "#ff9e64",
+		yellow = "#e0af68",
+		green = "#9ece6a",
+		green1 = "#73daca",
+		green2 = "#41a6b5",
+		teal = "#1abc9c",
+		red = "#f7768e",
+		red1 = "#db4b4b",
+		git = { change = "#6183bb", add = "#449dab", delete = "#914c54" },
+		gitSigns = {
+			add = "#266d6a",
+			change = "#536c9e",
+			delete = "#b2555b",
+		},
+	}
+	return colors
+end
+
 M.setup = function()
 	local selected_theme = gungim.builtin.theme.name
 	if vim.startswith(gungim.colorscheme, selected_theme) then
@@ -61,7 +146,7 @@ M.setup = function()
 		end)
 	end
 
-  vim.g.colors_name = gungim.colorscheme
-  vim.cmd("colorscheme " .. gungim.colorscheme)
+	vim.g.colors_name = gungim.colorscheme
+	vim.cmd("colorscheme " .. gungim.colorscheme)
 end
 return M

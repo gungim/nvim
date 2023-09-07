@@ -39,13 +39,17 @@ function M.setup()
 	local default_opts = require("gungim.lsp").get_common_opts()
 	local opts = {
 		sources = {
-			null_ls.builtins.formatting.prettier,
+			null_ls.builtins.formatting.prettier.with({
+				condition = function(utils)
+					return utils.root_has_file { ".prettierrc", ".prettierrc.json" }
+				end,
+			}),
 			null_ls.builtins.formatting.rustfmt.with({
 				extra_args = { "--edition=2021" }
 			}),
 			null_ls.builtins.diagnostics.eslint.with({
 				condition = function(utils)
-					return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+					return utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.js" }
 				end,
 				prefer_local = "node_modules/.bin",
 			}),

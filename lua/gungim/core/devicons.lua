@@ -22,9 +22,18 @@ local node = {
 	color = "#8fce00"
 }
 
+local function get_filename_with_pattern(pat)
+	
+end
+
+local function set_icon_with_pattern(conf)
+	
+end
+
 require 'nvim-web-devicons'.set_icon {
 	zsh                        = {
-		icon = "", color = "#428850",
+		icon = "",
+		color = "#428850",
 		cterm_color = "65",
 		name = "Zsh"
 	},
@@ -49,7 +58,7 @@ require 'nvim-web-devicons'.set_icon {
 		icon = "",
 		color = "#38BCF9",
 		cterm_color = "113",
-		name = "tailwind"
+		name = "tailwindcss"
 	},
 	["package.json"]           = node,
 	["package-lock.json"]      = node,
@@ -70,6 +79,12 @@ require 'nvim-web-devicons'.set_icon {
 	["webpack.config.prod.js"] = webpack,
 	webpack                    = webpack,
 	[".eslintrc"]              = eslint,
-	[".eslintignore"]              = eslint,
+	[".eslintignore"]          = eslint,
 	[".babelrc"]               = babel,
+	["*.d.ts"]                 = {
+		icon = "",
+		color = "#38BCF9",
+		cterm_color = "113",
+		name = "tsconfig"
+	}
 }

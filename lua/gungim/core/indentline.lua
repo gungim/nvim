@@ -8,7 +8,7 @@ function M.config()
 			enabled = true,
 			show_end_of_line = false,
 			space_char_blankline = " ",
-			show_current_context_start = true,
+			show_current_context_start = false,
 			show_current_context = true,
 			use_treesitter = false,
 			show_first_indent_level = true,
