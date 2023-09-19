@@ -1,7 +1,7 @@
 local skipped_servers = {
 	"pyright",
 	"tsserver",
-	"tailwindcss",
+	-- "tailwindcss",
 	"lua_ls",
 	"clangd",
 	"diagnosticls",
@@ -29,12 +29,6 @@ return {
 		skipped_servers = skipped_servers,
 		---@usage list of filetypes that the automatic installer will skip
 		skipped_filetypes = skipped_filetypes,
-	},
-	null_ls = {
-		setup = {
-			debug = false,
-		},
-		config = {},
 	},
 	buffer_options = {
 		--- enable completion triggered by <c-x><c-o>

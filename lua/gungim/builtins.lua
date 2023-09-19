@@ -1,9 +1,7 @@
 local M = {}
 local builtins = {
-	"gungim.core.theme",
 	"gungim.core.whichkey",
 	"gungim.core.alpha",
-	"gungim.core.lualine",
 	"gungim.core.aerial",
 	"gungim.core.bufferline",
 	"gungim.core.illuminate",
@@ -18,6 +16,8 @@ local builtins = {
 	"gungim.core.colorizer",
 	"gungim.core.indentline",
 	"gungim.core.cmake",
+	"gungim.core.lualine",
+	--"gungim.core.formatter"
 }
 
 M.config = function()

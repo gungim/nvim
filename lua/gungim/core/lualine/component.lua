@@ -1,29 +1,33 @@
 local icons = require("gungim.icons")
-local colors = require("gungim.core.theme").colors()
+local colors = require("gungim.core.colors")
 local M = {}
 
 
 local mode_color = {
-	n = colors.red,
-	i = colors.green,
-	v = colors.blue,
-	[''] = colors.blue,
-	V = colors.blue,
-	c = colors.magenta,
-	no = colors.red,
-	s = colors.orange,
-	S = colors.orange,
-	[''] = colors.orange,
-	ic = colors.yellow,
-	R = colors.violet,
-	Rv = colors.violet,
-	cv = colors.red,
-	ce = colors.red,
-	r = colors.cyan,
-	rm = colors.cyan,
-	['r?'] = colors.cyan,
-	['!'] = colors.red,
-	t = colors.red,
+	n = colors.normal,
+	i = colors.insert,
+	v = colors.visual,
+	[''] = colors.visual,
+	V = colors.visual,
+	c = colors.command,
+	no = colors.normal,
+	s = colors.search,
+	S = colors.search,
+	[''] = colors.search,
+
+	ic = colors.visual,
+
+	R = colors.replace,
+	Rv = colors.replace,
+	cv = colors.normal,
+	ce = colors.normal,
+
+	r = colors.visual,
+	rm = colors.visual,
+	['r?'] = colors.visual,
+
+	['!'] = colors.normal,
+	t = colors.normal,
 }
 
 local conditions = {
@@ -95,8 +99,8 @@ local config = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we
 			-- are just setting default looks o statusline
-			normal = { c = { fg = colors.fg, bg = colors.bg_dark } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg_dark } },
+			normal = { c = { fg = colors.fg, bg = colors.bg } },
+			inactive = { c = { fg = colors.fg, bg = colors.bg } },
 		},
 		globalstatus = true,
 	},
@@ -164,7 +168,7 @@ ins_left {
 ins_left {
 	'filename',
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = 'bold' },
+	color = { fg = colors.file, gui = 'bold' },
 }
 
 ins_left { 'location' }
@@ -180,9 +184,10 @@ ins_left {
 		info = icons.diagnostics.BoldInformation .. " "
 	},
 	diagnostics_color = {
-		color_error = { fg = colors.red },
-		color_warn = { fg = colors.yellow },
-		color_info = { fg = colors.cyan },
+		color_error = { fg = colors.diag.error },
+		color_warn = { fg = colors.diag.warning },
+		color_info = { fg = colors.diag.info },
+		color_hint = { fg = colors.diag.hint },
 	},
 }
 
@@ -226,9 +231,9 @@ ins_right {
 		removed = icons.git.LineRemoved .. " "
 	},
 	diff_color = {
-		added = { fg = colors.gitSigns.add },
-		modified = { fg = colors.gitSigns.change },
-		removed = { fg = colors.gitSigns.delete },
+		added = { fg = colors.git.add },
+		modified = { fg = colors.git.change },
+		removed = { fg = colors.git.delete },
 	},
 	cond = conditions.hide_in_width,
 }
@@ -247,14 +252,14 @@ ins_right {
 	'o:encoding',      -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
-	color = { fg = colors.yellow, gui = 'bold' },
+	color = { fg = colors.insert, gui = 'bold' },
 }
 
 ins_right {
 	'fileformat',
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.yellow, gui = 'bold' },
+	color = { fg = colors.insert, gui = 'bold' },
 }
 
 ins_right {

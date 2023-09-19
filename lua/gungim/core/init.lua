@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-	require("gungim.core.theme").setup()
 	require("gungim.core.whichkey").setup()
 	require("gungim.core.lualine").setup()
 	require("gungim.core.bufferline").setup()
@@ -25,6 +24,7 @@ function M.setup()
 	require("gungim.core.gitsigns").setup()
 	require("gungim.core.colorizer").setup()
 	require("gungim.core.cmake").setup()
+	require("gungim.core.formatter")
 end
 
 return M

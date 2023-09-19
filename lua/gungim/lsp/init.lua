@@ -131,7 +131,6 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 	require("gungim.lsp.lsp-servers").setup()
-	require("gungim.lsp.null_ls").setup()
 	require("gungim.lsp.lsp-signature")
 end
 

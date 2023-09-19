@@ -4,6 +4,7 @@ function M:init()
 	gungim = vim.deepcopy(require("gungim.config.defaults"))
 
 	require("gungim.config.keymaps").load_defaults()
+	require("gungim.config.theme").setup()
 
 	local builtins = require("gungim.builtins")
 	builtins.config()
@@ -15,6 +16,7 @@ function M:init()
 	-- autocmds.load_defaults()
 
 	require("gungim.core").setup()
+	require("gungim.core.gitblame")
 end
 
 function M:load()

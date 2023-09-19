@@ -30,22 +30,18 @@ M.config = function()
 					icon = nil,
 					style = 'underline'
 				},
+
 				buffer_close_icon = icons.ui.BoldClose,
 				modified_icon = icons.ui.BoldClose,
 				close_icon = icons.ui.BoldClose,
 				left_trunc_marker = icons.ui.ArrowCircleLeft,
 				right_trunc_marker = icons.ui.ArrowCircleRight,
-				name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
-					-- remove extension from markdown files for example
-					if buf.name:match "%.md" then
-						return vim.fn.fnamemodify(buf.name, ":t:r")
-					end
-				end,
+
 				max_name_length = 18,
 				max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 				tab_size = 21,
 				diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
-				diagnostics_update_in_insert = false,
+				diagnostics_update_in_insert = true,
 				diagnostics_indicator = diagnostics_indicator,
 				offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center", } },
 				show_buffer_icons = true,

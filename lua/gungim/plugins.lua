@@ -108,7 +108,6 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("lewis6991/hover.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use({
@@ -117,6 +116,7 @@ return packer.startup(function(use)
 		"neovim/nvim-lspconfig"
 	})
 	use('mfussenegger/nvim-dap')
+	use { 'mhartington/formatter.nvim' }
 
 	-- Formatter, Comment
 	use("MunifTanjim/prettier.nvim")
@@ -132,7 +132,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	--[[ use 'f-person/git-blame.nvim' ]]
+	use 'f-person/git-blame.nvim'
 	-- Test
 
 	if PACKER_BOOTSTRAP then

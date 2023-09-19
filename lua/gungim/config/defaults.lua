@@ -38,6 +38,9 @@ local colorscheme = {
 return {
 	leader = "space",
 	colorscheme = colorscheme.kanagawa.dragon,
+	theme = "kanagawa",
+	themes = {},
+	colors = {},
 	keys = {},
 	icons = require("gungim.icons"),
 	lang = {},
