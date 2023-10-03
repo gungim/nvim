@@ -37,8 +37,8 @@ local colorscheme = {
 
 return {
 	leader = "space",
-	colorscheme = colorscheme.kanagawa.dragon,
-	theme = "kanagawa",
+	colorscheme = colorscheme.catppuccin.mocha,
+	theme = "catppuccin",
 	themes = {},
 	colors = {},
 	keys = {},

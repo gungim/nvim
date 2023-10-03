@@ -17,7 +17,10 @@ local builtins = {
 	"gungim.core.indentline",
 	"gungim.core.cmake",
 	"gungim.core.lualine",
-	--"gungim.core.formatter"
+	"gungim.core.formatter",
+	"gungim.core.nvim_tree",
+	"gungim.core.smoothcursor",
+	"gungim.core.noice"
 }
 
 M.config = function()

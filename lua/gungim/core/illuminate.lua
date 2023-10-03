@@ -39,7 +39,7 @@ function M.setup()
 	illuminate.setup(gungim.builtin.illuminate)
 
   if gungim.builtin.illuminate.on_config_done then
-    gungim.builtin.illuminate.on_config_done()
+    gungim.builtin.illuminate.on_config_done(illuminate)
   end
 end
 

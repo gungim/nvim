@@ -14,7 +14,6 @@ local skipped_servers = {
 	"rust_analyzer",
 	"bashls",
 	"volar",
-	"phpactor",
 	"cmake",
 	"angularls"
 }

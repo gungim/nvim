@@ -57,6 +57,9 @@ function M.setup()
 	require("mason-lspconfig").setup {
 		ensure_installed = gungim.lsp.automatic_configuration.skipped_servers,
 	}
+	if gungim.builtin.mason.on_config_done then
+		gungim.builtin.mason.on_config_done(mason)
+	end
 end
 
 return M
