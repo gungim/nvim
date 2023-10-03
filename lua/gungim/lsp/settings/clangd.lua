@@ -1,8 +1,8 @@
 local otps = {
-	filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	capabilities = {
-		offsetEncoding = "utf-8"
-	}
+		offsetEncoding = "utf-8",
+	},
 }
 
 return otps

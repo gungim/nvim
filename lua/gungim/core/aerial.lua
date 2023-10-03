@@ -1,9 +1,9 @@
 local M = {}
 
 M.config = function()
-	gungim.builtin.aerial = {
-		active = false,
-		setup  = {
+	gg.builtin.aerial = {
+		on_config_done = nil,
+		setup = {
 			backends = { "treesitter", "lsp", "markdown" },
 			layout = {
 				max_width = { 40, 0.2 },
@@ -76,21 +76,21 @@ M.config = function()
 			markdown = {
 				update_delay = 300,
 			},
-		}
+		},
 	}
 end
 
 M.setup = function()
-	local active = gungim.builtin.aerial.active
-	if not active then
-		return
-	end
 	local status_ok, aerial = pcall(require, "aerial")
 	if not status_ok then
 		return
 	end
 
-	aerial.setup(gungim.builtin.aerial.setup)
+	aerial.setup(gg.builtin.aerial.setup)
+
+	if gg.builtin.aerial.on_config_done then
+		gg.builtin.aerial.on_config_done(aerial)
+	end
 end
 
 return M

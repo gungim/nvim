@@ -4,7 +4,7 @@ local icons = require("gungim.icons")
 local M     = {}
 M.config    = function()
 	local actions = require("telescope.actions")
-	gungim.builtin.telescope = {
+	gg.builtin.telescope = {
 		active = true,
 		on_config_done = nil,
 		defaults = {
@@ -128,9 +128,9 @@ M.setup     = function()
 		Log:error("Missing telescope")
 		return
 	end
-	telescope.setup(gungim.builtin.telescope)
+	telescope.setup(gg.builtin.telescope)
 
-	if gungim.builtin.telescope.active then
+	if gg.builtin.telescope.active then
 		pcall(function()
 			require("telescope").load_extension "aerial"
 			require("telescope").load_extension "media_files"

@@ -20,7 +20,7 @@ local builtins = {
 	"gungim.core.formatter",
 	"gungim.core.nvim_tree",
 	"gungim.core.smoothcursor",
-	"gungim.core.noice"
+	"gungim.core.noice",
 }
 
 M.config = function()

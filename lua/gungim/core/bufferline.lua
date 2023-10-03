@@ -17,18 +17,18 @@ local function diagnostics_indicator(num, _, diagnostics, _)
 end
 
 M.config = function()
-	gungim.builtin.bufferline = {
-		active = true,
+	gg.builtin.bufferline = {
+		on_config_done = nil,
 		setup = {
 			options = {
 				mode = "buffers",
-				numbers = "none",        -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-				close_command = "none",  -- can be a string | function, see "Mouse actions"
+				numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+				close_command = "none", -- can be a string | function, see "Mouse actions"
 				left_mouse_command = "none", -- can be a string | function, see "Mouse actions"
 				middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 				indicator = {
 					icon = nil,
-					style = 'underline'
+					style = "underline",
 				},
 
 				buffer_close_icon = icons.ui.BoldClose,
@@ -43,7 +43,7 @@ M.config = function()
 				diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
 				diagnostics_update_in_insert = true,
 				diagnostics_indicator = diagnostics_indicator,
-				offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center", } },
+				offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
 				show_buffer_icons = true,
 				show_buffer_close_icons = false,
 				show_close_icon = false,
@@ -52,25 +52,21 @@ M.config = function()
 				separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 				enforce_regular_tabs = false,
 				always_show_bufferline = true,
-
-			}
-		}
+			},
+		},
 	}
 end
 
 function M.setup()
-	local activce = gungim.builtin.bufferline.active
-	if not activce then
-		return
-	end
 	local status_ok, bufferline = pcall(require, "bufferline")
 	if not status_ok then
 		return
 	end
 
-	bufferline.setup(
-		gungim.builtin.bufferline.setup
-	)
+	bufferline.setup(gg.builtin.bufferline.setup)
+	if gg.builtin.bufferline.on_config_done then
+		gg.builtin.bufferline.on_config_done(bufferline)
+	end
 end
 
 return M

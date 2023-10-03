@@ -1,7 +1,7 @@
-local lspconfig = require 'lspconfig'
+local lspconfig = require("lspconfig")
 
 local opts = {
-	root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json")
+	root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
 }
 
 return opts

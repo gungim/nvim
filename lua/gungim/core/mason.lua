@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	gungim.builtin.mason = {
+	gg.builtin.mason = {
 		ui = {
 			check_outdated_packages_on_open = true,
 			width = 0.8,
@@ -52,13 +52,13 @@ function M.setup()
 		return
 	end
 
-	mason.setup(gungim.builtin.mason)
+	mason.setup(gg.builtin.mason)
 
 	require("mason-lspconfig").setup {
-		ensure_installed = gungim.lsp.automatic_configuration.skipped_servers,
+		ensure_installed = gg.lsp.automatic_configuration.skipped_servers,
 	}
-	if gungim.builtin.mason.on_config_done then
-		gungim.builtin.mason.on_config_done(mason)
+	if gg.builtin.mason.on_config_done then
+		gg.builtin.mason.on_config_done(mason)
 	end
 end
 

@@ -4,18 +4,26 @@ return {
 		Lua = {
 			diagnostics = {
 				enable = true,
-				globals = { 'vim', 'system', 'display' },
+				globals = { "vim", "system", "display" },
 			},
-			runtime = { version = 'LuaJIT' },
+			runtime = { version = "LuaJIT" },
 			workspace = {
-				library = vim.list_extend({ [vim.fn.expand('$VIMRUNTIME/lua')] = true }, {}),
+				library = vim.list_extend({ [vim.fn.expand("$VIMRUNTIME/lua")] = true }, {}),
 			},
 			completion = {
-				callSnippet = "Replace"
-			}
+				callSnippet = "Replace",
+			},
 		},
 	},
-	root_dir = lspconfig.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml",
-		"selene.toml", "selene.yml", ".git"),
-	filetypes = { "lua" }
+	root_dir = lspconfig.util.root_pattern(
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git"
+	),
+	filetypes = { "lua" },
 }

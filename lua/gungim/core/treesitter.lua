@@ -1,8 +1,7 @@
 local M = {}
 
 M.config = function()
-	gungim.builtin.treesitter = {
-		active = true,
+	gg.builtin.treesitter = {
 		on_config_done = nil,
 		ensure_installed = {
 			"lua",
@@ -22,11 +21,10 @@ M.config = function()
 			"markdown",
 			"markdown_inline",
 		},
-		sync_install = false,
+		sync_install = true,
 		highlight = {
 			enable = true,
 		},
-
 		autopairs = {
 			enable = true,
 		},
@@ -107,7 +105,8 @@ M.config = function()
 		},
 		rainbow = {
 			enable = true,
-			extended_mode = true,
+			disable = { "html", "python", "yaml" },
+			strategy = require("ts-rainbow").strategy.global,
 		},
 	}
 end
@@ -118,11 +117,10 @@ M.setup = function()
 		return
 	end
 
-	local config = vim.deepcopy(gungim.builtin.treesitter)
-	tressiter.setup(config)
+	tressiter.setup(gg.builtin.treesitter)
 
-	if gungim.builtin.treesitter.on_config_done then
-		gungim.builtin.treesitter.on_config_done(tressiter)
+	if gg.builtin.treesitter.on_config_done then
+		gg.builtin.treesitter.on_config_done(tressiter)
 	end
 end
 

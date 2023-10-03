@@ -2,7 +2,7 @@ local M = {}
 local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 
 M.config = function()
-	gungim.builtin.which_key = {
+	gg.builtin.which_key = {
 		active = true,
 		on_config_done = nil,
 		setup = {
@@ -182,16 +182,16 @@ M.setup = function()
 		return
 	end
 
-	local opts = gungim.builtin.which_key.opts
-	local vopts = gungim.builtin.which_key.vopts
-	local mappings = gungim.builtin.which_key.mappings
-	local vmappings = gungim.builtin.which_key.vmappings
+	local opts = gg.builtin.which_key.opts
+	local vopts = gg.builtin.which_key.vopts
+	local mappings = gg.builtin.which_key.mappings
+	local vmappings = gg.builtin.which_key.vmappings
 
-	which_key.setup(gungim.builtin.which_key.setup)
+	which_key.setup(gg.builtin.which_key.setup)
 	which_key.register(mappings, opts)
 	which_key.register(vmappings, vopts)
-	if gungim.builtin.which_key.on_config_done then
-		gungim.builtin.which_key.on_config_done(which_key)
+	if gg.builtin.which_key.on_config_done then
+		gg.builtin.which_key.on_config_done(which_key)
 	end
 end
 

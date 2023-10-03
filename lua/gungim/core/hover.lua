@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.builtin.hover = {
+	gg.builtin.hover = {
 		init = function()
 			require("hover.providers.lsp")
 			require("hover.providers.gh")
@@ -19,7 +19,7 @@ M.setup = function()
 		return
 	end
 
-	hover.setup(gungim.builtin.hover)
+	hover.setup(gg.builtin.hover)
 end
 
 return M

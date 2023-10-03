@@ -1,5 +1,5 @@
 return {
 	settings = {
-		filetypes = { "hbs", "html" }
-	}
+		filetypes = { "hbs", "html" },
+	},
 }

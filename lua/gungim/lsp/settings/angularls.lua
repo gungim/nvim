@@ -1,3 +1,2 @@
-local otps = {
-}
+local otps = {}
 return otps

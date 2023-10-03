@@ -1,14 +1,14 @@
 local M = {}
 
 M.config = function()
-	gungim.builtin.lualine = {
+	gg.builtin.lualine = {
 		active = true,
 		setup = require("gungim.core.lualine.component")
 	}
 end
 
 function M.setup()
-	local active = gungim.builtin.lualine.active
+	local active = gg.builtin.lualine.active
 	if not active then
 		return
 	end
@@ -20,7 +20,7 @@ function M.setup()
 		return
 	end
 	-- Now don't forget to initialize lualine
-	lualine.setup(gungim.builtin.lualine.setup)
+	lualine.setup(gg.builtin.lualine.setup)
 end
 
 return M

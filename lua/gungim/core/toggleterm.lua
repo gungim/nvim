@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gungim.builtin.toggleterm = {
+	gg.builtin.toggleterm = {
 		active = true,
 		on_config_done = nil,
 		size = function(term)
@@ -41,7 +41,7 @@ M.config = function()
 end
 
 function M.setup()
-	local config = gungim.builtin.toggleterm
+	local config = gg.builtin.toggleterm
 
 	local status_ok, toggleterm = pcall(require, "toggleterm")
 	if not status_ok then
@@ -49,8 +49,8 @@ function M.setup()
 	end
 
 	toggleterm.setup(config)
-	if gungim.builtin.toggleterm.on_config_done then
-		gungim.builtin.toggleterm.on_config_done(toggleterm)
+	if gg.builtin.toggleterm.on_config_done then
+		gg.builtin.toggleterm.on_config_done(toggleterm)
 	end
 end
 

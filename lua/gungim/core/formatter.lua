@@ -2,7 +2,7 @@ local M = {}
 local util = require("formatter.util")
 
 M.config = function()
-	gungim.builtin.formatter = {
+	gg.builtin.formatter = {
 		active = true,
 		on_config_done = nil,
 		logging = true,
@@ -60,10 +60,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	formatter.setup(gungim.builtin.formatter)
+	formatter.setup(gg.builtin.formatter)
 
-	if gungim.builtin.formatter.on_config_done then
-		gungim.builtin.which_key.on_config_done(formatter)
+	if gg.builtin.formatter.on_config_done then
+		gg.builtin.which_key.on_config_done(formatter)
 	end
 end
 return M

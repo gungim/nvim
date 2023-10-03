@@ -1,18 +1,18 @@
-local lspconfig = require 'lspconfig'
+local lspconfig = require("lspconfig")
 local opts = {
 	settings = {
 		codeAction = {
 			disableRuleComment = {
 				enable = true,
-				location = "separateLine"
+				location = "separateLine",
 			},
 			showDocumentation = {
-				enable = true
-			}
+				enable = true,
+			},
 		},
 		codeActionOnSave = {
 			enable = false,
-			mode = "all"
+			mode = "all",
 		},
 		format = true,
 		nodePath = "",
@@ -24,11 +24,17 @@ local opts = {
 		useESLintClass = false,
 		validate = "on",
 		workingDirectory = {
-			mode = "location"
-		}
+			mode = "location",
+		},
 	},
-	root_dir = lspconfig.util.root_pattern('.eslintrc.js', ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml",
-		".eslintrc.json", ".eslintrc")
+	root_dir = lspconfig.util.root_pattern(
+		".eslintrc.js",
+		".eslintrc.cjs",
+		".eslintrc.yaml",
+		".eslintrc.yml",
+		".eslintrc.json",
+		".eslintrc"
+	),
 }
 
 return opts

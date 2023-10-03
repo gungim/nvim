@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.builtin.smoothcursor = {
+	gg.builtin.smoothcursor = {
 
 		autostart = true,
 		on_config_done = nil,
@@ -10,7 +10,7 @@ M.config = function()
 		type = "default", -- define cursor movement calculate function, "default" or "exp" (exponential).
 		fancy = {
 			enable = false, -- enable fancy mode
-			head = { cursor = gungim.icons.ui.Pencil, texthl = "SmoothCursor", linehl = nil },
+			head = { cursor = gg.icons.ui.Pencil, texthl = "SmoothCursor", linehl = nil },
 			body = {
 				{ cursor = "", texthl = "SmoothCursorRed" },
 				{ cursor = "", texthl = "SmoothCursorOrange" },
@@ -37,10 +37,10 @@ function M.setup()
 	if not status_ok then
 		return
 	end
-	smoothcursor.setup(gungim.builtin.smoothcursor)
+	smoothcursor.setup(gg.builtin.smoothcursor)
 
-	if gungim.builtin.smoothcursor.on_config_done then
-		gungim.builtin.smoothcursor.on_config_done(smoothcursor)
+	if gg.builtin.smoothcursor.on_config_done then
+		gg.builtin.smoothcursor.on_config_done(smoothcursor)
 	end
 end
 return M

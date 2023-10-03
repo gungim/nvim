@@ -21,7 +21,7 @@ local function lauch_server(server_name, config)
 end
 
 M.setup = function()
-	local server_names = gungim.lsp.automatic_configuration.skipped_servers or utils.get_supported_servers()
+	local server_names = gg.lsp.automatic_configuration.skipped_servers or utils.get_supported_servers()
 
 	for _, server in ipairs(server_names) do
 		local config = reslove_config(server, {})

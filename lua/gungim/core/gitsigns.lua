@@ -1,37 +1,37 @@
 local M  = {}
 M.config = function()
-	gungim.builtin.gitsigns = {
+	gg.builtin.gitsigns = {
 		active = true,
 		on_config_done = nil,
 		opts = {
 			signs = {
 				add = {
 					hl = "GitSignsAdd",
-					text = gungim.icons.ui.BoldLineLeft,
+					text = gg.icons.ui.BoldLineLeft,
 					numhl = "GitSignsAddNr",
 					linehl = "GitSignsAddLn",
 				},
 				change = {
 					hl = "GitSignsChange",
-					text = gungim.icons.ui.BoldLineLeft,
+					text = gg.icons.ui.BoldLineLeft,
 					numhl = "GitSignsChangeNr",
 					linehl = "GitSignsChangeLn",
 				},
 				delete = {
 					hl = "GitSignsDelete",
-					text = gungim.icons.ui.BoldLineLeft,
+					text = gg.icons.ui.BoldLineLeft,
 					numhl = "GitSignsDeleteNr",
 					linehl = "GitSignsDeleteLn",
 				},
 				topdelete = {
 					hl = "GitSignsDelete",
-					text = gungim.icons.ui.BoldLineLeft,
+					text = gg.icons.ui.BoldLineLeft,
 					numhl = "GitSignsDeleteNr",
 					linehl = "GitSignsDeleteLn",
 				},
 				changedelete = {
 					hl = "GitSignsChange",
-					text = gungim.icons.ui.BoldLineLeft,
+					text = gg.icons.ui.BoldLineLeft,
 					numhl = "GitSignsChangeNr",
 					linehl = "GitSignsChangeLn",
 				},
@@ -76,9 +76,9 @@ M.setup  = function()
 		return
 	end
 
-	gitsigns.setup(gungim.builtin.gitsigns.opts)
-	if gungim.builtin.gitsigns.on_config_done then
-		gungim.builtin.gitsigns.on_config_done(gitsigns)
+	gitsigns.setup(gg.builtin.gitsigns.opts)
+	if gg.builtin.gitsigns.on_config_done then
+		gg.builtin.gitsigns.on_config_done(gitsigns)
 	end
 end
 

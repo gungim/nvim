@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.builtin.noice = {
+	gg.builtin.noice = {
 		on_config_done = nil,
 		lsp = {
 			override = {
@@ -36,9 +36,9 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	noice.setup(gungim.builtin.noice)
-	if gungim.builtin.noice.on_config_done then
-		gungim.builtin.noice.on_config_done(noice)
+	noice.setup(gg.builtin.noice)
+	if gg.builtin.noice.on_config_done then
+		gg.builtin.noice.on_config_done(noice)
 	end
 end
 return M

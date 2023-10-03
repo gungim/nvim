@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gungim.builtin.project = {
+	gg.builtin.project = {
 		active = true,
 		on_config_done = nil,
 		manual_mode = false,
@@ -19,10 +19,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	project.setup(gungim.builtin.project)
+	project.setup(gg.builtin.project)
 
-	if gungim.builtin.project.on_config_done then
-		gungim.builtin.project.on_config_done(project)
+	if gg.builtin.project.on_config_done then
+		gg.builtin.project.on_config_done(project)
 	end
 end
 return M

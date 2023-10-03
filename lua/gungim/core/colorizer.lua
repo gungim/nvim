@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.builtin.colorizer = {
+	gg.builtin.colorizer = {
 		filetypes = { "*" },
 		on_config_done = nil,
 		user_default_options = {
@@ -27,9 +27,9 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	colorizer.setup(gungim.builtin.colorizer)
-	if gungim.builtin.colorizer.on_config_done then
-		gungim.builtin.colorizer.on_config_done(colorizer)
+	colorizer.setup(gg.builtin.colorizer)
+	if gg.builtin.colorizer.on_config_done then
+		gg.builtin.colorizer.on_config_done(colorizer)
 	end
 end
 

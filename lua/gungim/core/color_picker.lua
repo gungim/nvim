@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.builtin.color_picker = {
+	gg.builtin.color_picker = {
 		setup = {
 
 			["icons"] = { "ﱢ", "" },
@@ -18,7 +18,7 @@ vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 M.setup = function()
-	local config = gungim.builtin.color_picker
+	local config = gg.builtin.color_picker
 	if not config.active then
 		return
 	end

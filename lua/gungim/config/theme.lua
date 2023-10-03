@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gungim.themes = {
+	gg.themes = {
 		kanagawa = {
 			options = {},
 			colors = {}
@@ -56,7 +56,7 @@ M.config = function()
 					}
 				end,
 				style = "night",
-				transparent = gungim.transparent_window,
+				transparent = gg.transparent_window,
 				terminal_colors = true,
 				styles = {
 					comments = { italic = true },
@@ -90,18 +90,18 @@ M.config = function()
 end
 
 M.setup = function()
-	local selected_theme = gungim.theme
-	if vim.startswith(gungim.colorscheme, selected_theme) then
+	local selected_theme = gg.theme
+	if vim.startswith(gg.colorscheme, selected_theme) then
 		local status_ok, plugin = pcall(require, selected_theme)
 		if not status_ok then
 			return
 		end
 		pcall(function()
-			plugin.setup(gungim.themes[selected_theme].options)
+			plugin.setup(gg.themes[selected_theme].options)
 		end)
 	end
 
-	vim.g.colors_name = gungim.colorscheme
-	vim.cmd("colorscheme " .. gungim.colorscheme)
+	vim.g.colors_name = gg.colorscheme
+	vim.cmd("colorscheme " .. gg.colorscheme)
 end
 return M

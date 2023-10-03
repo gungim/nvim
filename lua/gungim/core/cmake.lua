@@ -2,7 +2,7 @@ local M = {
 
 }
 M.config = function()
-	gungim.builtin.cmake_tools = {
+	gg.builtin.cmake_tools = {
 		cmake_command = "cmake",                                        -- this is used to specify cmake command path
 		cmake_regenerate_on_save = true,                                -- auto generate when save CMakeLists.txt
 		cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
@@ -52,7 +52,7 @@ end
 
 M.setup = function()
 	local _, cmake_tools = pcall(require, "cmake-tools")
-	cmake_tools.setup(gungim.builtin.cmake_tools)
+	cmake_tools.setup(gg.builtin.cmake_tools)
 end
 
 return M

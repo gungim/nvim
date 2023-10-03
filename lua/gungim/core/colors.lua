@@ -8,7 +8,7 @@ return {
 	replace = "#f38ba8",
 	inactive = "#89dceb",
 	search = "#89dceb",
-	file = "#cdd6f4",
+	file = "#cba6f7",
 	git = {
 		add    = "#a6e3a1",
 		remove = "#f38ba8",
@@ -16,8 +16,8 @@ return {
 	},
 	diag = {
 		ok      = "#a6e3a1",
-		error   = "#f9e2af",
-		warning = "#eba0ac",
+		error   = "#f38ba8",
+		warning = "#f9e2af",
 		info    = "#74c7ec",
 		hint    = "#f5c2e7",
 	}

@@ -44,11 +44,11 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
 	-- Lua development
-	use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
+	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("folke/neodev.nvim")
 	-- C++ development
-	use('Civitasv/cmake-tools.nvim')
+	use("Civitasv/cmake-tools.nvim")
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
@@ -60,79 +60,88 @@ return packer.startup(function(use)
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
 	-- Finder
-	use {
-		"nvim-telescope/telescope.nvim", tag = "0.1.1",
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("nvim-telescope/telescope-media-files.nvim")
 
 	-- UI
 	use("lukas-reineke/indent-blankline.nvim")
 	use("nvim-lualine/lualine.nvim")
-	use { 'folke/noice.nvim', requires = {
+	use({ "folke/noice.nvim", requires = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
-	} }
+	} })
 	use("oxfist/night-owl.nvim")
-	use('gen740/SmoothCursor.nvim')
+	use("gen740/SmoothCursor.nvim")
 	use({ "SmiteshP/nvim-navic" })
-	use('nvim-tree/nvim-web-devicons')
-	use('RRethy/vim-illuminate')
+	use("nvim-tree/nvim-web-devicons")
+	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-	use({ 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' })
+	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+		after = "nvim-web-devicons",
+	})
 
 	-- Theme
-	use('folke/tokyonight.nvim')
-	use { "catppuccin/nvim", as = "catppuccin" }
-	use { 'projekt0n/github-nvim-theme' }
-	use({ 'rose-pine/neovim', as = 'rose-pine' })
-	use {"akinsho/horizon.nvim", tag = "*"}
-	use "rebelot/kanagawa.nvim"
+	use("folke/tokyonight.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "projekt0n/github-nvim-theme" })
+	use({ "rose-pine/neovim", as = "rose-pine" })
+	use({ "akinsho/horizon.nvim", tag = "*" })
+	use("rebelot/kanagawa.nvim")
 
 	-- Coding
-	use { "hrsh7th/nvim-cmp", requires = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip"
-	} }
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	})
 	-- The completion plugin
-	use 'echasnovski/mini.surround'
-	use 'echasnovski/mini.comment'
+	use("echasnovski/mini.surround")
+	use("echasnovski/mini.comment")
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")
-	use { "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp"
-	}
+	use({ "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp" })
 
 	-- LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("lewis6991/hover.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig"
+		"neovim/nvim-lspconfig",
 	})
-	use('mfussenegger/nvim-dap')
-	use { 'mhartington/formatter.nvim' }
 
 	-- Formatter, Comment
 	use("MunifTanjim/prettier.nvim")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({ "mhartington/formatter.nvim" })
 
 	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", commit = "51ea343f705a89326cff8dd7a0542d7fe0e6699a" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
-	use("p00f/nvim-ts-rainbow")
+	use("HiPhish/nvim-ts-rainbow2")
 	use("stevearc/aerial.nvim")
-	use { 'm-demare/hlargs.nvim' }
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use 'f-person/git-blame.nvim'
+	use("f-person/git-blame.nvim")
 	-- Test
 
 	if PACKER_BOOTSTRAP then

@@ -270,7 +270,7 @@ ins_right {
 		-- auto change color according to neovims mode
 		return { fg = mode_color[vim.fn.mode()] }
 	end,
-	padding = { left = 1 },
+	-- padding = { left = 1 },
 }
 
 return config

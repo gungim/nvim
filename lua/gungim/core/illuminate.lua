@@ -1,6 +1,6 @@
 local M = {}
 function M.config()
-	gungim.builtin.illuminate = {
+	gg.builtin.illuminate = {
 		active = true,
 		on_config_done = nil,
 		options = {
@@ -36,10 +36,10 @@ function M.setup()
 	if not status_ok then
 		return
 	end
-	illuminate.setup(gungim.builtin.illuminate)
+	illuminate.setup(gg.builtin.illuminate)
 
-  if gungim.builtin.illuminate.on_config_done then
-    gungim.builtin.illuminate.on_config_done(illuminate)
+  if gg.builtin.illuminate.on_config_done then
+    gg.builtin.illuminate.on_config_done(illuminate)
   end
 end
 

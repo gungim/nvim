@@ -36,7 +36,7 @@ M.config = function()
 		require("gungim.config.keymaps").load_mode("n", userful_keys)
 	end
 
-	gungim.builtin.nvim_tree = {
+	gg.builtin.nvim_tree = {
 		on_config_done = nil,
 		on_attach = on_attach,
 		auto_reload_on_write = true,
@@ -118,7 +118,6 @@ M.config = function()
 		},
 		view = {
 			width = 50,
-			hide_root_folder = false,
 			side = "left",
 			-- auto_resize = true,
 			number = true,
@@ -147,10 +146,10 @@ M.setup = function()
 		return
 	end
 
-	nvim_tree.setup(gungim.builtin.nvim_tree)
+	nvim_tree.setup(gg.builtin.nvim_tree)
 
-	if gungim.builtin.nvim_tree.on_config_done then
-		gungim.builtin.on_config_done(nvim_tree)
+	if gg.builtin.nvim_tree.on_config_done then
+		gg.builtin.on_config_done(nvim_tree)
 	end
 end
 return M
