@@ -104,7 +104,7 @@ M.config = function()
 			},
 		},
 		rainbow = {
-			enable = true,
+			enable = false,
 			disable = { "html", "python", "yaml" },
 			strategy = require("ts-rainbow").strategy.global,
 		},

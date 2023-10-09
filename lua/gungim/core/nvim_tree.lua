@@ -1,7 +1,8 @@
-local icons = require("gungim.icons")
 local M = {}
 
 M.config = function()
+	local icons = require("gungim.icons")
+
 	local function on_attach(bufnr)
 		local api = require("nvim-tree.api")
 
@@ -44,13 +45,14 @@ M.config = function()
 		prefer_startup_root = true,
 		sync_root_with_cwd = false,
 		filters = {
-			custom = { ".git", "node_modules", "\\.cache" },
+			-- custom = { ".git", "node_modules", "\\.cache" },
 			exclude = { ".gitignore" },
 		},
 		update_cwd = true,
 		renderer = {
 			highlight_git = true,
-			root_folder_modifier = ":t",
+			root_folder_label = false,
+
 			indent_markers = {
 				enable = true,
 				icons = {
@@ -126,7 +128,7 @@ M.config = function()
 		actions = {
 			change_dir = {
 				enable = true,
-				global = false,
+				global = true,
 				restrict_above_cwd = false,
 			},
 			expand_all = {

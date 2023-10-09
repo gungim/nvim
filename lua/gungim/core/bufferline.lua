@@ -43,7 +43,15 @@ M.config = function()
 				diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
 				diagnostics_update_in_insert = true,
 				diagnostics_indicator = diagnostics_indicator,
-				offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
+				offsets = {
+					{
+						filetype = "NvimTree",
+						text = function()
+							return vim.fn.getcwd()
+						end,
+						text_align = "center",
+					},
+				},
 				show_buffer_icons = true,
 				show_buffer_close_icons = false,
 				show_close_icon = false,
@@ -64,6 +72,7 @@ function M.setup()
 	end
 
 	bufferline.setup(gg.builtin.bufferline.setup)
+	require("barbecue").setup()
 	if gg.builtin.bufferline.on_config_done then
 		gg.builtin.bufferline.on_config_done(bufferline)
 	end

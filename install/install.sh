@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 printf "\n------------------------- Install Dependencies -------------------------\n"
 brew install git curl gcc python3-pip cmake ripgrep python-is-python3 > /dev/null
 

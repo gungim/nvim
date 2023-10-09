@@ -2,7 +2,6 @@ local M = {}
 
 M.config = function()
 	gg.builtin.toggleterm = {
-		active = true,
 		on_config_done = nil,
 		size = function(term)
 			if term.direction == "horizontal" then

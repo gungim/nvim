@@ -2,7 +2,6 @@ local M = {}
 
 M.config = function()
 	gg.builtin.project = {
-		active = true,
 		on_config_done = nil,
 		manual_mode = false,
 		detection_methods = { "pattern" },

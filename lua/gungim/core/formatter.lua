@@ -1,9 +1,9 @@
 local M = {}
-local util = require("formatter.util")
 
 M.config = function()
+	local util = require("formatter.util")
+
 	gg.builtin.formatter = {
-		active = true,
 		on_config_done = nil,
 		logging = true,
 		log_level = vim.log.levels.WARN,
@@ -26,6 +26,9 @@ M.config = function()
 						stdin = true,
 					}
 				end,
+			},
+			c = {
+				require("formatter.filetypes.c").clangformat,
 			},
 			typescript = {
 				require("formatter.filetypes.typescript").prettier,

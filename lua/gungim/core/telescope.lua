@@ -1,9 +1,7 @@
-local Log   = require("gungim.log")
-local icons = require("gungim.icons")
-
-local M     = {}
-M.config    = function()
+local M = {}
+M.config = function()
 	local actions = require("telescope.actions")
+	local icons = require("gungim.icons")
 	gg.builtin.telescope = {
 		active = true,
 		on_config_done = nil,
@@ -105,36 +103,35 @@ M.config    = function()
 		pickers = {
 			find_files = {
 				theme = "dropdown", -- ivy, cursor
-			}
+			},
 		},
 		extensions = {
 			aerial = {
 				-- Display symbols as <root>.<parent>.<symbol>
-				show_nesting = true
+				show_nesting = true,
 			},
 			media_files = {
 				-- filetypes whitelist
 				-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
 				filetypes = { "png", "webp", "jpg", "jpeg", "ico" },
-				find_cmd = "fd" -- find command (defaults to `fd`)
-			}
-		}
+				find_cmd = "fd", -- find command (defaults to `fd`)
+			},
+		},
 	}
 end
 
-M.setup     = function()
+M.setup = function()
 	local status_ok, telescope = pcall(require, "telescope")
 	if not status_ok then
-		Log:error("Missing telescope")
 		return
 	end
 	telescope.setup(gg.builtin.telescope)
 
 	if gg.builtin.telescope.active then
 		pcall(function()
-			require("telescope").load_extension "aerial"
-			require("telescope").load_extension "media_files"
-			require("telescope").load_extension "notify"
+			require("telescope").load_extension("aerial")
+			require("telescope").load_extension("media_files")
+			require("telescope").load_extension("notify")
 		end)
 	end
 end

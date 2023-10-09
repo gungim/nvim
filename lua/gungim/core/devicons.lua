@@ -14,77 +14,69 @@ local eslint = {
 	icon = "󰃠",
 	color = "#A6A6ED",
 	cterm_color = "24",
-	name = "Eslint"
+	name = "Eslint",
 }
 local node = {
 	icon = "",
 	name = "package",
-	color = "#8fce00"
+	color = "#8fce00",
 }
 
-local function get_filename_with_pattern(pat)
-	
-end
-
-local function set_icon_with_pattern(conf)
-	
-end
-
-require 'nvim-web-devicons'.set_icon {
-	zsh                        = {
+require("nvim-web-devicons").set_icon({
+	zsh = {
 		icon = "",
 		color = "#428850",
 		cterm_color = "65",
-		name = "Zsh"
+		name = "Zsh",
 	},
-	css                        = {
+	css = {
 		icon = "",
 		color = "#03A9F4",
 		cterm_color = "39",
 		name = "Css",
 	},
-	less                       = {
+	less = {
 		icon = "",
 		name = "Less",
 		color = "#F64D27",
 	},
-	[".prettierrc"]            = {
+	[".prettierrc"] = {
 		icon = "󰰙",
 		color = "#55B3B4",
 		cterm_color = "113",
 		name = "Prettier",
 	},
-	["tailwind.config.js"]     = {
+	["tailwind.config.js"] = {
 		icon = "",
 		color = "#38BCF9",
 		cterm_color = "113",
-		name = "tailwindcss"
+		name = "tailwindcss",
 	},
-	["package.json"]           = node,
-	["package-lock.json"]      = node,
-	[".env"]                   = {
+	["package.json"] = node,
+	["package-lock.json"] = node,
+	[".env"] = {
 		icon = "",
 		color = "#faf743",
 		cterm_color = "226",
 		name = "Env",
 	},
-	[".gitignore"]             = {
+	[".gitignore"] = {
 		icon = "",
 		color = "#F64D27",
 		cterm_color = "59",
 		name = "GitIgnore",
 	},
-	["webpack.config.js"]      = webpack,
-	["webpack.config.dev.js"]  = webpack,
+	["webpack.config.js"] = webpack,
+	["webpack.config.dev.js"] = webpack,
 	["webpack.config.prod.js"] = webpack,
-	webpack                    = webpack,
-	[".eslintrc"]              = eslint,
-	[".eslintignore"]          = eslint,
-	[".babelrc"]               = babel,
-	["*.d.ts"]                 = {
+	webpack = webpack,
+	[".eslintrc"] = eslint,
+	[".eslintignore"] = eslint,
+	[".babelrc"] = babel,
+	["*.d.ts"] = {
 		icon = "",
 		color = "#38BCF9",
 		cterm_color = "113",
-		name = "tsconfig"
-	}
-}
+		name = "tsconfig",
+	},
+})

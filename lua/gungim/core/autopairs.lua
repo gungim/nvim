@@ -52,20 +52,7 @@ M.setup = function()
 		return
 	end
 
-	autopairs.setup {
-		check_ts = gg.builtin.autopairs.check_ts,
-		enable_check_bracket_line = gg.builtin.autopairs.enable_check_bracket_line,
-		ts_config = gg.builtin.autopairs.ts_config,
-		disable_filetype = gg.builtin.autopairs.disable_filetype,
-		disable_in_macro = gg.builtin.autopairs.disable_in_macro,
-		ignored_next_char = gg.builtin.autopairs.ignored_next_char,
-		enable_moveright = gg.builtin.autopairs.enable_moveright,
-		enable_afterquote = gg.builtin.autopairs.enable_afterquote,
-		map_c_w = gg.builtin.autopairs.map_c_w,
-		map_bs = gg.builtin.autopairs.map_bs,
-		disable_in_visualblock = gg.builtin.autopairs.disable_in_visualblock,
-		fast_wrap = gg.builtin.autopairs.fast_wrap,
-	}
+	autopairs.setup(gg.builtin.autopairs)
 
 	if gg.builtin.autopairs.on_config_done then
 		gg.builtin.autopairs.on_config_done(autopairs)

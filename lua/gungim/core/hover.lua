@@ -13,6 +13,7 @@ M.config = function()
 		title = true,
 	}
 end
+
 M.setup = function()
 	local status_ok, hover = pcall(require, "hover")
 	if not status_ok then

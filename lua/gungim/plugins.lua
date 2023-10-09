@@ -89,7 +89,6 @@ return packer.startup(function(use)
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
-		after = "nvim-web-devicons",
 	})
 
 	-- Theme

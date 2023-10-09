@@ -1,7 +1,7 @@
 local M = {}
 
 function M:init()
-	gg= vim.deepcopy(require("gungim.config.defaults"))
+	gg = vim.deepcopy(require("gungim.config.defaults"))
 
 	require("gungim.config.keymaps").load_defaults()
 	require("gungim.config.theme").setup()
@@ -11,12 +11,6 @@ function M:init()
 
 	local lsp_config = require("gungim.lsp.config")
 	gg.lsp = vim.deepcopy(lsp_config)
-
-	-- local autocmds = require "gungim.core.autocmds"
-	-- autocmds.load_defaults()
-
-	require("gungim.core").setup()
-	require("gungim.core.gitblame")
 end
 
 function M:load()
@@ -24,6 +18,7 @@ function M:load()
 
 	local autocmds = require("gungim.core.autocmds")
 	autocmds.define_autocmds(gg.autocommands)
+	require("gungim.builtins").setup()
 
 	require("gungim.config.options")
 	require("gungim.lsp").setup()

@@ -1,15 +1,11 @@
 local M = {}
-M.setup = function()
+M.config = function()
 	local _, luasnip = pcall(require, "luasnip")
-	local cmp_status_ok, cmp = pcall(require, "cmp")
-	if not cmp_status_ok then
-		return
-	end
+	local _, cmp = pcall(require, "cmp")
 	local icons = require("gungim.icons")
 
-	require("luasnip/loaders/from_vscode").lazy_load()
-
-	cmp.setup {
+	gg.builtin.cmp = {
+		on_config_done = nil,
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
@@ -22,11 +18,11 @@ M.setup = function()
 			["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 			["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 			["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-			["<C-e>"] = cmp.mapping {
+			["<C-e>"] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),
-			},
-			["<CR>"] = cmp.mapping.confirm { select = true },
+			}),
+			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		}),
 
 		formatting = {
@@ -40,14 +36,14 @@ M.setup = function()
 		},
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
-			{ name = "luasnip",  priority = 750 },
-			{ name = "buffer",   priority = 500 },
-			{ name = "path",     priority = 250 },
+			{ name = "luasnip", priority = 750 },
+			{ name = "buffer", priority = 500 },
+			{ name = "path", priority = 250 },
 		},
 		window = {
 			documentation = cmp.config.window.bordered(),
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "x" },
-			completion = cmp.config.window.bordered()
+			completion = cmp.config.window.bordered(),
 		},
 		duplicates = {
 			nvim_lsp = 1,
@@ -57,5 +53,14 @@ M.setup = function()
 			path = 1,
 		},
 	}
+end
+M.setup = function()
+	require("luasnip/loaders/from_vscode").lazy_load()
+	local _, cmp = pcall(require, "cmp")
+
+	cmp.setup(gg.builtin.cmp)
+	if gg.builtin.cmp.on_config_done then
+		gg.builtin.prettier.on_config_done(cmp)
+	end
 end
 return M

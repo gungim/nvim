@@ -1,8 +1,8 @@
 local M = {}
 M.config = function()
 	gg.builtin.colorizer = {
-		filetypes = { "*" },
 		on_config_done = nil,
+		filetypes = { "*" },
 		user_default_options = {
 			RGB = true, -- #RGB hex codes
 			RRGGBB = true, -- #RRGGBB hex codes

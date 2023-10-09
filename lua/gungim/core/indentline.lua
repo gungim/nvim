@@ -1,11 +1,6 @@
 local M = {}
 
 function M.config()
-	local status_ok, ibl = pcall(require, "ibl")
-	if not status_ok then
-		return
-	end
-
 	local highlight = {
 		"RainbowRed",
 		"RainbowYellow",
@@ -29,12 +24,26 @@ function M.config()
 	end)
 
 	vim.g.rainbow_delimiters = { highlight = highlight }
-	ibl.setup({
-		indent = { highlight = nil, char = "▏" },
-		scope = { enabled = true, highlight = highlight },
-	})
 
 	hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+	gg.builtin.ibl = {
+
+		indent = { highlight = nil, char = "▏" },
+		scope = { enabled = true, highlight = highlight },
+		on_config_done = nil,
+	}
+end
+
+M.setup = function()
+	local status_ok, ibl = pcall(require, "ibl")
+	if not status_ok then
+		return
+	end
+
+	ibl.setup(gg.builtin.ibl)
+	if gg.builtin.ibl.on_config_done then
+		gg.builtin.ibl.on_config_done(ibl)
+	end
 end
 
 return M
