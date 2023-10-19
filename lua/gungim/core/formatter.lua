@@ -51,6 +51,9 @@ M.config = function()
 			javascriptreact = {
 				require("formatter.filetypes.javascriptreact").prettier,
 			},
+			rust = {
+				require("formatter.filetypes.rust").rustfmt(),
+			},
 			["*"] = {
 				require("formatter.filetypes.any").remove_trailing_whitespace,
 			},

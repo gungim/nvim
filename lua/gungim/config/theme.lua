@@ -35,6 +35,7 @@ M.config = function()
 			options = {
 				highlight_overrides = {},
 				custom_highlights = function(colors)
+					-- more options https://github.com/catppuccin/nvim#integrations
 					return {}
 				end
 			}
