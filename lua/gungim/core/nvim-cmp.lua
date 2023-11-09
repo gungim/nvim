@@ -35,22 +35,15 @@ M.config = function()
 			end,
 		},
 		sources = {
-			{ name = "nvim_lsp", priority = 1000 },
-			{ name = "luasnip", priority = 750 },
-			{ name = "buffer", priority = 500 },
-			{ name = "path", priority = 250 },
+			{ name = "nvim_lsp" },
+			{ name = "luasnip" },
+			{ name = "buffer" },
+			{ name = "path" },
 		},
 		window = {
 			documentation = cmp.config.window.bordered(),
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "x" },
 			completion = cmp.config.window.bordered(),
-		},
-		duplicates = {
-			nvim_lsp = 1,
-			luasnip = 1,
-			cmp_tabnine = 1,
-			buffer = 1,
-			path = 1,
 		},
 	}
 end
@@ -59,6 +52,25 @@ M.setup = function()
 	local _, cmp = pcall(require, "cmp")
 
 	cmp.setup(gg.builtin.cmp)
+
+	-- `/` cmdline setup.
+	cmp.setup.cmdline("/", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "buffer" },
+		},
+	})
+
+	-- `:` cmdline setup.
+	cmp.setup.cmdline(":", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({
+			{ name = "path" },
+		}, {
+			{ name = "cmdline" },
+		}),
+	})
+
 	if gg.builtin.cmp.on_config_done then
 		gg.builtin.prettier.on_config_done(cmp)
 	end
