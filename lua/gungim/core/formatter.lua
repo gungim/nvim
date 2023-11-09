@@ -51,6 +51,9 @@ M.config = function()
 			javascriptreact = {
 				require("formatter.filetypes.javascriptreact").prettier,
 			},
+			svelte= {
+				require("formatter.filetypes.svelte").prettier,
+			},
 			rust = {
 				require("formatter.filetypes.rust").rustfmt(),
 			},

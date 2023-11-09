@@ -14,8 +14,9 @@ local skipped_servers = {
 	"rust_analyzer",
 	"bashls",
 	"volar",
-	"cmake",
 	"angularls",
+	"cmake",
+	"prismals"
 }
 
 local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }

@@ -22,7 +22,6 @@ local builtins = {
 	"gungim.core.smoothcursor",
 	"gungim.core.noice",
 	"gungim.core.navic",
-	"gungim.core.prettier",
 	"gungim.core.nvim-cmp",
 	"gungim.core.mini",
 	"gungim.core.gitblame",

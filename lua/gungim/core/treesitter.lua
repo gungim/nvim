@@ -20,6 +20,7 @@ M.config = function()
 			"bash",
 			"markdown",
 			"markdown_inline",
+			"prisma"
 		},
 		sync_install = true,
 		highlight = {

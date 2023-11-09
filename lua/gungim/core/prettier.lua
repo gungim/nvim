@@ -17,6 +17,7 @@ M.config = function()
 			"typescript",
 			"typescriptreact",
 			"yaml",
+			"svelte"
 		},
 		cli_options = {},
 	}
