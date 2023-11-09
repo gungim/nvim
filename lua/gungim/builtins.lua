@@ -19,6 +19,7 @@ local builtins = {
 	"gungim.core.lualine",
 	"gungim.core.formatter",
 	"gungim.core.nvim_tree",
+	"gungim.core.devicons",
 	"gungim.core.smoothcursor",
 	"gungim.core.noice",
 	"gungim.core.navic",
@@ -39,7 +40,6 @@ M.setup = function()
 		local builtin = require(path)
 		builtin.setup(builtin.setup)
 	end
-	require("gungim.core.devicons")
 end
 
 return M

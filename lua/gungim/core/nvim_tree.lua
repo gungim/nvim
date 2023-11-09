@@ -40,36 +40,37 @@ M.config = function()
 	gg.builtin.nvim_tree = {
 		on_config_done = nil,
 		on_attach = on_attach,
-		auto_reload_on_write = true,
+		auto_reload_on_write = false,
+		reload_on_bufenter = true,
 		root_dirs = {},
-		prefer_startup_root = true,
-		sync_root_with_cwd = false,
 		filters = {
 			-- custom = { ".git", "node_modules", "\\.cache" },
 			exclude = { ".gitignore" },
 		},
-		update_cwd = true,
 		renderer = {
 			highlight_git = true,
-			root_folder_label = false,
+			root_folder_label = ":~:s?$?/..?",
 
 			indent_markers = {
 				enable = true,
 				icons = {
 					corner = "└",
 					edge = "│",
+					item = "│",
+					bottom = "─",
 					none = " ",
 				},
 			},
 			icons = {
-				webdev_colors = true,
+				web_devicons = {
+					folder = {
+						enable = true,
+						color = true,
+					},
+				},
 				git_placement = "after",
-				symlink_arrow = " ➛ ",
 				show = {
-					file = true,
-					folder = true,
 					folder_arrow = false,
-					git = true,
 				},
 				glyphs = {
 					default = icons.ui.Text,

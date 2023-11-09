@@ -1,82 +1,171 @@
-local webpack = {
-	color = "#75B2CF",
-	icon = "ﰩ",
-	cterm_color = "24",
-	name = "Webpack",
-}
-local babel = {
-	color = "#FFFB19",
-	icon = "󰨥",
-	cterm_color = "185",
-	name = "Babelrc",
-}
-local eslint = {
-	icon = "󰃠",
-	color = "#A6A6ED",
-	cterm_color = "24",
-	name = "Eslint",
-}
-local node = {
-	icon = "",
-	name = "package",
-	color = "#8fce00",
-}
+local M = {}
 
-require("nvim-web-devicons").set_icon({
-	zsh = {
-		icon = "",
-		color = "#428850",
-		cterm_color = "65",
-		name = "Zsh",
-	},
-	css = {
-		icon = "",
-		color = "#03A9F4",
-		cterm_color = "39",
-		name = "Css",
-	},
-	less = {
-		icon = "",
-		name = "Less",
-		color = "#F64D27",
-	},
-	[".prettierrc"] = {
+M.config = function()
+	local webpack = {
+		color = "#75B2CF",
+		icon = "ﰩ",
+		name = "Webpack",
+	}
+	local babel = {
+		color = "#FFFB19",
+		icon = "󰨥",
+		name = "Babelrc",
+	}
+	local eslint = {
+		icon = "󰃠",
+		color = "#A6A6ED",
+		name = "Eslint",
+	}
+	local node = {
+		icon = "",
+		name = "package",
+		color = "#8fce00",
+	}
+	local prettier = {
+
 		icon = "󰰙",
 		color = "#55B3B4",
-		cterm_color = "113",
 		name = "Prettier",
-	},
-	["tailwind.config.js"] = {
-		icon = "",
-		color = "#38BCF9",
-		cterm_color = "113",
-		name = "tailwindcss",
-	},
-	["package.json"] = node,
-	["package-lock.json"] = node,
-	[".env"] = {
-		icon = "",
-		color = "#faf743",
-		cterm_color = "226",
-		name = "Env",
-	},
-	[".gitignore"] = {
-		icon = "",
-		color = "#F64D27",
-		cterm_color = "59",
-		name = "GitIgnore",
-	},
-	["webpack.config.js"] = webpack,
-	["webpack.config.dev.js"] = webpack,
-	["webpack.config.prod.js"] = webpack,
-	webpack = webpack,
-	[".eslintrc"] = eslint,
-	[".eslintignore"] = eslint,
-	[".babelrc"] = babel,
-	["*.d.ts"] = {
-		icon = "",
-		color = "#38BCF9",
-		cterm_color = "113",
-		name = "tsconfig",
-	},
-})
+	}
+	gg.builtin.devicons = {
+		on_config_done = nil,
+
+		otp = {
+			[".prettierrc"] = prettier,
+			[".prettierignore"] = prettier,
+			["tailwind.config.js"] = {
+				icon = "󱏿",
+				color = "#38BCF9",
+				name = "tailwindcss",
+			},
+			["package.json"] = node,
+			["package-lock.json"] = node,
+			[".env"] = {
+				icon = "",
+				color = "#faf743",
+				name = "Env",
+			},
+			[".gitignore"] = {
+				icon = "",
+				color = "#F64D27",
+				name = "GitIgnore",
+			},
+			[".git"] = {
+				icon = "",
+				color = "#F64D27",
+				name = "GitFolder",
+			},
+
+			["webpack.config.js"] = webpack,
+			["webpack.dev.js"] = webpack,
+			["webpack.prod.js"] = webpack,
+			webpack = webpack,
+			[".eslintrc"] = eslint,
+			[".eslintignore"] = eslint,
+			[".babelrc"] = babel,
+			["images"] = {
+				icon = "󰉏",
+				color = "#38BCF9",
+				name = "Images",
+			},
+
+			zsh = {
+				icon = "",
+				color = "#428850",
+				name = "Zsh",
+			},
+			css = {
+				icon = "",
+				color = "#03A9F4",
+				name = "Css",
+			},
+			less = {
+				icon = "",
+				name = "Less",
+				color = "#F64D27",
+			},
+			["src"] = {
+				icon = "󰚝",
+				color = "#0aff42",
+				name = "SourceFile",
+			},
+			["dist"] = {
+				icon = "",
+				color = "#89e051",
+				cterm_color = "113",
+				name = "ProjectBuild",
+			},
+			["lib"] = {
+				icon = "",
+				color = "#ff3e00",
+				name = "Lib",
+			},
+			["routes"] = {
+				icon = "󱧬",
+				color = "#428850",
+				name = "RouterF",
+			},
+			["home"] = {
+				icon = "󱂵",
+				color = "#ff420a",
+				name = "HomeF",
+			},
+			["node_modules"] = {
+				icon = "",
+				color = "#8fce00",
+				name = "NodeModules",
+			},
+			["vite.config.ts"] = {
+				icon = "",
+				color = "#ffbc0a",
+				name = "ViteConf",
+			},
+			[".husky"] = {
+				icon = "",
+				color = "#d5d5d5",
+				name = "HuskyConf",
+			},
+			["static"] = {
+				icon = "󱋣",
+				color = "#ffbc0a",
+				name = "StaticF",
+			},
+			["config"] = {
+				icon = "󱁿",
+				color = "#0EBFCF",
+				name = "ConfigF",
+			},
+
+			[".svelte-kit"] = {
+				icon = "󱁿",
+				color = "#ff3e00",
+				name = "SvelteConf",
+			},
+		},
+	}
+end
+
+M.setup = function()
+	local status_ok, devicons = pcall(require, "nvim-web-devicons")
+	if not status_ok then
+		return
+	end
+
+	devicons.setup({
+		strict = true,
+		override_by_extension = {
+			["ts"] = {
+				icon = "",
+				color = "#428850",
+				name = "Zsh",
+			},
+		},
+	})
+	devicons.set_icon(gg.builtin.devicons.otp)
+
+	if gg.builtin.devicons.on_config_done then
+		gg.builtin.devicons.on_config_done(devicons)
+	end
+end
+
+return M

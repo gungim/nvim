@@ -1,7 +1,7 @@
 local skipped_servers = {
 	"pyright",
 	"tsserver",
-	-- "tailwindcss",
+	"tailwindcss",
 	"lua_ls",
 	"clangd",
 	"diagnosticls",
