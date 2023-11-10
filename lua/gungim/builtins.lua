@@ -26,6 +26,7 @@ local builtins = {
 	"gungim.core.nvim-cmp",
 	"gungim.core.mini",
 	"gungim.core.gitblame",
+	"gungim.core.lsp-signature"
 }
 
 M.config = function()
