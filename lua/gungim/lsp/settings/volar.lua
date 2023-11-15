@@ -4,10 +4,10 @@ local volar_cmd = { "vue-language-server", "--stdio" }
 local volar_root_dir = lspconfig_util.root_pattern("package.json")
 
 local function on_new_config(new_config, new_root_dir)
-	print(new_root_dir)
 	local function get_typescript_server_path(root_dir)
 		local project_root = lspconfig_util.find_node_modules_ancestor(root_dir)
-		return project_root and (lspconfig_util.path.join(project_root, ".pnpm")) or ""
+		-- print("" .. project_root)
+		return project_root and (lspconfig_util.path.join(project_root, "node_modules")) or ""
 	end
 
 	if

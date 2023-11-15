@@ -90,15 +90,33 @@ M.config = function()
 				name = "SourceFile",
 			},
 			["dist"] = {
-				icon = "",
+				icon = "󰬉",
 				color = "#89e051",
 				cterm_color = "113",
 				name = "ProjectBuild",
+			},
+			["build"] = {
+				icon = "󰬉",
+				color = "#89e051",
+				cterm_color = "113",
+				name = "ProjectBuild",
+			},
+			[".vscode"] = {
+				icon = "󰨞",
+				color = "#0377f5",
+				cterm_color = "113",
+				name = "VScode",
 			},
 			["lib"] = {
 				icon = "",
 				color = "#ff3e00",
 				name = "Lib",
+			},
+
+			["browserslist"] = {
+				icon = "",
+				color = "#f59803",
+				name = "Browser",
 			},
 			["routes"] = {
 				icon = "󱧬",
@@ -141,6 +159,11 @@ M.config = function()
 				color = "#ff3e00",
 				name = "SvelteConf",
 			},
+			zip = {
+				icon = "",
+				color = "#ff3e00",
+				name = "Zip",
+			},
 		},
 	}
 end
@@ -154,7 +177,7 @@ M.setup = function()
 	devicons.setup({
 		strict = true,
 		override_by_extension = {
-			["ts"] = {
+			[".ts"] = {
 				icon = "",
 				color = "#428850",
 				name = "Zsh",

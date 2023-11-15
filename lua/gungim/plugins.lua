@@ -125,6 +125,7 @@ return packer.startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
+	use("jinzhongjia/LspUI.nvim")
 
 	-- Formatter, Comment
 	use("MunifTanjim/prettier.nvim")

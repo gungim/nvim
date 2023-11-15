@@ -20,7 +20,7 @@ M.config = function()
 		views = {
 			cmdline_popup = {
 				position = {
-					row = "80%",
+					row = "40%",
 					col = "50%",
 				},
 				size = {

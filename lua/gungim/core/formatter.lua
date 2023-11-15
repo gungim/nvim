@@ -30,6 +30,9 @@ M.config = function()
 			c = {
 				require("formatter.filetypes.c").clangformat,
 			},
+			cpp = {
+				require("formatter.filetypes.cpp").clangformat,
+			},
 			typescript = {
 				require("formatter.filetypes.typescript").prettier,
 			},

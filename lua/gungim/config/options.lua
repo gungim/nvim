@@ -35,6 +35,7 @@ local options = {
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "Source Code Pro for Powerline:h13", -- the font used in graphical neovim applications 
+	syntax = "off"
 }
 
 -- vim.opt.shortmess:append "c"
