@@ -31,7 +31,6 @@ end
 local function add_lsp_keymap(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local keymaps = {
-		["gD"] = { "<cmd>Telescope lsp_declarations<CR>", bufopts },
 		["gd"] = { "<cmd>Telescope lsp_definitions<CR>", bufopts },
 		["gi"] = { "<cmd>Telescope lsp_implementations<CR>", bufopts },
 		["gr"] = { "<cmd>Telescope lsp_references<CR>", bufopts },
@@ -46,7 +45,10 @@ local function attach_navic(client, bufnr)
 	if not status_ok then
 		return
 	end
-	navic.attach(client, bufnr)
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
 end
 
 function M.common_on_init(client, bufnr)

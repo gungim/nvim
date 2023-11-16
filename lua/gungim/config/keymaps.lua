@@ -24,7 +24,6 @@ local mode_adapters = {
 
 local defaults = {
 	insert_mode = {
-		["jk"] = "<ESC>"
 	},
 	normal_mode = {
 		--[[ Better window movement ]]

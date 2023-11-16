@@ -1,7 +1,6 @@
 local M = {}
 
 M.config = function()
-	local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 	gg.builtin.which_key = {
 		on_config_done = nil,
 		setup = {
@@ -11,7 +10,7 @@ M.config = function()
 				},
 			},
 			window = {
-				border = border, -- none, single, double, shadow
+				border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, -- none, single, double, shadow
 				position = "bottom", -- bottom, top
 				margin = { 0, 0, 3, 0 }, -- extra window margin [top, right, bottom, left]
 				padding = { 2, 0, 2, 0 }, -- extra window padding [top, right, bottom, left]

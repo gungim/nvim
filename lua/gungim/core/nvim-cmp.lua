@@ -71,7 +71,7 @@ M.setup = function()
 	})
 
 	if gg.builtin.cmp.on_config_done then
-		gg.builtin.prettier.on_config_done(cmp)
+		gg.builtin.cmp.on_config_done(cmp)
 	end
 end
 return M

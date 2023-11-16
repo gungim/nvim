@@ -62,7 +62,7 @@ return packer.startup(function(use)
 	-- Finder
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
+		tag = "0.1.4",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
@@ -81,7 +81,7 @@ return packer.startup(function(use)
 	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 	use({
 		"utilyre/barbecue.nvim",
 		tag = "*",
@@ -100,6 +100,7 @@ return packer.startup(function(use)
 	use("rebelot/kanagawa.nvim")
 
 	-- Coding
+	use { "chrisgrieser/nvim-spider" }
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {

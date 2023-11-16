@@ -9,7 +9,7 @@ local builtins = {
 	"gungim.core.color_picker",
 	"gungim.core.treesitter",
 	"gungim.core.toggleterm",
-	"gungim.core.hover",
+	-- "gungim.core.hover",
 	"gungim.core.autopairs",
 	"gungim.core.telescope",
 	"gungim.core.gitsigns",
@@ -26,7 +26,8 @@ local builtins = {
 	"gungim.core.nvim-cmp",
 	"gungim.core.mini",
 	"gungim.core.gitblame",
-	"gungim.core.lsp-signature"
+	"gungim.core.lsp-signature",
+	-- "gungim.core.spider",
 }
 
 M.config = function()

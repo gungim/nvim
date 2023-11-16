@@ -10,21 +10,21 @@ return {
 	search = "#89dceb",
 	file = "#cba6f7",
 	git = {
-		add    = "#a6e3a1",
+		add = "#a6e3a1",
 		remove = "#f38ba8",
 		change = "#b4befe",
 	},
 	diag = {
-		ok      = "#a6e3a1",
-		error   = "#f38ba8",
+		ok = "#a6e3a1",
+		error = "#f38ba8",
 		warning = "#f9e2af",
-		info    = "#74c7ec",
-		hint    = "#f5c2e7",
-	}
+		info = "#74c7ec",
+		hint = "#f5c2e7",
+	},
 }
 
-	-- rosewater = "#f5e0dc",
-	-- flamingo = "#f2cdcd",
+-- rosewater = "#f5e0dc",
+-- flamingo = "#f2cdcd",
 -- 	pink = "#f5c2e7",
 -- 	mauve = "#cba6f7",
 -- 	red = "#f38ba8",
