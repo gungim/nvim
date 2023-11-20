@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.spider = {
+	GG.builtin.spider = {
 		on_config_done = nil,
 	}
 end
@@ -17,8 +17,8 @@ M.setup = function()
 	vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 	vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 	vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
-	if gg.builtin.spider.on_config_done then
-		gg.builtin.spider.on_config_done(spider)
+	if GG.builtin.spider.on_config_done then
+		GG.builtin.spider.on_config_done(spider)
 	end
 end
 

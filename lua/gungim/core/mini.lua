@@ -1,30 +1,12 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.mini = {
-		surround = {
-			custom_surroundings = nil,
-			highlight_duration = 500,
-			mappings = {
-				add = "sa", -- Add surrounding in Normal and Visual modes
-				delete = "sd", -- Delete surrounding
-				find = "sf", -- Find surrounding (to the right)
-				find_left = "sF", -- Find surrounding (to the left)
-				highlight = "sh", -- Highlight surrounding
-				replace = "sr", -- Replace surrounding
-				update_n_lines = "sn", -- Update `n_lines`
-
-				suffix_last = "l", -- Suffix to search with "prev" method
-				suffix_next = "n", -- Suffix to search with "next" method
-			},
-			n_lines = 20,
-			respect_selection_type = false,
-			search_method = "cover",
-			silent = false,
-		},
+	GG.builtin.mini = {
+		on_config_done = nil,
 		comment = {
 
 			options = {
+				ignore_blank_line = true,
 				custom_commentstring = function()
 					return require("ts_context_commentstring.internal").calculate_commentstring()
 						or vim.bo.commentstring
@@ -40,9 +22,13 @@ M.config = function()
 end
 
 M.setup = function()
-	for name, config in pairs(gg.builtin.mini) do
+	for name, config in pairs(GG.builtin.mini) do
 		local _, plug = pcall(require, "mini." .. name)
 		plug.setup(config)
+	end
+
+	if GG.builtin.mini.on_config_done then
+		GG.builtin.mini.on_config_done("mini")
 	end
 end
 

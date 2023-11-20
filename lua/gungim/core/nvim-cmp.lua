@@ -4,7 +4,7 @@ M.config = function()
 	local _, cmp = pcall(require, "cmp")
 	local icons = require("gungim.icons")
 
-	gg.builtin.cmp = {
+	GG.builtin.cmp = {
 		on_config_done = nil,
 		snippet = {
 			expand = function(args)
@@ -51,7 +51,7 @@ M.setup = function()
 	require("luasnip/loaders/from_vscode").lazy_load()
 	local _, cmp = pcall(require, "cmp")
 
-	cmp.setup(gg.builtin.cmp)
+	cmp.setup(GG.builtin.cmp)
 
 	-- `/` cmdline setup.
 	cmp.setup.cmdline("/", {
@@ -70,8 +70,8 @@ M.setup = function()
 		}),
 	})
 
-	if gg.builtin.cmp.on_config_done then
-		gg.builtin.cmp.on_config_done(cmp)
+	if GG.builtin.cmp.on_config_done then
+		GG.builtin.cmp.on_config_done(cmp)
 	end
 end
 return M

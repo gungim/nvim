@@ -1,7 +1,7 @@
 local M = {}
 
 function M:init()
-	gg = vim.deepcopy(require("gungim.config.defaults"))
+	GG = vim.deepcopy(require("gungim.config.defaults"))
 
 	require("gungim.config.keymaps").load_defaults()
 	require("gungim.config.theme").setup()
@@ -10,14 +10,14 @@ function M:init()
 	builtins.config()
 
 	local lsp_config = require("gungim.lsp.config")
-	gg.lsp = vim.deepcopy(lsp_config)
+	GG.lsp = vim.deepcopy(lsp_config)
 end
 
 function M:load()
 	vim.g.mapleader = ("space" and " ")
 
 	local autocmds = require("gungim.core.autocmds")
-	autocmds.define_autocmds(gg.autocommands)
+	autocmds.define_autocmds(GG.autocommands)
 	require("gungim.builtins").setup()
 
 	require("gungim.config.options")

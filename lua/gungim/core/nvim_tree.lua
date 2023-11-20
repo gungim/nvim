@@ -20,7 +20,7 @@ M.config = function()
 			["c"] = { api.fs.copy.node, opts("Copy") },
 			["d"] = { api.fs.remove, opts("Delete") },
 			["e"] = { api.fs.rename_basename, opts("Rename: Basename") },
-			["H"] = { api.tree.toggle_hidden_filter, opts("Toggle Dotfiles") },
+			["H"] = { api.tree.toGGle_hidden_filter, opts("ToGGle Dotfiles") },
 			["o"] = { api.node.open.edit, opts("Open") },
 			["p"] = { api.fs.paste, opts("Paste") },
 			["r"] = { api.fs.rename, opts("Rename") },
@@ -37,19 +37,19 @@ M.config = function()
 		require("gungim.config.keymaps").load_mode("n", userful_keys)
 	end
 
-	gg.builtin.nvim_tree = {
+	GG.builtin.nvim_tree = {
 		on_config_done = nil,
 		on_attach = on_attach,
 		auto_reload_on_write = false,
 		reload_on_bufenter = true,
-		root_dirs = {},
+		root_dirs = {"Root"},
 		filters = {
 			-- custom = { ".git", "node_modules", "\\.cache" },
 			exclude = { ".gitignore" },
 		},
 		renderer = {
 			highlight_git = true,
-			root_folder_label = ":~:s?$?/..?",
+			root_folder_label = false,
 
 			indent_markers = {
 				enable = true,
@@ -110,7 +110,7 @@ M.config = function()
 		update_focused_file = {
 			enable = true,
 			update_cwd = true,
-			ignore_list = { "toggleterm" },
+			ignore_list = { "toGGleterm" },
 		},
 		git = {
 			enable = true,
@@ -125,6 +125,7 @@ M.config = function()
 			-- auto_resize = true,
 			number = true,
 			relativenumber = true,
+			centralize_selection = true,
 		},
 		actions = {
 			change_dir = {
@@ -149,10 +150,14 @@ M.setup = function()
 		return
 	end
 
-	nvim_tree.setup(gg.builtin.nvim_tree)
+	nvim_tree.setup(GG.builtin.nvim_tree)
 
-	if gg.builtin.nvim_tree.on_config_done then
-		gg.builtin.on_config_done(nvim_tree)
+	if GG.builtin.nvim_tree.on_config_done then
+		GG.builtin.on_config_done(nvim_tree)
 	end
 end
 return M
+
+	-- function(path)
+	-- 			return " " .. vim.fn.fnamemodify(path, ":t")
+	-- 		end,

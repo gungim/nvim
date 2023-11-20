@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gg.builtin.illuminate = {
+	GG.builtin.illuminate = {
 		on_config_done = nil,
 		providers = {
 			"lsp",
@@ -15,7 +15,7 @@ M.config = function()
 			"Trouble",
 			"Outline",
 			"spectre_panel",
-			"toggleterm",
+			"toGGleterm",
 			--[[ "DressingSelect", ]]
 			"TelescopePrompt",
 		},
@@ -33,10 +33,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	illuminate.configure(gg.builtin.illuminate)
+	illuminate.configure(GG.builtin.illuminate)
 
-	if gg.builtin.illuminate.on_config_done then
-		gg.builtin.illuminate.on_config_done(illuminate)
+	if GG.builtin.illuminate.on_config_done then
+		GG.builtin.illuminate.on_config_done(illuminate)
 	end
 end
 

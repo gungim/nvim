@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.cmake_tools = {
+	GG.builtin.cmake_tools = {
 		on_config_done = nil,
 		cmake_command = "cmake", -- this is used to specify cmake command path
 		cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
@@ -55,10 +55,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	cmake_tools.setup(gg.builtin.cmake_tools)
+	cmake_tools.setup(GG.builtin.cmake_tools)
 
-	if gg.builtin.cmake_tools.on_config_done then
-		gg.builtin.cmake_tools.on_config_done(cmake_tools)
+	if GG.builtin.cmake_tools.on_config_done then
+		GG.builtin.cmake_tools.on_config_done(cmake_tools)
 	end
 end
 

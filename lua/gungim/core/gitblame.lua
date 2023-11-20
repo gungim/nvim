@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.gitblame = {
+	GG.builtin.gitblame = {
 		on_config_done = nil,
 		enabled = true,
 	}
@@ -12,9 +12,9 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	gb.setup(gg.builtin.gitblame)
-	if gg.builtin.gitblame.on_config_done then
-		gg.builtin.gitblame.on_config_done(gb)
+	gb.setup(GG.builtin.gitblame)
+	if GG.builtin.gitblame.on_config_done then
+		GG.builtin.gitblame.on_config_done(gb)
 	end
 end
 

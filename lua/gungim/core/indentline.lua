@@ -26,7 +26,7 @@ function M.config()
 	vim.g.rainbow_delimiters = { highlight = highlight }
 
 	hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-	gg.builtin.ibl = {
+	GG.builtin.ibl = {
 
 		indent = { highlight = nil, char = "▏" },
 		scope = { enabled = true, highlight = highlight },
@@ -40,9 +40,9 @@ M.setup = function()
 		return
 	end
 
-	ibl.setup(gg.builtin.ibl)
-	if gg.builtin.ibl.on_config_done then
-		gg.builtin.ibl.on_config_done(ibl)
+	ibl.setup(GG.builtin.ibl)
+	if GG.builtin.ibl.on_config_done then
+		GG.builtin.ibl.on_config_done(ibl)
 	end
 end
 

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	gg.builtin.autopairs = {
+	GG.builtin.autopairs = {
 		active = true,
 		on_config_done = nil,
 		---@usage  modifies the function or method delimiter by filetypes
@@ -52,10 +52,10 @@ M.setup = function()
 		return
 	end
 
-	autopairs.setup(gg.builtin.autopairs)
+	autopairs.setup(GG.builtin.autopairs)
 
-	if gg.builtin.autopairs.on_config_done then
-		gg.builtin.autopairs.on_config_done(autopairs)
+	if GG.builtin.autopairs.on_config_done then
+		GG.builtin.autopairs.on_config_done(autopairs)
 	end
 
 	pcall(function()

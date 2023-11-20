@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.aerial = {
+	GG.builtin.aerial = {
 		on_config_done = nil,
 		backends = { "treesitter", "lsp", "markdown" },
 		layout = {
@@ -23,10 +23,10 @@ M.setup = function()
 		return
 	end
 
-	aerial.setup(gg.builtin.aerial)
+	aerial.setup(GG.builtin.aerial)
 
-	if gg.builtin.aerial.on_config_done then
-		gg.builtin.aerial.on_config_done(aerial)
+	if GG.builtin.aerial.on_config_done then
+		GG.builtin.aerial.on_config_done(aerial)
 	end
 end
 

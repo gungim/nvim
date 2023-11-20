@@ -43,20 +43,6 @@ local function r_inspect_settings(structure, limit, separator)
 	return limit - 1
 end
 
-function M.generate_settings()
-	-- Opens a file in append mode
-	local file = io.open("lv-settings.lua", "w")
-
-	-- sets the default output file as test.lua
-	io.output(file)
-
-	-- write all `gungim` related settings to `lv-settings.lua` file
-	r_inspect_settings(gungim, 10000, ".")
-
-	-- closes the open file
-	io.close(file)
-end
-
 --- Returns a table with the default values that are missing.
 --- either parameter can be empty.
 --@param config (table) table containing entries that take priority over defaults
@@ -84,8 +70,6 @@ function M.is_directory(path)
 	local stat = uv.fs_stat(path)
 	return stat and stat.type == "directory" or false
 end
-
-M.join_paths = _G.join_paths
 
 ---Write data to a file
 ---@param path string can be full or relative to `cwd`

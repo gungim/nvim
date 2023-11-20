@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.which_key = {
+	GG.builtin.which_key = {
 		on_config_done = nil,
 		setup = {
 			plugins = {
@@ -22,8 +22,8 @@ M.config = function()
 			ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
 		},
 		mappings = {
-			[";"] = { "<cmd>AerialToggle!<CR>", "Aerial Toggle" },
-			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+			[";"] = { "<cmd>AerialToGGle!<CR>", "Aerial ToGGle" },
+			["e"] = { "<cmd>NvimTreeToGGle<cr>", "Explorer" },
 			["w"] = { "<cmd>w!<CR>", "Save" },
 			["q"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 			["h"] = { "<cmd>set nohlsearch!<CR>", "No Highlight" },
@@ -46,7 +46,7 @@ M.config = function()
 			},
 			g = {
 				name = "Git",
-				g = { "<cmd>lua require 'gungim.core.toggleterm'.lazygit_toggle()<CR>", "Lazygit" },
+				g = { "<cmd>lua require 'gungim.core.toGGleterm'.lazygit_toGGle()<CR>", "Lazygit" },
 				j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 				k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 				l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -77,7 +77,7 @@ M.config = function()
 				r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffer left" },
 				o = { "<cmd>BufferLineCloseOthers<CR>", "Close all buffer other" },
 				p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
-				m = { "<cmd>BufferLineTogglePin<CR>", "Toggle buffer pin" },
+				m = { "<cmd>BufferLineToGGlePin<CR>", "ToGGle buffer pin" },
 			},
 			s = {
 				name = "Search",
@@ -132,16 +132,16 @@ M.setup = function()
 		return
 	end
 
-	local opts = gg.builtin.which_key.opts
-	local vopts = gg.builtin.which_key.vopts
-	local mappings = gg.builtin.which_key.mappings
-	local vmappings = gg.builtin.which_key.vmappings
+	local opts = GG.builtin.which_key.opts
+	local vopts = GG.builtin.which_key.vopts
+	local mappings = GG.builtin.which_key.mappings
+	local vmappings = GG.builtin.which_key.vmappings
 
-	which_key.setup(gg.builtin.which_key.setup)
+	which_key.setup(GG.builtin.which_key.setup)
 	which_key.register(mappings, opts)
 	which_key.register(vmappings, vopts)
-	if gg.builtin.which_key.on_config_done then
-		gg.builtin.which_key.on_config_done(which_key)
+	if GG.builtin.which_key.on_config_done then
+		GG.builtin.which_key.on_config_done(which_key)
 	end
 end
 

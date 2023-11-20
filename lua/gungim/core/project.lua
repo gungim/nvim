@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.project = {
+	GG.builtin.project = {
 		on_config_done = nil,
 		manual_mode = false,
 		detection_methods = { "pattern" },
@@ -18,10 +18,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	project.setup(gg.builtin.project)
+	project.setup(GG.builtin.project)
 
-	if gg.builtin.project.on_config_done then
-		gg.builtin.project.on_config_done(project)
+	if GG.builtin.project.on_config_done then
+		GG.builtin.project.on_config_done(project)
 	end
 end
 return M

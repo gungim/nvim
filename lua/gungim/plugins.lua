@@ -100,7 +100,7 @@ return packer.startup(function(use)
 	use("rebelot/kanagawa.nvim")
 
 	-- Coding
-	use { "chrisgrieser/nvim-spider" }
+	use({ "chrisgrieser/nvim-spider" })
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -112,7 +112,7 @@ return packer.startup(function(use)
 		},
 	})
 	-- The completion plugin
-	use("echasnovski/mini.surround")
+	-- use("echasnovski/mini.surround")
 	use("echasnovski/mini.comment")
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")

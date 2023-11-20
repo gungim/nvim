@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gg.builtin.signature = {
+	GG.builtin.signature = {
 		on_config_done = nil,
 		fix_pos = false,
 		hint_prefix = "🐼" .. " ",
@@ -16,10 +16,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	local cfg = gg.builtin.signature
+	local cfg = GG.builtin.signature
 
-	signature.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
-	signature.on_attach(cfg) -- no need to specify bufnr if you don't use toggle_key
+	signature.setup(cfg) -- no need to specify bufnr if you don't use toGGle_key
+	signature.on_attach(cfg) -- no need to specify bufnr if you don't use toGGle_key
 
 	if cfg.on_config_done then
 		cfg.on_config_done(signature)

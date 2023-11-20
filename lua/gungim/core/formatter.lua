@@ -3,9 +3,9 @@ local M = {}
 M.config = function()
 	local util = require("formatter.util")
 
-	gg.builtin.formatter = {
+	GG.builtin.formatter = {
 		on_config_done = nil,
-		logging = true,
+		loGGing = true,
 		log_level = vim.log.levels.WARN,
 		filetype = {
 			lua = {
@@ -72,10 +72,10 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	formatter.setup(gg.builtin.formatter)
+	formatter.setup(GG.builtin.formatter)
 
-	if gg.builtin.formatter.on_config_done then
-		gg.builtin.which_key.on_config_done(formatter)
+	if GG.builtin.formatter.on_config_done then
+		GG.builtin.which_key.on_config_done(formatter)
 	end
 end
 return M

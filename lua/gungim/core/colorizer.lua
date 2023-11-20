@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gg.builtin.colorizer = {
+	GG.builtin.colorizer = {
 		on_config_done = nil,
 		filetypes = { "*" },
 		user_default_options = {
@@ -27,9 +27,9 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	colorizer.setup(gg.builtin.colorizer)
-	if gg.builtin.colorizer.on_config_done then
-		gg.builtin.colorizer.on_config_done(colorizer)
+	colorizer.setup(GG.builtin.colorizer)
+	if GG.builtin.colorizer.on_config_done then
+		GG.builtin.colorizer.on_config_done(colorizer)
 	end
 end
 

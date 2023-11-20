@@ -1,6 +1,6 @@
 local M = {}
 local icons = require("gungim.icons")
-local function diagnostics_indicator(num, _, diagnostics, _)
+local function diagnostics_indicator(_, _, diagnostics, _)
 	local result = {}
 	local symbols = {
 		error = icons.diagnostics.Error,
@@ -12,12 +12,12 @@ local function diagnostics_indicator(num, _, diagnostics, _)
 			table.insert(result, symbols[name] .. " " .. count)
 		end
 	end
-	result = table.concat(result, " ")
-	return #result > 0 and result or ""
+	local r = table.concat(result, " ")
+	return #r > 0 and r or ""
 end
 
 M.config = function()
-	gg.builtin.bufferline = {
+	GG.builtin.bufferline = {
 		on_config_done = nil,
 		setup = {
 			options = {
@@ -71,10 +71,10 @@ function M.setup()
 		return
 	end
 
-	bufferline.setup(gg.builtin.bufferline.setup)
-	require("barbecue").setup()
-	if gg.builtin.bufferline.on_config_done then
-		gg.builtin.bufferline.on_config_done(bufferline)
+	bufferline.setup(GG.builtin.bufferline.setup)
+
+	if GG.builtin.bufferline.on_config_done then
+		GG.builtin.bufferline.on_config_done(bufferline)
 	end
 end
 

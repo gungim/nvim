@@ -27,7 +27,7 @@ M.config = function()
 		color = "#55B3B4",
 		name = "Prettier",
 	}
-	gg.builtin.devicons = {
+	GG.builtin.devicons = {
 		on_config_done = nil,
 
 		otp = {
@@ -61,6 +61,8 @@ M.config = function()
 			["webpack.prod.js"] = webpack,
 			webpack = webpack,
 			[".eslintrc"] = eslint,
+			[".eslintrc.cjs"] = eslint,
+			[".eslintrc.js"] = eslint,
 			[".eslintignore"] = eslint,
 			[".babelrc"] = babel,
 			["images"] = {
@@ -184,10 +186,10 @@ M.setup = function()
 			},
 		},
 	})
-	devicons.set_icon(gg.builtin.devicons.otp)
+	devicons.set_icon(GG.builtin.devicons.otp)
 
-	if gg.builtin.devicons.on_config_done then
-		gg.builtin.devicons.on_config_done(devicons)
+	if GG.builtin.devicons.on_config_done then
+		GG.builtin.devicons.on_config_done(devicons)
 	end
 end
 

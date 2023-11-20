@@ -2,7 +2,7 @@ local M = {}
 
 M.config = function()
 	local icons = require("gungim.icons")
-	gg.builtin.navic = {
+	GG.builtin.navic = {
 		on_config_done = nil,
 		icons = icons.kind,
 		highlight = true,
@@ -18,9 +18,9 @@ M.setup = function()
 		return
 	end
 
-	navic.setup(gg.builtin.navic)
-	if gg.builtin.navic.on_config_done then
-		gg.builtin.navic.on_config_done(navic)
+	navic.setup(GG.builtin.navic)
+	if GG.builtin.navic.on_config_done then
+		GG.builtin.navic.on_config_done(navic)
 	end
 end
 

@@ -1,38 +1,43 @@
-vim.cmd [[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
-    autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd FileType qf set nobuflisted
-  augroup end
+local function augroup(name)
+	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
 
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
-  augroup end
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+	group = augroup("resize_splits"),
+	callback = function()
+		local current_tab = vim.fn.tabpagenr()
+		vim.cmd("tabdo wincmd =")
+		vim.cmd("tabnext " .. current_tab)
+	end,
+})
 
-  augroup _markdown
-    autocmd!
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
-  augroup end
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = augroup("highlight_yank"),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
 
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd = 
-  augroup end
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup("wrap_spell"),
+	pattern = { "gitcommit", "markdown" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+	end,
+})
 
-  augroup _alpha
-    autocmd!
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
-
-]]
-
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	group = augroup("auto_create_dir"),
+	callback = function(event)
+		if event.match:match("^%w%w+://") then
+			return
+		end
+		local file = vim.loop.fs_realpath(event.match) or event.match
+		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+	end,
+})

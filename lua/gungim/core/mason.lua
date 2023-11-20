@@ -1,14 +1,14 @@
 local M = {}
 
 function M.config()
-	gg.builtin.mason = {
+	GG.builtin.mason = {
 		ui = {
 			check_outdated_packages_on_open = true,
 			width = 0.8,
 			height = 0.9,
 			border = "rounded",
 			keymaps = {
-				toggle_package_expand = "<CR>",
+				toGGle_package_expand = "<CR>",
 				install_package = "i",
 				update_package = "u",
 				check_package_version = "c",
@@ -52,13 +52,13 @@ function M.setup()
 		return
 	end
 
-	mason.setup(gg.builtin.mason)
+	mason.setup(GG.builtin.mason)
 
 	require("mason-lspconfig").setup({
-		ensure_installed = gg.lsp.automatic_configuration.skipped_servers,
+		ensure_installed = GG.lsp.automatic_configuration.skipped_servers,
 	})
-	if gg.builtin.mason.on_config_done then
-		gg.builtin.mason.on_config_done(mason)
+	if GG.builtin.mason.on_config_done then
+		GG.builtin.mason.on_config_done(mason)
 	end
 end
 

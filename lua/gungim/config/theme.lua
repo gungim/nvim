@@ -1,9 +1,9 @@
 local M = {}
 M.config = function()
-	gg.themes = {
+	GG.themes = {
 		kanagawa = {
 			options = {},
-			colors = {}
+			colors = {},
 		},
 		horizon = {
 			options = {
@@ -11,8 +11,8 @@ M.config = function()
 					comments = { italic = true },
 					keywords = { italic = true },
 					functions = { italic = true },
-				}
-			}
+				},
+			},
 		},
 		["rose-pine"] = {
 			options = {
@@ -24,9 +24,9 @@ M.config = function()
 			},
 			highlight_groups = {
 				IndentBlanklineChar = {
-					fg = "gold"
+					fg = "gold",
 				},
-			}
+			},
 		},
 		["github-theme"] = {
 			options = {},
@@ -34,11 +34,11 @@ M.config = function()
 		catppuccin = {
 			options = {
 				highlight_overrides = {},
-				custom_highlights = function(colors)
+				custom_highlights = function(_)
 					-- more options https://github.com/catppuccin/nvim#integrations
 					return {}
-				end
-			}
+				end,
+			},
 		},
 		tokyonight = {
 			options = {
@@ -57,7 +57,7 @@ M.config = function()
 					}
 				end,
 				style = "night",
-				transparent = gg.transparent_window,
+				transparent = GG.transparent_window,
 				terminal_colors = true,
 				styles = {
 					comments = { italic = true },
@@ -81,28 +81,28 @@ M.config = function()
 				dim_inactive = false,
 				lualine_bold = false,
 				use_background = true,
-				on_colors = function(colors)
+				on_colors = function(_)
 					-- colors.bg = "#0d1117"
 					-- colors.bg = "#010409"
 				end,
 			},
-		}
+		},
 	}
 end
 
 M.setup = function()
-	local selected_theme = gg.theme
-	if vim.startswith(gg.colorscheme, selected_theme) then
+	local selected_theme = GG.theme
+	if vim.startswith(GG.colorscheme, selected_theme) then
 		local status_ok, plugin = pcall(require, selected_theme)
 		if not status_ok then
 			return
 		end
 		pcall(function()
-			plugin.setup(gg.themes[selected_theme].options)
+			plugin.setup(GG.themes[selected_theme].options)
 		end)
 	end
 
-	vim.g.colors_name = gg.colorscheme
-	vim.cmd("colorscheme " .. gg.colorscheme)
+	vim.g.colors_name = GG.colorscheme
+	vim.cmd("colorscheme " .. GG.colorscheme)
 end
 return M

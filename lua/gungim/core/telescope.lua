@@ -1,7 +1,7 @@
 local M = {}
 M.config = function()
 	local icons = require("gungim.icons")
-	gg.builtin.telescope = {
+	GG.builtin.telescope = {
 		active = true,
 		on_config_done = nil,
 		defaults = {
@@ -54,7 +54,7 @@ M.setup = function()
 	end
 	local builtin = require("telescope.builtin")
 
-	telescope.setup(gg.builtin.telescope)
+	telescope.setup(GG.builtin.telescope)
 
 	pcall(function()
 		require("telescope").load_extension("aerial")
@@ -62,8 +62,8 @@ M.setup = function()
 		require("telescope").load_extension("notify")
 	end)
 
-	if gg.builtin.telescope.on_config_done then
-		gg.builtin.telescope.on_config_done(telescope)
+	if GG.builtin.telescope.on_config_done then
+		GG.builtin.telescope.on_config_done(telescope)
 	end
 end
 return M

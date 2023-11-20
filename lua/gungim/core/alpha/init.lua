@@ -1,9 +1,9 @@
 local M = {}
 M.config = function()
-	local gg_dash = require("gungim.core.alpha.dashboard")
-	gg.builtin.alpha = {
+	local GG_dash = require("gungim.core.alpha.dashboard")
+	GG.builtin.alpha = {
 		dashboard = {
-			section = gg_dash.get_section(),
+			section = GG_dash.get_section(),
 			config = {}
 		},
 		active = true,
@@ -38,7 +38,7 @@ end
 local function resolve_config(theme_name)
   local selected_theme = require("alpha.themes." .. theme_name)
   local resolved_section = selected_theme.section
-  local section = gg.builtin.alpha[theme_name].section
+  local section = GG.builtin.alpha[theme_name].section
 
   for name, el in pairs(section) do
     for k, v in pairs(el) do
@@ -52,7 +52,7 @@ local function resolve_config(theme_name)
     resolved_section[name].opts = el.opts or {}
   end
 
-  local opts = gg.builtin.alpha[theme_name].opts or {}
+  local opts = GG.builtin.alpha[theme_name].opts or {}
   selected_theme.config.opts = vim.tbl_extend("force", selected_theme.config.opts, opts)
 
   return selected_theme.config
@@ -64,8 +64,8 @@ M.setup = function()
 		return
 	end
 
-	local mode = gg.builtin.alpha.mode
-	local config = gg.builtin.alpha[mode].config
+	local mode = GG.builtin.alpha.mode
+	local config = GG.builtin.alpha[mode].config
 
   if vim.tbl_isempty(config) then
     config = resolve_config(mode)

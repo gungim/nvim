@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	gg.builtin.treesitter = {
+	GG.builtin.treesitter = {
 		on_config_done = nil,
 		ensure_installed = {
 			"lua",
@@ -32,32 +32,6 @@ M.config = function()
 		indent = {
 			enable = true,
 			disable = { "yaml", "python", "TelescopePrompt" },
-		},
-		context_commentstring = {
-			enable = true,
-			enable_autocmd = true,
-			config = {
-				typescript = {
-					__default = "// %s",
-					jsx_element = "{/* %s */}",
-					jsx_fragment = "{/* %s */}",
-					jsx_attribute = "// %s",
-					comment = "// %s",
-				},
-				javascript = {
-					__default = "// %s",
-					jsx_element = "{/* %s */}",
-					jsx_fragment = "{/* %s */}",
-					jsx_attribute = "// %s",
-					comment = "// %s",
-				},
-				css = "/* %s */",
-				scss = "/* %s */",
-				html = "<!-- %s -->",
-				svelte = "<!-- %s -->",
-				vue = "<!-- %s -->",
-				json = "",
-			},
 		},
 		autotag = {
 			enable = true,
@@ -105,8 +79,8 @@ M.config = function()
 			},
 		},
 		rainbow = {
-			enable = true,
-			disable = { "html", "python", "yaml" },
+			enable = false,
+			disable = { "python", "yaml" },
 			strategy = require("ts-rainbow").strategy.global,
 		},
 	}
@@ -118,10 +92,10 @@ M.setup = function()
 		return
 	end
 
-	tressiter.setup(gg.builtin.treesitter)
+	tressiter.setup(GG.builtin.treesitter)
 
-	if gg.builtin.treesitter.on_config_done then
-		gg.builtin.treesitter.on_config_done(tressiter)
+	if GG.builtin.treesitter.on_config_done then
+		GG.builtin.treesitter.on_config_done(tressiter)
 	end
 end
 

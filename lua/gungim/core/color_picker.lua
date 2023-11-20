@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gg.builtin.color_picker = {
+	GG.builtin.color_picker = {
 		on_config_done = nil,
 		["icons"] = { "ﱢ", "" },
 		["border"] = "rounded", -- none | single | double | rounded | solid | shadow
@@ -15,7 +15,7 @@ vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 M.setup = function()
-	local config = gg.builtin.color_picker
+	local config = GG.builtin.color_picker
 
 	local status_ok, color_picker = pcall(require, "color-picker")
 	if not status_ok then

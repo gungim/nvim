@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	gg.builtin.hover = {
+	GG.builtin.hover = {
 		on_config_done = nil,
 		init = function()
 			require("hover.providers.lsp")
@@ -24,7 +24,7 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	hover.setup(gg.builtin.hover)
+	hover.setup(GG.builtin.hover)
 
 	vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
 	vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
@@ -32,8 +32,8 @@ M.setup = function()
 	vim.keymap.set("n", "<MouseMove>", require("hover").hover_mouse, { desc = "hover.nvim (mouse)" })
 	vim.o.mousemoveevent = true
 
-	if gg.builtin.hover.on_config_done then
-		gg.builtin.hover.on_config_done(hover)
+	if GG.builtin.hover.on_config_done then
+		GG.builtin.hover.on_config_done(hover)
 	end
 end
 

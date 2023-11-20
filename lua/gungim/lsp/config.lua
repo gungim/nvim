@@ -23,7 +23,6 @@ local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }
 
 return {
 	on_attach_callback = nil,
-	document_highlight = false,
 	automatic_configuration = {
 		---@usage list of servers that the automatic installer will skip
 		skipped_servers = skipped_servers,
