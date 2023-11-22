@@ -1,5 +1,5 @@
 local function augroup(name)
-	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("gg_" .. name, { clear = true })
 end
 
 -- resize splits if window got resized
@@ -39,5 +39,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		end
 		local file = vim.loop.fs_realpath(event.match) or event.match
 		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+	group = augroup("file_opened"),
+	callback = function(args)
+		local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+		if not (vim.fn.expand("%") == "" or buftype == "nofile") then
+			vim.api.nvim_del_augroup_by_name("gg_file_opened")
+			vim.cmd("do User FileOpened")
+			require("gungim.lsp").setup()
+		end
 	end,
 })

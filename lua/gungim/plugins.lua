@@ -50,6 +50,9 @@ return packer.startup(function(use)
 	-- C++ development
 	use("Civitasv/cmake-tools.nvim")
 
+	-- Markdown
+	use("iamcco/markdown-preview.nvim")
+
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
 	use({ "nvim-tree/nvim-tree.lua" })

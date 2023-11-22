@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	GG.builtin.toGGleterm = {
+	GG.builtin.toggleterm = {
 		on_config_done = nil,
 		size = function(term)
 			if term.direction == "horizontal" then
@@ -34,21 +34,21 @@ M.config = function()
 end
 
 function M.setup()
-	local config = GG.builtin.toGGleterm
+	local config = GG.builtin.toggleterm
 
-	local status_ok, toGGleterm = pcall(require, "toGGleterm")
+	local status_ok, toggleterm = pcall(require, "toggleterm")
 	if not status_ok then
 		return
 	end
 
-	toGGleterm.setup(config)
-	if GG.builtin.toGGleterm.on_config_done then
-		GG.builtin.toGGleterm.on_config_done(toGGleterm)
+	toggleterm.setup(config)
+	if GG.builtin.toggleterm.on_config_done then
+		GG.builtin.toggleterm.on_config_done(toggleterm)
 	end
 end
 
-function M.lazygit_toGGle()
-	local Terminal = require("toGGleterm.terminal").Terminal
+function M.lazygit_toggle()
+	local Terminal = require("toggleterm.terminal").Terminal
 	local lazygit = Terminal:new({
 		cmd = "lazygit",
 		hidden = true,
@@ -64,7 +64,7 @@ function M.lazygit_toGGle()
 		on_close = function(_) end,
 		count = 99,
 	})
-	lazygit:toGGle()
+	lazygit:toggle()
 end
 
 return M

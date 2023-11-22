@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-	GG.themes = {
+	GG.builtin.themes = {
 		kanagawa = {
 			options = {},
 			colors = {},
@@ -98,7 +98,7 @@ M.setup = function()
 			return
 		end
 		pcall(function()
-			plugin.setup(GG.themes[selected_theme].options)
+			plugin.setup(GG.builtin.themes[selected_theme].options)
 		end)
 	end
 

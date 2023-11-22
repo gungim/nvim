@@ -34,8 +34,9 @@ local options = {
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	guifont = "Source Code Pro for Powerline:h13", -- the font used in graphical neovim applications 
-	syntax = "off"
+	-- guifont = "Source Code Pro for Powerline:h13", -- the font used in graphical neovim applications
+	guifont = "Fira Code:h12",
+	syntax = "off",
 }
 
 -- vim.opt.shortmess:append "c"
@@ -44,6 +45,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.cmd [[set whichwrap+=<,>,[,],h,l]]
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to workspace
+vim.cmd([[set whichwrap+=<,>,[,],h,l]])
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to workspace

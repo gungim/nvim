@@ -39,11 +39,8 @@ return {
 	leader = "space",
 	colorscheme = colorscheme.catppuccin.mocha,
 	theme = "catppuccin",
-	themes = {},
 	colors = {},
-	keys = {},
 	icons = require("gungim.icons"),
-	lang = {},
 	builtin = {},
 	transparent_window = false,
 	autocommands = {}

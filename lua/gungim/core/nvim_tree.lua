@@ -125,7 +125,7 @@ M.config = function()
 			-- auto_resize = true,
 			number = true,
 			relativenumber = true,
-			centralize_selection = true,
+			centralize_selection = false,
 		},
 		actions = {
 			change_dir = {

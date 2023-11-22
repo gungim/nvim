@@ -1,11 +1,12 @@
 local M = {}
 local builtins = {
+	"gungim.core.theme",
+	"gungim.core.noice",
+	"gungim.core.mason",
 	"gungim.core.alpha",
-	"gungim.core.whichkey",
 	"gungim.core.aerial",
 	"gungim.core.bufferline",
 	"gungim.core.illuminate",
-	"gungim.core.mason",
 	"gungim.core.color_picker",
 	"gungim.core.treesitter",
 	"gungim.core.toggleterm",
@@ -21,7 +22,6 @@ local builtins = {
 	"gungim.core.nvim_tree",
 	"gungim.core.devicons",
 	"gungim.core.smoothcursor",
-	"gungim.core.noice",
 	"gungim.core.navic",
 	"gungim.core.nvim-cmp",
 	"gungim.core.mini",
@@ -29,6 +29,7 @@ local builtins = {
 	"gungim.core.lsp-signature",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
+	"gungim.core.whichkey",
 	-- "gungim.core.spider",
 }
 

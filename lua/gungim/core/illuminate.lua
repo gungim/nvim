@@ -15,7 +15,7 @@ M.config = function()
 			"Trouble",
 			"Outline",
 			"spectre_panel",
-			"toGGleterm",
+			"toggleterm",
 			--[[ "DressingSelect", ]]
 			"TelescopePrompt",
 		},
