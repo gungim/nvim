@@ -18,6 +18,7 @@ local builtins = {
 	"gungim.core.indentline",
 	"gungim.core.cmake",
 	"gungim.core.lualine",
+	"gungim.core.luasnip",
 	"gungim.core.formatter",
 	"gungim.core.nvim_tree",
 	"gungim.core.devicons",

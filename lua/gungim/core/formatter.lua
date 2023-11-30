@@ -45,6 +45,12 @@ M.config = function()
 			css = {
 				require("formatter.filetypes.css").prettier,
 			},
+			less = {
+				require("formatter.filetypes.css").prettier,
+			},
+			scss = {
+				require("formatter.filetypes.css").prettier,
+			},
 			json = {
 				require("formatter.filetypes.json").prettier,
 			},
@@ -54,7 +60,7 @@ M.config = function()
 			javascriptreact = {
 				require("formatter.filetypes.javascriptreact").prettier,
 			},
-			svelte= {
+			svelte = {
 				require("formatter.filetypes.svelte").prettier,
 			},
 			rust = {

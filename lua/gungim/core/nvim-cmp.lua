@@ -1,14 +1,17 @@
 local M = {}
 M.config = function()
-	local _, luasnip = pcall(require, "luasnip")
 	local _, cmp = pcall(require, "cmp")
 	local icons = require("gungim.icons")
 
 	GG.builtin.cmp = {
 		on_config_done = nil,
+		preselect = cmp.PreselectMode.None,
+		completion = {
+			completeopt = "menu,menuone,noinsert,noselect",
+		},
 		snippet = {
 			expand = function(args)
-				luasnip.lsp_expand(args.body)
+				require("luasnip").lsp_expand(args.body)
 			end,
 		},
 		mapping = cmp.mapping.preset.insert({
@@ -33,6 +36,13 @@ M.config = function()
 				end
 				return vim_item
 			end,
+		},
+		matching = {
+			disallow_fuzzy_matching = true,
+			disallow_fullfuzzy_matching = true,
+			disallow_partial_fuzzy_matching = true,
+			disallow_partial_matching = true,
+			disallow_prefix_unmatching = false,
 		},
 		sources = {
 			{ name = "nvim_lsp" },
