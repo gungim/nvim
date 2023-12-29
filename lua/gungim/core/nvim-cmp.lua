@@ -1,7 +1,7 @@
 local M = {}
 M.config = function()
 	local _, cmp = pcall(require, "cmp")
-	local icons = require("gungim.icons")
+	local icons = GG.icons
 
 	GG.builtin.cmp = {
 		on_config_done = nil,
@@ -31,8 +31,8 @@ M.config = function()
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			format = function(_, vim_item)
-				if icons[vim_item.kind] then
-					vim_item.kind = icons[vim_item.kind] .. vim_item.kind
+				if icons.kind[vim_item.kind] then
+					vim_item.kind = icons.kind[vim_item.kind]
 				end
 				return vim_item
 			end,

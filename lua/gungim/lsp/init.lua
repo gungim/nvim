@@ -59,6 +59,7 @@ end
 
 M.common_on_attach = function(client, bufnr)
 	add_lsp_keymap(bufnr)
+	add_lsp_buffer_options(bufnr)
 
 	if GG.lsp.on_attach_callback then
 		GG.lsp.on_attach_callback(client, bufnr)
@@ -66,7 +67,6 @@ M.common_on_attach = function(client, bufnr)
 	end
 
 	attach_navic(client, bufnr)
-	add_lsp_buffer_options(bufnr)
 end
 M.common_on_exit = function(_, _) end
 

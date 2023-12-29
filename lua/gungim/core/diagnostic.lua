@@ -1,6 +1,6 @@
 local M = {}
 
-local icons = require("gungim.icons")
+local icons = GG.icons
 local signs = {
 	{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
 	{ name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },

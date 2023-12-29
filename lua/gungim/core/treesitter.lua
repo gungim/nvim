@@ -20,7 +20,10 @@ M.config = function()
 			"bash",
 			"markdown",
 			"markdown_inline",
-			"prisma"
+			"prisma",
+			"angular",
+			"gdscript",
+			"godot_resource"
 		},
 		sync_install = true,
 		highlight = {

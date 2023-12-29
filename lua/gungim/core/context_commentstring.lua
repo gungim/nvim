@@ -9,27 +9,29 @@ M.setup = function()
 	end
 	cmt.setup({
 		enable_autocmd = false,
-
-		typescript = {
-			__default = "// %s",
-			jsx_element = "{/* %s */}",
-			jsx_fragment = "{/* %s */}",
-			jsx_attribute = "// %s",
-			comment = "// %s",
+		languages = {
+			typescript = {
+				__default = "// %s",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = "// %s",
+				comment = "// %s",
+			},
+			javascript = {
+				__default = "// %s",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = "// %s",
+				comment = "// %s",
+			},
+			css = "/* %s */",
+			scss = "/* %s */",
+			html = "<!-- %s -->",
+			svelte = "<!-- %s -->",
+			vue = "<!-- %s -->",
+			json = "",
+			gdscript = "# %s",
 		},
-		javascript = {
-			__default = "// %s",
-			jsx_element = "{/* %s */}",
-			jsx_fragment = "{/* %s */}",
-			jsx_attribute = "// %s",
-			comment = "// %s",
-		},
-		css = "/* %s */",
-		scss = "/* %s */",
-		html = "<!-- %s -->",
-		svelte = "<!-- %s -->",
-		vue = "<!-- %s -->",
-		json = "",
 	})
 end
 

@@ -25,6 +25,7 @@ M.setup = function()
 
 		lauch_server(server, config)
 	end
+	lauch_server("gdscript", {})
 end
 
 return M

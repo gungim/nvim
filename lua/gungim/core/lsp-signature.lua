@@ -2,10 +2,12 @@ local M = {}
 M.config = function()
 	GG.builtin.signature = {
 		on_config_done = nil,
+		floating_window = false,
+
 		fix_pos = false,
 		hint_prefix = "🐼" .. " ",
 		hint_scheme = "String",
-		noice = false,
+
 		auto_close_after = 3,
 		transparency = 50,
 	}

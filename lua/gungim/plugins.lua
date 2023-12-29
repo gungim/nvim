@@ -77,7 +77,6 @@ return packer.startup(function(use)
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	} })
-	use("oxfist/night-owl.nvim")
 	use("gen740/SmoothCursor.nvim")
 	use({ "SmiteshP/nvim-navic" })
 	use("nvim-tree/nvim-web-devicons")
@@ -101,9 +100,9 @@ return packer.startup(function(use)
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	use({ "akinsho/horizon.nvim", tag = "*" })
 	use("rebelot/kanagawa.nvim")
+	use("oxfist/night-owl.nvim")
 
 	-- Coding
-	use({ "chrisgrieser/nvim-spider" })
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -116,7 +115,7 @@ return packer.startup(function(use)
 	})
 	-- The completion plugin
 	-- use("echasnovski/mini.surround")
-	use("echasnovski/mini.comment")
+	use({ "echasnovski/mini.comment", requires = "JoosepAlviste/nvim-ts-context-commentstring" })
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")
 	use({ "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp" })
@@ -131,7 +130,7 @@ return packer.startup(function(use)
 	})
 	use("jinzhongjia/LspUI.nvim")
 
-	-- Formatter, Comment
+	-- Formatter
 	use("MunifTanjim/prettier.nvim")
 	use({ "mhartington/formatter.nvim" })
 
@@ -141,7 +140,6 @@ return packer.startup(function(use)
 	use("nvim-treesitter/playground")
 	use("HiPhish/nvim-ts-rainbow2")
 	use("stevearc/aerial.nvim")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")

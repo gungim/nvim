@@ -3,6 +3,7 @@ local M = {}
 M.config = function()
 	GG.builtin.barbecue = {
 		on_config_done = nil,
+		kinds = GG.icons.kind,
 	}
 end
 

@@ -25,13 +25,15 @@ local builtins = {
 	"gungim.core.smoothcursor",
 	"gungim.core.navic",
 	"gungim.core.nvim-cmp",
+
+	"gungim.core.context_commentstring",
 	"gungim.core.mini",
+
 	"gungim.core.gitblame",
-	"gungim.core.lsp-signature",
+	-- "gungim.core.lsp-signature",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
 	"gungim.core.whichkey",
-	-- "gungim.core.spider",
 }
 
 M.config = function()

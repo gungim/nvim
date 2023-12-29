@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-	local icons = require("gungim.icons")
+	local icons = GG.icons
 	GG.builtin.navic = {
 		on_config_done = nil,
 		icons = icons.kind,

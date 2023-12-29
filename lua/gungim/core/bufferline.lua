@@ -1,5 +1,5 @@
 local M = {}
-local icons = require("gungim.icons")
+local icons = GG.icons
 local function diagnostics_indicator(_, _, diagnostics, _)
 	local result = {}
 	local symbols = {

@@ -1,7 +1,5 @@
-local icons = require("gungim.icons")
+local icons = GG.icons
 local colors = require("gungim.core.colors")
-local M = {}
-
 
 local mode_color = {
 	n = colors.normal,

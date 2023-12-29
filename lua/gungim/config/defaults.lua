@@ -43,5 +43,4 @@ return {
 	icons = require("gungim.icons"),
 	builtin = {},
 	transparent_window = false,
-	autocommands = {}
 }
