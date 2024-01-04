@@ -17,7 +17,7 @@ then
     brew install node
 fi
 
-if ! command -v nvim &> /dev/null 
+if ! command -v nvim &> /dev/null
 then
     printf "\n------------------------- Backup existing config --------------------------\n"
 		mkdir ~/.config/nvim-bak
@@ -40,4 +40,3 @@ if [ ! -d $HOME/.fonts/CascadiaCode ]; then
 fi
 
 printf "\n-------------------------- Install NodeJs Package -----------------\n"
-
