@@ -18,14 +18,20 @@ local function lauch_server(server_name, config)
 end
 
 M.setup = function()
-	local server_names = GG.lsp.automatic_configuration.skipped_servers
+	local mason_servers = GG.lsp.automatic_configuration.mason_servers
+	local other_servers = GG.lsp.automatic_configuration.other_servers
 
-	for _, server in ipairs(server_names) do
+	--- Lauch config for mason server
+	for _, server in ipairs(mason_servers) do
 		local config = reslove_config(server, {})
-
 		lauch_server(server, config)
 	end
-	lauch_server("gdscript", {})
+
+	--- Lauch config for other server
+	for _, server in ipairs(other_servers) do
+		local config = reslove_config(server, {})
+		lauch_server(server, config)
+	end
 end
 
 return M

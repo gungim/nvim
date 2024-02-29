@@ -38,3 +38,14 @@ do
 	pip3 install $i
 done
 #  
+#
+declare -a rust_pack=(
+	"rustfmt"
+	"rust-src"
+)
+printf "\n------------------------- Install Rust Package ---------------------------\n"
+for i in "${rust_pack[@]}";
+do 
+	printf "\nInstall $i\n"
+	rustup component add  $i
+done

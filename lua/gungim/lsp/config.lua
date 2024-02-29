@@ -1,4 +1,4 @@
-local skipped_servers = {
+local mason_servers = {
 	"tsserver",
 	"tailwindcss",
 	"lua_ls",
@@ -15,18 +15,16 @@ local skipped_servers = {
 	"volar",
 	"angularls",
 	"cmake",
-	"prismals"
+	"prismals",
 }
-
-local skipped_filetypes = { "markdown", "rst", "plaintext", "toml", "proto" }
 
 return {
 	on_attach_callback = nil,
 	automatic_configuration = {
 		---@usage list of servers that the automatic installer will skip
-		skipped_servers = skipped_servers,
-		---@usage list of filetypes that the automatic installer will skip
-		skipped_filetypes = skipped_filetypes,
+		mason_servers = mason_servers,
+		---@usage list of servers if mason does not support
+		other_servers = { "gdscript" },
 	},
 	buffer_options = {
 		--- enable completion triggered by <c-x><c-o>
@@ -34,13 +32,5 @@ return {
 		--- use gq for formatting
 		formatexpr = "v:lua.vim.lsp.formatexpr(#{timeout_ms:500})",
 	},
-
-	installer = {
-		setup = {
-			ensure_installed = {},
-			automatic_installation = {
-				exclude = {},
-			},
-		},
-	},
 }
+-- skipped_servers

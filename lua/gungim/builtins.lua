@@ -30,7 +30,7 @@ local builtins = {
 	"gungim.core.mini",
 
 	"gungim.core.gitblame",
-	-- "gungim.core.lsp-signature",
+	"gungim.core.lsp-signature",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
 	"gungim.core.whichkey",

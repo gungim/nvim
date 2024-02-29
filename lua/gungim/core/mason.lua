@@ -55,7 +55,7 @@ function M.setup()
 	mason.setup(GG.builtin.mason)
 
 	require("mason-lspconfig").setup({
-		ensure_installed = GG.lsp.automatic_configuration.skipped_servers,
+		ensure_installed = GG.lsp.automatic_configuration.mason_servers,
 	})
 	if GG.builtin.mason.on_config_done then
 		GG.builtin.mason.on_config_done(mason)

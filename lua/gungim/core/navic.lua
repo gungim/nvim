@@ -1,3 +1,4 @@
+---@usage for winbar status
 local M = {}
 
 M.config = function()

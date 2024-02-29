@@ -33,6 +33,9 @@ M.config = function()
 			cpp = {
 				require("formatter.filetypes.cpp").clangformat,
 			},
+			vue= {
+				require("formatter.filetypes.vue").prettier,
+			},
 			typescript = {
 				require("formatter.filetypes.typescript").prettier,
 			},

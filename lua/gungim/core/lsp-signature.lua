@@ -1,12 +1,17 @@
 local M = {}
+
 M.config = function()
 	GG.builtin.signature = {
 		on_config_done = nil,
 		floating_window = false,
 
-		fix_pos = false,
+		fix_pos = true,
 		hint_prefix = "🐼" .. " ",
 		hint_scheme = "String",
+		close_timeout = 1000,
+		hi_parameter = "LspSignatureActiveParameter",
+
+		-- handler_opts = { border = "single" },
 
 		auto_close_after = 3,
 		transparency = 50,
