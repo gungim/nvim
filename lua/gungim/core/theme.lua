@@ -34,9 +34,12 @@ M.config = function()
 		catppuccin = {
 			options = {
 				highlight_overrides = {},
-				custom_highlights = function(_)
+				custom_highlights = function(colors)
 					-- more options https://github.com/catppuccin/nvim#integrations
-					return {}
+					return {
+						NvimTreeWinSeparator = { fg = colors.sapphire },
+						BufferLineBufferSelected = { sp = colors.sapphire },
+					}
 				end,
 			},
 		},

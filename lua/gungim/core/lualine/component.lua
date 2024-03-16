@@ -5,13 +5,13 @@ local mode_color = {
 	n = colors.normal,
 	i = colors.insert,
 	v = colors.visual,
-	[''] = colors.visual,
+	[""] = colors.visual,
 	V = colors.visual,
 	c = colors.command,
 	no = colors.normal,
 	s = colors.search,
 	S = colors.search,
-	[''] = colors.search,
+	[""] = colors.search,
 
 	ic = colors.visual,
 
@@ -22,29 +22,29 @@ local mode_color = {
 
 	r = colors.visual,
 	rm = colors.visual,
-	['r?'] = colors.visual,
+	["r?"] = colors.visual,
 
-	['!'] = colors.normal,
+	["!"] = colors.normal,
 	t = colors.normal,
 }
 
 local conditions = {
 	buffer_not_empty = function()
-		return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+		return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
 	end,
 	hide_in_width = function()
 		return vim.fn.winwidth(0) > 80
 	end,
 	check_git_workspace = function()
-		local filepath = vim.fn.expand('%:p:h')
-		local gitdir = vim.fn.finddir('.git', filepath .. ';')
+		local filepath = vim.fn.expand("%:p:h")
+		local gitdir = vim.fn.finddir(".git", filepath .. ";")
 		return gitdir and #gitdir > 0 and #gitdir < #filepath
 	end,
 }
 
 local mode = function()
 	local mod = vim.fn.mode()
-	local _time = os.date "*t"
+	local _time = os.date("*t")
 
 	local selector = math.floor(_time.hour / 8) + 1
 	local normal_icons = {
@@ -87,12 +87,11 @@ local mode = function()
 	return normal_icons[selector]
 end
 
-
 local config = {
 	options = {
 		-- Disable sections and component separators
-		component_separators = '',
-		section_separators = '',
+		component_separators = "",
+		section_separators = "",
 		theme = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we
@@ -133,9 +132,9 @@ local function ins_right(component)
 	table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
 	function()
-		return '▊'
+		return "▊"
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -143,9 +142,9 @@ ins_left {
 	end,
 
 	padding = { left = 0, right = 1 }, -- We don't need space before this
-}
+})
 
-ins_left {
+ins_left({
 	-- mode component
 	function()
 		return mode()
@@ -155,31 +154,32 @@ ins_left {
 		return { fg = mode_color[vim.fn.mode()] }
 	end,
 	padding = { right = 1 },
-}
+})
 
-ins_left {
+ins_left({
 	-- filesize component
-	'filesize',
+	"filesize",
 	cond = conditions.buffer_not_empty,
-}
+	color = { fg = colors.pink },
+})
 
-ins_left {
-	'filename',
+ins_left({
+	"filename",
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.file, gui = 'bold' },
-}
+	color = { fg = colors.yellow, gui = "bold" },
+})
 
-ins_left { 'location' }
+ins_left({ "location", color = { fg = colors.sapphire } })
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+ins_left({ "progress", color = { fg = colors.overlay1, gui = "bold" } })
 
-ins_left {
-	'diagnostics',
-	sources = { 'nvim_diagnostic' },
+ins_left({
+	"diagnostics",
+	sources = { "nvim_diagnostic" },
 	symbols = {
 		error = icons.diagnostics.BoldError .. " ",
 		warn = icons.diagnostics.BoldWarning .. " ",
-		info = icons.diagnostics.BoldInformation .. " "
+		info = icons.diagnostics.BoldInformation .. " ",
 	},
 	diagnostics_color = {
 		color_error = { fg = colors.diag.error },
@@ -187,21 +187,21 @@ ins_left {
 		color_info = { fg = colors.diag.info },
 		color_hint = { fg = colors.diag.hint },
 	},
-}
+})
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
+ins_left({
 	function()
-		return '%='
+		return "%="
 	end,
-}
+})
 
-ins_left {
+ins_left({
 	-- Lsp server name .
 	function()
-		local msg = 'No Lsp'
-		local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+		local msg = "No Lsp"
+		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 		local clients = vim.lsp.get_active_clients()
 		if next(clients) == nil then
 			return msg
@@ -214,19 +214,19 @@ ins_left {
 		end
 		return msg
 	end,
-	icon = ' LSP:',
-	color = { fg = colors.fg, gui = 'bold' },
-}
+	icon = " LSP:",
+	color = { fg = colors.teal , gui = "bold" },
+})
 
 -- Add components to right sections
 
-ins_right {
-	'diff',
+ins_right({
+	"diff",
 	-- Is it me or the symbol for modified us really weird
 	symbols = {
 		added = icons.git.LineAdded .. " ",
 		modified = icons.git.LineModified .. " ",
-		removed = icons.git.LineRemoved .. " "
+		removed = icons.git.LineRemoved .. " ",
 	},
 	diff_color = {
 		added = { fg = colors.git.add },
@@ -234,41 +234,40 @@ ins_right {
 		removed = { fg = colors.git.delete },
 	},
 	cond = conditions.hide_in_width,
-}
+})
 
-ins_right {
-	'branch',
+ins_right({
+	"branch",
 	icon = icons.git.Branch,
 	color = function()
 		-- auto change color according to neovims mode
-		return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
+		return { fg = mode_color[vim.fn.mode()], gui = "bold" }
 	end,
+})
 
-}
-
-ins_right {
-	'o:encoding',      -- option component same as &encoding in viml
+ins_right({
+	"o:encoding", -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
-	color = { fg = colors.diag.ok, gui = 'bold' },
-}
+	color = { fg = colors.file, gui = "bold" },
+})
 
-ins_right {
-	'fileformat',
+ins_right({
+	"fileformat",
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.diag.ok, gui = 'bold' },
-}
+	color = { fg = colors.diag.ok, gui = "bold" },
+})
 
-ins_right {
+ins_right({
 	function()
-		return '▊'
+		return "▊"
 	end,
 	color = function()
 		-- auto change color according to neovims mode
 		return { fg = mode_color[vim.fn.mode()] }
 	end,
 	-- padding = { left = 1 },
-}
+})
 
 return config

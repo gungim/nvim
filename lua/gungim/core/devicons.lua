@@ -176,17 +176,6 @@ M.setup = function()
 		return
 	end
 
-	devicons.setup({
-		strict = true,
-		override_by_extension = {
-			["aa"]= {
-				icon = "",
-				color = "#428850",
-				name = "Test",
-			},
-		},
-	})
-
 	devicons.set_icon(GG.builtin.devicons.otp)
 
 	if GG.builtin.devicons.on_config_done then

@@ -42,14 +42,16 @@ M.config = function()
 		on_attach = on_attach,
 		auto_reload_on_write = false,
 		reload_on_bufenter = true,
-		root_dirs = {"Root"},
+		root_dirs = { "Root" },
 		filters = {
 			-- custom = { ".git", "node_modules", "\\.cache" },
 			exclude = { ".gitignore" },
 		},
 		renderer = {
 			highlight_git = true,
-			root_folder_label = false,
+			root_folder_label = function(path)
+				return " " .. vim.fn.fnamemodify(path, ":t")
+			end,
 
 			indent_markers = {
 				enable = true,
@@ -158,6 +160,6 @@ M.setup = function()
 end
 return M
 
-	-- function(path)
-	-- 			return " " .. vim.fn.fnamemodify(path, ":t")
-	-- 		end,
+-- function(path)
+-- 			return " " .. vim.fn.fnamemodify(path, ":t")
+-- 		end,

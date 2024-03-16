@@ -85,6 +85,14 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 	use({
+		"willothy/nvim-cokeline",
+		requires = {
+			"nvim-lua/plenary.nvim", -- Required for v0.4.0+
+			"nvim-tree/nvim-web-devicons", -- If you want devicons
+			"stevearc/resession.nvim", -- Optional, for persistent history
+		},
+	})
+	use({
 		"utilyre/barbecue.nvim",
 		tag = "*",
 		requires = {

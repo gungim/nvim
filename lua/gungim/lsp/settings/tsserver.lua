@@ -5,12 +5,10 @@ local opts = {
 	filetypes = {
 		"javascript",
 		"javascriptreact",
-		"javascript.jsx",
 		"typescript",
 		"typescriptreact",
-		"typescript.tsx",
 		"svelte",
-		"vue"
+		-- "vue"
 	},
 }
 
