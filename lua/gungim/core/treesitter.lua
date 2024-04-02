@@ -23,7 +23,7 @@ M.config = function()
 			"prisma",
 			"angular",
 			"gdscript",
-			"godot_resource"
+			"godot_resource",
 		},
 		sync_install = true,
 		highlight = {
@@ -96,7 +96,6 @@ M.setup = function()
 	end
 
 	tressiter.setup(GG.builtin.treesitter)
-
 	if GG.builtin.treesitter.on_config_done then
 		GG.builtin.treesitter.on_config_done(tressiter)
 	end

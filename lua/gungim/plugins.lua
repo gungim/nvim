@@ -148,11 +148,15 @@ return packer.startup(function(use)
 	use("nvim-treesitter/playground")
 	use("HiPhish/nvim-ts-rainbow2")
 	use("stevearc/aerial.nvim")
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("f-person/git-blame.nvim")
 	-- Test
+
+	-- Todo
+	use({ "folke/todo-comments.nvim", require = "nvim-lua/plenary.nvim" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

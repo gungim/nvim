@@ -11,7 +11,7 @@ local builtins = {
 	"gungim.core.color_picker",
 	"gungim.core.treesitter",
 	"gungim.core.toggleterm",
-	-- "gungim.core.hover",
+	"gungim.core.hover",
 	"gungim.core.autopairs",
 	"gungim.core.telescope",
 	"gungim.core.gitsigns",
@@ -35,6 +35,8 @@ local builtins = {
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
 	"gungim.core.whichkey",
+	"gungim.core.todo",
+	-- "gungim.core.ufo"
 }
 
 M.config = function()

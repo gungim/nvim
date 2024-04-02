@@ -85,7 +85,16 @@ M.config = function()
 			---@type string | string[]
 			filetype = { "NvimTree", "neo-tree", "SidebarNvim" },
 			---@type Component[]
-			components = {},
+			components = {
+				{
+					text = function(buf)
+						return buf.filetype
+					end,
+					fg = colors.yellow,
+					bg = colors.base,
+					bold = true,
+				},
+			},
 		},
 	}
 end
