@@ -1,3 +1,7 @@
 return {
-	filetypes = { "typescript", "javascript", "vue", "json" },
+	init_options = {
+		vue = {
+			hybridMode = false,
+		},
+	},
 }

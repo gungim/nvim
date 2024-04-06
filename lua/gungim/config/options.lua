@@ -35,7 +35,7 @@ local options = {
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
 	-- guifont = "Source Code Pro for Powerline:h13", -- the font used in graphical neovim applications
-	guifont = "Fira Code:h12",
+	guifont = "MonoLisa:h12",
 	syntax = "off",
 }
 

@@ -1,28 +1,27 @@
-local mason_servers = {
-	"tsserver",
-	"tailwindcss",
-	"lua_ls",
-	"clangd",
-	"diagnosticls",
-	"eslint",
-	"html",
-	"jsonls",
-	"lemminx",
-	"cssls",
-	"svelte",
-	"rust_analyzer",
-	"bashls",
-	"volar",
-	"angularls",
-	"cmake",
-	"prismals",
-}
-
 return {
 	on_attach_callback = nil,
 	automatic_configuration = {
 		---@usage list of servers that the automatic installer will skip
-		mason_servers = mason_servers,
+		mason_servers = {
+
+			"tsserver",
+			"tailwindcss",
+			"lua_ls",
+			"clangd",
+			"diagnosticls",
+			"eslint",
+			"html",
+			"jsonls",
+			"lemminx",
+			"cssls",
+			"svelte",
+			"rust_analyzer",
+			"bashls",
+			"volar",
+			"angularls",
+			"cmake",
+			"prismals",
+		},
 		---@usage list of servers if mason does not support
 		other_servers = { "gdscript" },
 	},

@@ -51,8 +51,8 @@ M.config = function()
 			{ name = "path" },
 		},
 		window = {
+			-- border = { "╭", "─", "╮", "│", "╯", "─", "|", "|" },
 			documentation = cmp.config.window.bordered(),
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "x" },
 			completion = cmp.config.window.bordered(),
 		},
 	}

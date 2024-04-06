@@ -9,7 +9,14 @@ M.config = function()
 				["vim.lsp.util.stylize_markdown"] = true,
 				["cmp.entry.get_documentation"] = true,
 			},
-			signature = { enabled = false},
+			signature = { enabled = false },
+			progress = {
+				format_done = {
+					{ icon.ui.Check .. " ", hl_group = "NoiceLspProgressSpinner" },
+					{ "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+					{ "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+				},
+			},
 		},
 		presets = {
 			bottom_search = true, -- use a classic bottom cmdline for search

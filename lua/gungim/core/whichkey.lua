@@ -20,6 +20,11 @@ M.config = function()
 				align = "center", -- align columns left, center or right
 			},
 			ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+			icons = {
+				breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+				separator = "", -- symbol used between a key and it's label
+				group = "+", -- symbol prepended to a group
+			},
 		},
 		mappings = {
 			[";"] = { "<cmd>AerialToggle!<CR>", "Aerial Toggle" },

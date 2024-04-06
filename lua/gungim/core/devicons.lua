@@ -3,7 +3,7 @@ local M = {}
 M.config = function()
 	local webpack = {
 		color = "#75B2CF",
-		icon = "ﰩ",
+		icon = "",
 		name = "Webpack",
 	}
 	local babel = {
@@ -22,21 +22,14 @@ M.config = function()
 		color = "#8fce00",
 	}
 	local prettier = {
-
-		icon = "󰰙",
-		color = "#55B3B4",
-		name = "Prettier",
+		icon = "",
+		name = "PrettierConfig",
 	}
 	GG.builtin.devicons = {
 		on_config_done = nil,
-
+		-- by_file_name
 		[".prettierrc"] = prettier,
 		[".prettierignore"] = prettier,
-		["tailwind.config.js"] = {
-			icon = "󱏿",
-			color = "#38BCF9",
-			name = "tailwindcss",
-		},
 		["package.json"] = node,
 		["package-lock.json"] = node,
 		[".env"] = {
@@ -144,6 +137,8 @@ M.config = function()
 			color = "#ff3e00",
 			name = "SvelteConf",
 		},
+
+		-- by_extendsion
 		zip = {
 			icon = "",
 			color = "#ff3e00",
@@ -156,8 +151,7 @@ M.config = function()
 		},
 		webpack = webpack,
 		zsh = {
-			icon = "",
-			color = "#428850",
+			icon = "",
 			name = "Zsh",
 		},
 		css = {
@@ -170,6 +164,38 @@ M.config = function()
 			name = "Less",
 			color = "#F64D27",
 		},
+		html = {
+			icon = "",
+			name = "Html",
+		},
+		app = {
+			icon = "󱂵",
+			name = "App",
+		},
+		cfg = {
+			icon = "",
+			name = "Configuration",
+		},
+		godot = {
+			icon = "󰼀",
+			name = "GodotProject",
+		},
+		java = {
+			icon = "",
+			name = "Java",
+		},
+		bash = {
+			icon = "",
+			name = "Bash",
+		},
+		ubuntu = {
+			icon = "󰕈",
+			name = "Ubuntu",
+		},
+		tsx = {
+			icon = "",
+			name = "Tsx",
+		},
 	}
 end
 
@@ -180,19 +206,6 @@ M.setup = function()
 	end
 
 	devicons.set_icon(GG.builtin.devicons)
-
-	devicons.setup({
-		strict = true,
-		-- same as `override` but specifically for overrides by filename
-		-- takes effect when `strict` is true
-		override_by_filename = {
-			["mada"] = {
-				icon = "",
-				color = "#f1502f",
-				name = "Gitignore",
-			},
-		},
-	})
 
 	if GG.builtin.devicons.on_config_done then
 		GG.builtin.devicons.on_config_done(devicons)
