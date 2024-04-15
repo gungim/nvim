@@ -17,8 +17,11 @@ local builtins = {
 	"gungim.core.gitsigns",
 	"gungim.core.colorizer",
 	"gungim.core.indentline",
+
 	"gungim.core.cmake",
 	"gungim.core.lualine",
+	"gungim.core.vue-goto-definition",
+
 	"gungim.core.luasnip",
 	"gungim.core.formatter",
 	"gungim.core.nvim_tree",

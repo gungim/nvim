@@ -24,6 +24,7 @@ M.config = function()
 			end,
 			sp = colors.sapphire,
 		},
+		new_buffers_position = "number",
 		components = {
 			{
 				text = " ",

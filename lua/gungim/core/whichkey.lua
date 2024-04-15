@@ -29,7 +29,6 @@ M.config = function()
 		mappings = {
 			[";"] = { "<cmd>AerialToggle!<CR>", "Aerial Toggle" },
 			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-			["w"] = { "<cmd>w!<CR>", "Save" },
 			["q"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
 			["h"] = { "<cmd>set nohlsearch!<CR>", "No Highlight" },
 			["f"] = { "<cmd>Format<cr>", "Format" },
@@ -105,6 +104,11 @@ M.config = function()
 				},
 				P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 				T = { "<cmd>Telescope<cr>", "Telescope" },
+			},
+			w = {
+				name = "window",
+				s = { "<cmd>split<cr>", "Split" },
+				h = { "<cmd>vsplit<cr>", "VSplit" },
 			},
 		},
 		vmappings = {

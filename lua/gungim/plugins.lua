@@ -49,6 +49,8 @@ return packer.startup(function(use)
 	use("folke/neodev.nvim")
 	-- C++ development
 	use("Civitasv/cmake-tools.nvim")
+	-- Vue development
+	use("catgoose/vue-goto-definition.nvim")
 
 	-- Markdown
 	use("iamcco/markdown-preview.nvim")
