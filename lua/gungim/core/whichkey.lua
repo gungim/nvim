@@ -74,14 +74,8 @@ M.config = function()
 				name = "LSP",
 				i = { "<cmd>LspInfo<cr>", "Info" },
 				I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-			},
-			b = {
-				name = "Buffer",
-				l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffer left" },
-				r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffer left" },
-				o = { "<cmd>BufferLineCloseOthers<CR>", "Close all buffer other" },
-				p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
-				m = { "<cmd>BufferLineTogglePin<CR>", "Toggle buffer pin" },
+				r = { "<cmd>LspRestart<cr>", "Restart lsp" },
+				s = { "<cmd>LspStart<cr>", "Start lsp" },
 			},
 			s = {
 				name = "Search",
@@ -105,8 +99,9 @@ M.config = function()
 				P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 				T = { "<cmd>Telescope<cr>", "Telescope" },
 			},
+			t = { "<cmd>TodoLocList<cr>", "Todo list" },
 			w = {
-				name = "window",
+				name = "Window",
 				s = { "<cmd>split<cr>", "Split" },
 				h = { "<cmd>vsplit<cr>", "VSplit" },
 			},
