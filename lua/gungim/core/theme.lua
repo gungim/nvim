@@ -37,9 +37,10 @@ M.config = function()
 				custom_highlights = function(colors)
 					-- more options https://github.com/catppuccin/nvim#integrations
 					return {
-						NvimTreeWinSeparator = { fg = colors.teal},
-						BufferLineBufferSelected = { sp = colors.teal},
-						WinSeparator = { fg = colors.teal},
+						NvimTreeWinSeparator = { fg = colors.teal },
+						BufferLineBufferSelected = { sp = colors.teal },
+						WinSeparator = { fg = colors.teal },
+						Search = { bg = "#89dceb", fg="#313244" },
 					}
 				end,
 			},

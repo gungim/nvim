@@ -3,6 +3,13 @@ local M = {}
 M.config = function()
 	GG.builtin.todo = {
 		on_config_done = nil,
+		signs = true,
+		keywords = {
+			DONE = {
+				icon = " ",
+				color = "#a6e3a1",
+			},
+		},
 	}
 end
 
@@ -12,7 +19,7 @@ M.setup = function()
 		return
 	end
 
-	todo.setup()
+	todo.setup(GG.builtin.todo)
 	if GG.builtin.todo.on_config_done then
 		GG.builtin.todo.on_config_done(todo)
 	end

@@ -196,6 +196,10 @@ M.config = function()
 			icon = "",
 			name = "Tsx",
 		},
+		["scenes"] = {
+			icon = "󱄤",
+			name = "Movie",
+		},
 	}
 end
 
