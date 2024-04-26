@@ -38,9 +38,9 @@ M.config = function()
 					-- more options https://github.com/catppuccin/nvim#integrations
 					return {
 						NvimTreeWinSeparator = { fg = colors.teal },
-						BufferLineBufferSelected = { sp = colors.teal },
 						WinSeparator = { fg = colors.teal },
-						Search = { bg = "#89dceb", fg="#313244" },
+						Search = { bg = "#89dceb", fg = "#313244" },
+						TabLineSel = { bg = colors.teal },
 					}
 				end,
 			},
