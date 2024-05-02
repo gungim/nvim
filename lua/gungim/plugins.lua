@@ -57,7 +57,8 @@ return packer.startup(function(use)
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
-	use({ "nvim-tree/nvim-tree.lua" })
+	use({ "nvim-tree/nvim-tree.lua", require = { "nvim-tree/nvim-web-devicons" } })
+	use({"b0o/nvim-tree-preview.lua"})
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 
@@ -81,7 +82,6 @@ return packer.startup(function(use)
 	} })
 	use("gen740/SmoothCursor.nvim")
 	use({ "SmiteshP/nvim-navic" })
-	use("nvim-tree/nvim-web-devicons")
 	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")

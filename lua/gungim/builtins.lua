@@ -8,7 +8,7 @@ local builtins = {
 	"gungim.core.bufferline",
 	-- "gungim.core.cokeline",
 	"gungim.core.illuminate",
-	"gungim.core.color_picker",
+	"gungim.core.color-picker",
 	"gungim.core.treesitter",
 	"gungim.core.toggleterm",
 	"gungim.core.hover",
@@ -24,13 +24,14 @@ local builtins = {
 
 	"gungim.core.luasnip",
 	"gungim.core.formatter",
-	"gungim.core.nvim_tree",
+	"gungim.core.nvim-tree-preview",
+	"gungim.core.nvim-tree",
 	"gungim.core.devicons",
 	"gungim.core.smoothcursor",
 	"gungim.core.navic",
 	"gungim.core.nvim-cmp",
 
-	"gungim.core.context_commentstring",
+	"gungim.core.context-commentstring",
 	"gungim.core.mini",
 
 	"gungim.core.gitblame",

@@ -22,7 +22,6 @@ M.config = function()
 		options = {
 			mode = "buffers",
 			numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-			close_command = "none", -- can be a string | function, see "Mouse actions"
 			left_mouse_command = "none", -- can be a string | function, see "Mouse actions"
 			middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 			indicator = {

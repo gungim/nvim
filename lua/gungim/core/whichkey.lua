@@ -48,6 +48,13 @@ M.config = function()
 				d = { "<cmd>CompetiTestDelete<cr>", "Delete" },
 				t = { "<cmd>CompetiTestReceive<cr>", "Download" },
 			},
+			b = {
+				name = "Buffer",
+				o = { "<cmd>BufferLineCloseOthers<cr>", "Close Others" },
+				l = { "<cmd>BufferLineCloseLeft<cr>", "Close Left" },
+				r = { "<cmd>BufferLineCloseRight<cr>", "Close Right" },
+				p = { "<cmd>BufferLineTogglePin<cr>", "Pin" },
+			},
 			g = {
 				name = "Git",
 				g = { "<cmd>lua require 'gungim.core.toggleterm'.lazygit_toggle()<CR>", "Lazygit" },

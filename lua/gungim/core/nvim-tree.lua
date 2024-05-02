@@ -5,6 +5,7 @@ M.config = function()
 
 	local function on_attach(bufnr)
 		local api = require("nvim-tree.api")
+		local preview = require("nvim-tree-preview")
 
 		local function opts(desc)
 			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -15,7 +16,6 @@ M.config = function()
 		local userful_keys = {
 			["<C-v>"] = { api.node.open.vertical, opts("Open: Vertical Split") },
 			["<C-x>"] = { api.node.open.horizontal, opts("Open: Horizontal Split") },
-			["<Tab>"] = { api.node.open.preview, opts("Open Preview") },
 			["a"] = { api.fs.create, opts("Create") },
 			["c"] = { api.fs.copy.node, opts("Copy") },
 			["d"] = { api.fs.remove, opts("Delete") },
@@ -33,7 +33,11 @@ M.config = function()
 			["<CR>"] = { api.node.open.edit, opts("Open") },
 			["h"] = { api.node.navigate.parent_close, opts("Close Directory") },
 			["v"] = { api.node.open.vertical, opts("Open: Vertical Split") },
+			["P"] = { preview.watch, opts("Preview (Watch)") },
+			["<Esc>"] = { preview.unwatch, opts("Close Preview/Unwatch") },
+			["<Tab>"] = { preview.node_under_cursor, opts("Preview") },
 		}
+
 		require("gungim.config.keymaps").load_mode("n", userful_keys)
 	end
 
