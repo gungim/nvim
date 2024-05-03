@@ -21,7 +21,7 @@ M.config = function()
 					prompt_position = "top",
 				},
 			},
-			file_ignore_patterns = { "node_modules", "*.min.js" },
+			file_ignore_patterns = { "node_modules", "*.min.js", "addons" },
 			path_display = { "truncate" },
 			border = true,
 			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
