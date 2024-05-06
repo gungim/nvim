@@ -10,6 +10,10 @@ M.config = function()
 				color = "#a6e3a1",
 			},
 		},
+		highlight = {
+			comments_only = false, -- uses treesitter to match keywords in comments only
+			exclude = {}, -- list of file types to exclude highlighting
+		},
 	}
 end
 

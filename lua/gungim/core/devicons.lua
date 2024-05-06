@@ -211,6 +211,17 @@ M.setup = function()
 
 	devicons.set_icon(GG.builtin.devicons)
 
+	devicons.setup({
+		strict = true,
+		override_by_extension = {
+			["d.ts"] = {
+				icon = "󰛦",
+				color = "#81e043",
+				name = "Type",
+			},
+		},
+	})
+
 	if GG.builtin.devicons.on_config_done then
 		GG.builtin.devicons.on_config_done(devicons)
 	end

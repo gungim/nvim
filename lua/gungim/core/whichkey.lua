@@ -106,7 +106,7 @@ M.config = function()
 				P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 				T = { "<cmd>Telescope<cr>", "Telescope" },
 			},
-			t = { "<cmd>TodoLocList keywords=TODO<cr>", "Todo list" },
+			t = { "<cmd>TodoLocList keywords=TODO,FIX<cr>", "Todo list" },
 			w = {
 				name = "Window",
 				s = { "<cmd>split<cr>", "Split" },

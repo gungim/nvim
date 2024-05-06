@@ -57,8 +57,9 @@ return packer.startup(function(use)
 
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- File explorer
-	use({ "nvim-tree/nvim-tree.lua", require = { "nvim-tree/nvim-web-devicons" } })
-	use({"b0o/nvim-tree-preview.lua"})
+	-- use({ "mskelton/termicons.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
+	use({ "b0o/nvim-tree-preview.lua" })
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
 
@@ -68,8 +69,7 @@ return packer.startup(function(use)
 	-- Finder
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
 
@@ -85,7 +85,7 @@ return packer.startup(function(use)
 	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = { "nvim-tree/nvim-web-devicons" } })
 	use({
 		"willothy/nvim-cokeline",
 		requires = {
@@ -125,10 +125,10 @@ return packer.startup(function(use)
 	})
 	-- The completion plugin
 	-- use("echasnovski/mini.surround")
-	use({ "echasnovski/mini.comment", requires = "JoosepAlviste/nvim-ts-context-commentstring" })
+	use({ "echasnovski/mini.comment", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")
-	use({ "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", run = "make install_jsregexp" })
+	use({ "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" }, run = "make install_jsregexp" })
 
 	-- LSP
 	use("lewis6991/hover.nvim")
@@ -150,7 +150,7 @@ return packer.startup(function(use)
 	use("nvim-treesitter/playground")
 	use("HiPhish/nvim-ts-rainbow2")
 	use("stevearc/aerial.nvim")
-	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
@@ -158,7 +158,7 @@ return packer.startup(function(use)
 	-- Test
 
 	-- Todo
-	use({ "folke/todo-comments.nvim", require = "nvim-lua/plenary.nvim" })
+	use({ "folke/todo-comments.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
