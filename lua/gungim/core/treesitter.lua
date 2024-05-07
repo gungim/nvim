@@ -9,6 +9,7 @@ M.config = function()
 			"cpp",
 			"html",
 			"javascript",
+			"java",
 			"tsx",
 			"svelte",
 			"typescript",

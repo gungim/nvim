@@ -51,6 +51,8 @@ return packer.startup(function(use)
 	use("Civitasv/cmake-tools.nvim")
 	-- Vue development
 	use("catgoose/vue-goto-definition.nvim")
+	-- Java development
+	use("mfussenegger/nvim-jdtls")
 
 	-- Markdown
 	use("iamcco/markdown-preview.nvim")
