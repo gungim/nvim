@@ -13,7 +13,7 @@ M.setup = function()
 		end
 
 		pcall(function()
-			local theme_config = require("gungim.core.theme." .. selected_theme)
+			local theme_config = require("gungim.config.theme." .. selected_theme)
 			if not theme_config then
 				Log:error("Cannot find " .. selected_theme .. " config")
 				return

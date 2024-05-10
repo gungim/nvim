@@ -1,8 +1,8 @@
-local colors = GG.colors
 local icons = require("gungim.icons")
 local M = {}
 
 M.config = function()
+	local colors = GG.colors
 	GG.builtin.cokeline = {
 		on_config_done = nil,
 		default_hl = {
