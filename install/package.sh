@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+printf "\n------------------------- LANGUAGE SERVER ------------------------------\n"
+
 # install language-server
 declare -a node_pack=("neovim"
 		"sharp-cli"
@@ -31,7 +33,7 @@ declare -a python_pack=(
 	"gdtoolkit==4.*"
 	"pynvim"
 )
-printf "\n------------------------- Install Python Package -------------------------\n"
+printf "\n------------------------- Install Python Package ------------------------\n"
 for i in "${python_pack[@]}";
 do 
 	printf "\nInstall $i\n"
@@ -43,7 +45,7 @@ declare -a rust_pack=(
 	"rustfmt"
 	"rust-src"
 )
-printf "\n------------------------- Install Rust Package ---------------------------\n"
+printf "\n------------------------- Install Rust Package --------------------------\n"
 for i in "${rust_pack[@]}";
 do 
 	printf "\nInstall $i\n"

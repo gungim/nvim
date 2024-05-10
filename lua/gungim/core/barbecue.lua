@@ -1,9 +1,10 @@
 local M = {}
+local icons = require("gungim.icons")
 
 M.config = function()
 	GG.builtin.barbecue = {
 		on_config_done = nil,
-		kinds = GG.icons.kind,
+		kinds = icons.kind,
 		-- symbols = {
 		-- 	separator = "/",
 		-- },

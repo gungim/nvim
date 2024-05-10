@@ -1,5 +1,5 @@
--- this colors pallet extends from catppuccin.mocha
-return {
+local M = {}
+M.colors = {
 	fg = "#cdd6f4",
 	bg = "#1e1e2e",
 	normal = "#74c7ec",
@@ -50,3 +50,17 @@ return {
 	mantle = "#181825",
 	crust = "#11111b",
 }
+
+M.config = {
+	highlight_overrides = {},
+	custom_highlights = function()
+		return {
+			Normal = { bg = M.colors.mantle },
+			NvimTreeWinSeparator = { fg = M.colors.teal },
+			WinSeparator = { fg = M.colors.teal },
+			Search = { bg = M.colors.sky, fg = M.colors.subtext0 },
+			TabLineSel = { bg = M.colors.teal },
+		}
+	end,
+}
+return M

@@ -1,8 +1,8 @@
 ---@usage for winbar status
 local M = {}
+local icons = require("gungim.icons")
 
 M.config = function()
-	local icons = GG.icons
 	GG.builtin.navic = {
 		on_config_done = nil,
 		icons = icons.kind,

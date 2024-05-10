@@ -1,35 +1,37 @@
 local M = {}
+local icons = require("gungim.icons")
+
 M.config = function()
 	GG.builtin.gitsigns = {
 		on_config_done = nil,
 		signs = {
 			add = {
 				hl = "GitSignsAdd",
-				text = GG.icons.ui.BoldLineLeft,
+				text = icons.ui.BoldLineLeft,
 				numhl = "GitSignsAddNr",
 				linehl = "GitSignsAddLn",
 			},
 			change = {
 				hl = "GitSignsChange",
-				text = GG.icons.ui.BoldLineLeft,
+				text = icons.ui.BoldLineLeft,
 				numhl = "GitSignsChangeNr",
 				linehl = "GitSignsChangeLn",
 			},
 			delete = {
 				hl = "GitSignsDelete",
-				text = GG.icons.ui.BoldLineLeft,
+				text = icons.ui.BoldLineLeft,
 				numhl = "GitSignsDeleteNr",
 				linehl = "GitSignsDeleteLn",
 			},
 			topdelete = {
 				hl = "GitSignsDelete",
-				text = GG.icons.ui.BoldLineLeft,
+				text = icons.ui.BoldLineLeft,
 				numhl = "GitSignsDeleteNr",
 				linehl = "GitSignsDeleteLn",
 			},
 			changedelete = {
 				hl = "GitSignsChange",
-				text = GG.icons.ui.BoldLineLeft,
+				text = icons.ui.BoldLineLeft,
 				numhl = "GitSignsChangeNr",
 				linehl = "GitSignsChangeLn",
 			},

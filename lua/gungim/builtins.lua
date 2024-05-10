@@ -1,6 +1,5 @@
 local M = {}
 local builtins = {
-	"gungim.core.theme",
 	"gungim.core.noice",
 	"gungim.core.mason",
 	"gungim.core.alpha",

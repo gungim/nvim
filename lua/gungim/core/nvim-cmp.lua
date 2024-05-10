@@ -1,7 +1,7 @@
 local M = {}
+local icons = require("gungim.icons")
 M.config = function()
 	local _, cmp = pcall(require, "cmp")
-	local icons = GG.icons
 
 	GG.builtin.cmp = {
 		on_config_done = nil,

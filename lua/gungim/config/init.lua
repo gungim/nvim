@@ -6,6 +6,7 @@ function M:init()
 	require("gungim.config.keymaps").load_defaults()
 	require("gungim.config.options")
 	require("gungim.config.autocmds")
+	require("gungim.config.theme").setup()
 
 	local builtins = require("gungim.builtins")
 	builtins.config()

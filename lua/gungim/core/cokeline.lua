@@ -1,4 +1,4 @@
-local colors = require("gungim.core.colors")
+local colors = GG.colors
 local icons = require("gungim.icons")
 local M = {}
 

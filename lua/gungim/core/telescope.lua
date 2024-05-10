@@ -1,7 +1,6 @@
 local M = {}
+local icons = require("gungim.icons")
 M.config = function()
-	local icons = GG.icons
-
 	GG.builtin.telescope = {
 		active = true,
 		on_config_done = nil,

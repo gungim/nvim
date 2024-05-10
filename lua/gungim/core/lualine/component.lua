@@ -1,5 +1,5 @@
-local icons = GG.icons
-local colors = require("gungim.core.colors")
+local icons = require("gungim.icons")
+local colors = GG.colors
 
 local mode_color = {
 	n = colors.normal,
@@ -215,7 +215,7 @@ ins_left({
 		return msg
 	end,
 	icon = " LSP:",
-	color = { fg = colors.teal , gui = "bold" },
+	color = { fg = colors.teal, gui = "bold" },
 })
 
 -- Add components to right sections

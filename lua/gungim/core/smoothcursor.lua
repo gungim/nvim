@@ -1,4 +1,6 @@
 local M = {}
+local icons = require("gungim.icons")
+
 M.config = function()
 	GG.builtin.smoothcursor = {
 
@@ -10,7 +12,7 @@ M.config = function()
 		type = "matrix", -- define cursor movement calculate function, "default" or "exp" (exponential).
 		fancy = {
 			enable = true, -- enable fancy mode
-			head = { cursor = GG.icons.ui.TriangleShortArrowRight, texthl = "SmoothCursor", linehl = nil },
+			head = { cursor = icons.ui.TriangleShortArrowRight, texthl = "SmoothCursor", linehl = nil },
 			body = {
 				{ cursor = "", texthl = "SmoothCursorRed" },
 				{ cursor = "", texthl = "SmoothCursorOrange" },

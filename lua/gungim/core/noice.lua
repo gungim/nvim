@@ -1,6 +1,7 @@
+local icons = require("gungim.icons")
+
 local M = {}
 M.config = function()
-	local icon = GG.icons
 	GG.builtin.noice = {
 		on_config_done = nil,
 		lsp = {
@@ -12,7 +13,7 @@ M.config = function()
 			signature = { enabled = false },
 			progress = {
 				format_done = {
-					{ icon.ui.Check .. " ", hl_group = "NoiceLspProgressSpinner" },
+					{ icons.ui.Check .. " ", hl_group = "NoiceLspProgressSpinner" },
 					{ "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
 					{ "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
 				},
@@ -26,7 +27,7 @@ M.config = function()
 			lsp_doc_border = true, -- add a border to hover docs and signature help
 		},
 		popupmenu = {
-			kind_icons = icon.kind,
+			kind_icons = icons.kind,
 		},
 		views = {
 			cmdline_popup = {

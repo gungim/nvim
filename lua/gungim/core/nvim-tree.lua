@@ -1,8 +1,7 @@
 local M = {}
+local icons = require("gungim.icons")
 
 M.config = function()
-	local icons = GG.icons
-
 	local function on_attach(bufnr)
 		local api = require("nvim-tree.api")
 		local preview = require("nvim-tree-preview")
