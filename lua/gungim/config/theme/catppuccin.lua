@@ -56,9 +56,11 @@ M.config = {
 	custom_highlights = function()
 		return {
 			Normal = { bg = M.colors.mantle },
+			NvimTreeNormal = { bg = M.colors.mantle },
+			NvimTreeNormalNC = { bg = M.colors.base },
 			NvimTreeWinSeparator = { fg = M.colors.teal },
 			WinSeparator = { fg = M.colors.teal },
-			Search = { bg = M.colors.sky, fg = M.colors.subtext0 },
+			Search = { bg = M.colors.sky, fg = M.colors.surface0 },
 			TabLineSel = { bg = M.colors.teal },
 		}
 	end,

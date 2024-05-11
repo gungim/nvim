@@ -1,9 +1,11 @@
 local M = {}
 
-M.config = function()
-	return {
-		options = {},
-	}
-end
+M.colors = {
+
+}
+
+M.config = {
+	options = {},
+}
 
 return M
