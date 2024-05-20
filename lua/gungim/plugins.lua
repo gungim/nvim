@@ -87,7 +87,7 @@ return packer.startup(function(use)
 	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
-	use({ "akinsho/bufferline.nvim", tag = "*", requires = { "nvim-tree/nvim-web-devicons" } })
+	use({ "akinsho/bufferline.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
 	use({
 		"willothy/nvim-cokeline",
 		requires = {

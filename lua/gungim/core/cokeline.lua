@@ -67,7 +67,7 @@ M.config = function()
 							table.insert(result, " " .. symbols[name] .. " " .. count)
 						end
 					end
-					local r = table.concat(result, " ")
+					local r = table.concat(result)
 					return #r > 0 and r or ""
 				end,
 			},
