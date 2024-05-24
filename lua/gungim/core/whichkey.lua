@@ -58,6 +58,7 @@ M.config = function()
 			g = {
 				name = "Git",
 				g = { "<cmd>lua require 'gungim.core.toggleterm'.lazygit_toggle()<CR>", "Lazygit" },
+				-- g = { "<cmd>lua require 'gungim.core.toggleterm'.gitui_toggle()<CR>", "Lazygit" },
 				j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 				k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 				l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },

@@ -125,6 +125,12 @@ return packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 		},
 	})
+
+	-- AI
+	use({
+		"Bryley/neoai.nvim",
+		require = { "MunifTanjim/nui.nvim" },
+	})
 	-- The completion plugin
 	-- use("echasnovski/mini.surround")
 	use({ "echasnovski/mini.comment", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })

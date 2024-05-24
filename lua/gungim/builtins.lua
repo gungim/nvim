@@ -4,8 +4,8 @@ local builtins = {
 	"gungim.core.mason",
 	"gungim.core.alpha",
 	"gungim.core.aerial",
-	-- "gungim.core.bufferline",
-	"gungim.core.cokeline",
+	"gungim.core.bufferline",
+	-- "gungim.core.cokeline",
 	"gungim.core.illuminate",
 	"gungim.core.color-picker",
 	"gungim.core.treesitter",
@@ -30,6 +30,7 @@ local builtins = {
 	"gungim.core.navic",
 	"gungim.core.nvim-cmp",
 
+	"gungim.core.autotag",
 	"gungim.core.context-commentstring",
 	"gungim.core.mini",
 
