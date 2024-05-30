@@ -27,178 +27,201 @@ M.config = function()
 	}
 	GG.builtin.devicons = {
 		on_config_done = nil,
+		strict = true,
 		-- by_file_name
-		[".prettierrc"] = prettier,
-		[".prettierignore"] = prettier,
-		["package.json"] = node,
-		["package-lock.json"] = node,
-		[".env"] = {
-			icon = "",
-			color = "#faf743",
-			name = "Env",
-		},
-		[".gitignore"] = {
-			icon = "",
-			color = "#F64D27",
-			name = "GitIgnore",
-		},
-		[".git"] = {
-			icon = "",
-			color = "#F64D27",
-			name = "GitFolder",
-		},
+		override_by_filename = {
+			[".prettierrc"] = prettier,
+			[".prettierignore"] = prettier,
+			["package.json"] = node,
+			["package-lock.json"] = node,
+			[".env"] = {
+				icon = "",
+				color = "#faf743",
+				name = "Env",
+			},
+			[".gitignore"] = {
+				icon = "",
+				color = "#F64D27",
+				name = "GitIgnore",
+			},
 
-		["webpack.config.js"] = webpack,
-		["webpack.dev.js"] = webpack,
-		["webpack.prod.js"] = webpack,
-		[".eslintrc"] = eslint,
-		[".eslintrc.cjs"] = eslint,
-		[".eslintrc.js"] = eslint,
-		[".eslintignore"] = eslint,
-		[".babelrc"] = babel,
-		["images"] = {
-			icon = "󰉏",
-			color = "#38BCF9",
-			name = "Images",
-		},
+			["webpack.config.js"] = webpack,
+			["webpack.dev.js"] = webpack,
+			["webpack.prod.js"] = webpack,
+			[".eslintrc"] = eslint,
+			[".eslintrc.cjs"] = eslint,
+			[".eslintrc.js"] = eslint,
+			[".eslintignore"] = eslint,
+			[".babelrc"] = babel,
+			["images"] = {
+				icon = "󰉏",
+				color = "#38BCF9",
+				name = "Images",
+			},
 
-		["src"] = {
-			icon = "󰚝",
-			color = "#0aff42",
-			name = "SourceFile",
-		},
-		["dist"] = {
-			icon = "󰬉",
-			color = "#89e051",
-			cterm_color = "113",
-			name = "ProjectBuild",
-		},
-		["build"] = {
-			icon = "󰬉",
-			color = "#89e051",
-			cterm_color = "113",
-			name = "ProjectBuild",
-		},
-		[".vscode"] = {
-			icon = "󰨞",
-			color = "#0377f5",
-			cterm_color = "113",
-			name = "VScode",
-		},
-		["lib"] = {
-			icon = "",
-			color = "#ff3e00",
-			name = "Lib",
-		},
+			["src"] = {
+				icon = "󰚝",
+				color = "#0aff42",
+				name = "SourceFile",
+			},
+			["dist"] = {
+				icon = "󰬉",
+				color = "#89e051",
+				name = "ProjectBuild",
+			},
+			["build"] = {
+				icon = "󰬉",
+				color = "#89e051",
+				name = "ProjectBuild",
+			},
+			[".vscode"] = {
+				icon = "󰨞",
+				color = "#0377f5",
+				name = "VScode",
+			},
+			["lib"] = {
+				icon = "",
+				color = "#ff3e00",
+				name = "Lib",
+			},
 
-		["browserslist"] = {
-			icon = "",
-			color = "#f59803",
-			name = "Browser",
-		},
-		["routes"] = {
-			icon = "󱧬",
-			color = "#428850",
-			name = "RouterF",
-		},
-		["home"] = {
-			icon = "󱂵",
-			color = "#ff420a",
-			name = "HomeF",
-		},
-		["node_modules"] = {
-			icon = "",
-			color = "#8fce00",
-			name = "NodeModules",
-		},
-		["vite.config.ts"] = {
-			icon = "",
-			color = "#ffbc0a",
-			name = "ViteConf",
-		},
-		[".husky"] = {
-			icon = "",
-			color = "#d5d5d5",
-			name = "HuskyConf",
-		},
-		["static"] = {
-			icon = "󱋣",
-			color = "#ffbc0a",
-			name = "StaticF",
-		},
-		["config"] = {
-			icon = "󱁿",
-			color = "#0EBFCF",
-			name = "ConfigF",
-		},
+			["browserslist"] = {
+				icon = "",
+				color = "#f59803",
+				name = "Browser",
+			},
+			["routes"] = {
+				icon = "󱧬",
+				color = "#428850",
+				name = "RouterF",
+			},
+			["home"] = {
+				icon = "󱂵",
+				color = "#ff420a",
+				name = "HomeF",
+			},
+			["node_modules"] = {
+				icon = "",
+				color = "#8fce00",
+				name = "NodeModules",
+			},
+			["vite.config.ts"] = {
+				icon = "",
+				color = "#ffbc0a",
+				name = "ViteConf",
+			},
+			[".husky"] = {
+				icon = "",
+				color = "#d5d5d5",
+				name = "HuskyConf",
+			},
+			["static"] = {
+				icon = "󱋣",
+				color = "#ffbc0a",
+				name = "StaticF",
+			},
+			["config"] = {
+				icon = "󱁿",
+				color = "#0EBFCF",
+				name = "ConfigF",
+			},
 
-		[".svelte-kit"] = {
-			icon = "󱁿",
-			color = "#ff3e00",
-			name = "SvelteConf",
+			[".svelte-kit"] = {
+				icon = "󱁿",
+				color = "#ff3e00",
+				name = "SvelteConf",
+			},
+			["scenes"] = {
+				icon = "󱄤",
+				name = "Movie",
+				color = "#AA61E2",
+			},
 		},
-
-		-- by_extendsion
-		zip = {
-			icon = "",
-			color = "#ff3e00",
-			name = "Zip",
+		override = {},
+		override_by_operating_system = {
+			ubuntu = {
+				icon = "󰕈",
+				name = "Ubuntu",
+				color = "#dd4814",
+			},
 		},
-		gd = {
-			icon = "",
-			color = "#478CBF",
-			name = "GDScript",
-		},
-		webpack = webpack,
-		zsh = {
-			icon = "",
-			name = "Zsh",
-		},
-		css = {
-			icon = "",
-			color = "#03A9F4",
-			name = "Css",
-		},
-		less = {
-			icon = "",
-			name = "Less",
-			color = "#F64D27",
-		},
-		html = {
-			icon = "",
-			name = "Html",
-		},
-		app = {
-			icon = "󱂵",
-			name = "App",
-		},
-		cfg = {
-			icon = "",
-			name = "Configuration",
-		},
-		godot = {
-			icon = "󰼀",
-			name = "GodotProject",
-		},
-		java = {
-			icon = "",
-			name = "Java",
-		},
-		bash = {
-			icon = "",
-			name = "Bash",
-		},
-		ubuntu = {
-			icon = "󰕈",
-			name = "Ubuntu",
-		},
-		tsx = {
-			icon = "",
-			name = "Tsx",
-		},
-		["scenes"] = {
-			icon = "󱄤",
-			name = "Movie",
+		override_by_extension = {
+			webpack = webpack,
+			app = {
+				icon = "󱂵",
+				name = "App",
+				color = "#9F0500",
+			},
+			godot = {
+				icon = "󰼀",
+				name = "GodotProject",
+				color = "#478CBF",
+			},
+			cfg = {
+				icon = "",
+				name = "Configuration",
+				color = "#6d8086",
+			},
+			html = {
+				icon = "",
+				name = "Html",
+				color = "#e44d26",
+			},
+			["d.ts"] = {
+				icon = "󰛦",
+				color = "#d59855",
+				name = "DevIconTypeScriptDeclaration",
+			},
+			less = {
+				icon = "",
+				name = "Less",
+				color = "#F64D27",
+			},
+			css = {
+				icon = "",
+				color = "#03A9F4",
+				name = "Css",
+			},
+			zsh = {
+				icon = "",
+				name = "Zsh",
+				color = "#89e051",
+			},
+			sh = {
+				icon = "",
+				color = "#4d5a5e",
+				name = "Sh",
+			},
+			gd = {
+				icon = "",
+				color = "#478CBF",
+				name = "GDScript",
+			},
+			zip = {
+				icon = "",
+				color = "#ff3e00",
+				name = "Zip",
+			},
+			tsx = {
+				icon = "",
+				name = "Tsx",
+				color = "#1354bf",
+			},
+			bash = {
+				icon = "",
+				name = "Bash",
+				color = "#89e051",
+			},
+			java = {
+				icon = "",
+				name = "Java",
+				color = "#cc3e44",
+			},
+			[".git"] = {
+				icon = "",
+				color = "#F64D27",
+				name = "GitFolder",
+			},
 		},
 	}
 end
@@ -209,18 +232,7 @@ M.setup = function()
 		return
 	end
 
-	devicons.set_icon(GG.builtin.devicons)
-
-	devicons.setup({
-		strict = true,
-		override_by_extension = {
-			["d.ts"] = {
-				icon = "󰛦",
-				color = "#81e043",
-				name = "Type",
-			},
-		},
-	})
+	devicons.setup(GG.builtin.devicons)
 
 	if GG.builtin.devicons.on_config_done then
 		GG.builtin.devicons.on_config_done(devicons)

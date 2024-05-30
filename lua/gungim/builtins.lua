@@ -4,8 +4,13 @@ local builtins = {
 	"gungim.core.mason",
 	"gungim.core.alpha",
 	"gungim.core.aerial",
+
+	"gungim.core.devicons",
+	"gungim.core.nvim-tree-preview",
+	"gungim.core.nvim-tree",
 	"gungim.core.bufferline",
 	-- "gungim.core.cokeline",
+
 	"gungim.core.illuminate",
 	"gungim.core.color-picker",
 	"gungim.core.treesitter",
@@ -23,9 +28,6 @@ local builtins = {
 
 	"gungim.core.luasnip",
 	"gungim.core.formatter",
-	"gungim.core.nvim-tree-preview",
-	"gungim.core.nvim-tree",
-	"gungim.core.devicons",
 	"gungim.core.smoothcursor",
 	"gungim.core.navic",
 	"gungim.core.nvim-cmp",
@@ -41,6 +43,8 @@ local builtins = {
 	"gungim.core.whichkey",
 	"gungim.core.todo",
 	-- "gungim.core.ufo"
+	--
+	"gungim.core.neoai",
 }
 
 M.config = function()
