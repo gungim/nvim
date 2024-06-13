@@ -55,25 +55,29 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-jdtls")
 
 	-- Markdown
-	use("iamcco/markdown-preview.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	-- File explorer
-	-- use({ "mskelton/termicons.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+	-- File explorer/Finder
 	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 	use({ "b0o/nvim-tree-preview.lua" })
 	use("moll/vim-bbye")
 	use("ahmedkhalf/project.nvim")
-
-	-- Terminal
-	use({ "akinsho/toggleterm.nvim", tag = "*" })
-
-	-- Finder
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
+
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+	-- Finder
 
 	-- UI
 	use("lukas-reineke/indent-blankline.nvim")
@@ -116,23 +120,10 @@ return packer.startup(function(use)
 
 	-- Coding
 	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",
-		},
-	})
-
-	-- AI
-	use({
 		"Bryley/neoai.nvim",
 		require = { "MunifTanjim/nui.nvim" },
 	})
-	-- The completion plugin
-	-- use("echasnovski/mini.surround")
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({ "echasnovski/mini.comment", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")
@@ -147,6 +138,16 @@ return packer.startup(function(use)
 		"neovim/nvim-lspconfig",
 	})
 	use("jinzhongjia/LspUI.nvim")
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	})
 
 	-- Formatter
 	use("MunifTanjim/prettier.nvim")

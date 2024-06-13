@@ -44,7 +44,7 @@ local builtins = {
 	"gungim.core.todo",
 	-- "gungim.core.ufo"
 	--
-	"gungim.core.neoai",
+	-- "gungim.core.neoai",
 }
 
 M.config = function()

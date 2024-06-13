@@ -21,7 +21,7 @@ return {
 			"angularls",
 			"cmake",
 			"prismals",
-			"jdtls"
+			"jdtls",
 		},
 		---@usage list of servers if mason does not support
 		other_servers = { "gdscript" },

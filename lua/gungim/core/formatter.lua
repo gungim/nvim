@@ -10,22 +10,6 @@ M.config = function()
 		filetype = {
 			lua = {
 				require("formatter.filetypes.lua").stylua,
-				function()
-					if util.get_current_buffer_file_name() == "special.lua" then
-						return nil
-					end
-					return {
-						exe = "stylua",
-						args = {
-							"--search-parent-directories",
-							"--stdin-filepath",
-							util.escape_path(util.get_current_buffer_file_path()),
-							"--",
-							"-",
-						},
-						stdin = true,
-					}
-				end,
 			},
 			c = {
 				require("formatter.filetypes.c").clangformat,
@@ -33,7 +17,7 @@ M.config = function()
 			cpp = {
 				require("formatter.filetypes.cpp").clangformat,
 			},
-			vue= {
+			vue = {
 				require("formatter.filetypes.vue").prettier,
 			},
 			typescript = {
@@ -68,6 +52,12 @@ M.config = function()
 			},
 			rust = {
 				require("formatter.filetypes.rust").rustfmt(),
+			},
+			sh = {
+				require("formatter.filetypes.sh").shfmt(),
+			},
+			["zsh"] = {
+				require("formatter.filetypes.sh").shfmt(),
 			},
 			gdscript = {
 
