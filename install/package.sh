@@ -1,72 +1,88 @@
 #!/bin/zsh
 
 # install language-server
-function install_node_pack() {
-	declare -a node_pack=("neovim"
-		"prettier"
-		"typescript"
-		"typescript-language-server"
-		"svelte-language-server"
-		"@vue/language-server"
-		"@tailwindcss/language-server"
-		"diagnostic-languageserver"
-		"vscode-langservers-extracted"
-		"corepack"
-		"prisma/language-server"
-		"@angular/language-server"
-		"@angular/cli"
-		"stylelint-lsp"
-		"bash-language-server")
+declare -a node_pack=("neovim"
+	"prettier"
+	"typescript"
+	"typescript-language-server"
+	"svelte-language-server"
+	"@vue/language-server"
+	"@tailwindcss/language-server"
+	"diagnostic-languageserver"
+	"vscode-langservers-extracted"
+	"corepack"
+	"prisma/language-server"
+	"@angular/language-server"
+	"@angular/cli"
+	"stylelint-lsp"
+	"bash-language-server")
+declare -a python_pack=(
+	"gdtoolkit==4.*"
+	"pynvim"
+)
+declare -a rust_pack=(
+	"rustfmt"
+	"rust-src"
+)
 
-	printf "\n------------------------- Install Node Package -------------------------\n"
-	for i in "${node_pack[@]}"; do
-		printf "\nInstall $i\n"
-		npm install -g $i
+function build_command() {
+	cmt="$1"
+	pack_list="$2"
+
+	for i in "${pack_list[@]}"; do
+		cmt+=" $i"
 	done
+	$cmt
 }
 
-# install python pack
-function install_python_pack() {
-	declare -a python_pack=(
-		"gdtoolkit==4.*"
-		"pynvim"
-	)
-	printf "\n------------------------- Install Python Package ------------------------\n"
-	for i in "${python_pack[@]}"; do
-		printf "\nInstall $i\n"
-		pip3 install $i
-	done
-}
-
-function install_rust_package() {
-	declare -a rust_pack=(
-		"rustfmt"
-		"rust-src"
-	)
-	printf "\n------------------------- Install Rust Package --------------------------\n"
-	for i in "${rust_pack[@]}"; do
-		printf "\nInstall $i\n"
-		rustup component add $i
-	done
+function install_pack() {
+	printf "\n------------------------- Install RUST Package --------------------------\n"
+	build_command "rustup component add" $rust_pack
+	printf "\n------------------------- Install PYTHON Package --------------------------\n"
+	build_command "pip3 install" $python_pack
+	printf "\n------------------------- Install NODE Package --------------------------\n"
+	build_command "npm install -g" $node_pack
 }
 
 function install_macos_package() {
-	declare -a macos_pack=(
+	declare -a os_pack=(
 		"chafa"
 		"lazygit"
 		"lua"
 		"lua-language-server"
 		"luarocks"
 		"stylua"
+		"luajit"
 		"shfmt"
 	)
-	printf "\n------------------------- Install Macos Package --------------------------\n"
-	cmt="brew install"
+	printf "\n------------------------- Install OS Package --------------------------\n"
+	cmt="$1"
 
-	for i in "${macos_pack[@]}"; do
+	for i in "${os_pack[@]}"; do
 		cmt+=" $i"
 	done
 	$cmt
 }
 
-install_node_pack
+function install_os_pack() {
+	unamestr=$(uname)
+	OS=""
+	case "${unamestr}" in
+	Darwin*) OS="Mac" ;;
+	Linux*) OS="Linux" ;;
+	MINGW*) OS="Windows" ;;
+	*) OS="Unknow" ;;
+	esac
+
+	case "${OS}" in
+	Mac)
+		install_macos_package "brew install"
+		;;
+	*)
+		command ...
+		;;
+	esac
+}
+
+install_macos_package
+install_pack
