@@ -7,6 +7,7 @@ declare -a node_pack=("neovim"
 	"typescript-language-server"
 	"svelte-language-server"
 	"@vue/language-server"
+	"@vue/typescript-plugin"
 	"@tailwindcss/language-server"
 	"diagnostic-languageserver"
 	"vscode-langservers-extracted"
@@ -15,11 +16,14 @@ declare -a node_pack=("neovim"
 	"@angular/language-server"
 	"@angular/cli"
 	"stylelint-lsp"
-	"bash-language-server")
+	"bash-language-server"
+)
+
 declare -a python_pack=(
 	"gdtoolkit==4.*"
 	"pynvim"
 )
+
 declare -a rust_pack=(
 	"rustfmt"
 	"rust-src"
@@ -46,7 +50,6 @@ function install_pack() {
 
 function install_macos_package() {
 	declare -a os_pack=(
-		"chafa"
 		"lazygit"
 		"lua"
 		"lua-language-server"
