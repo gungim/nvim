@@ -94,7 +94,7 @@ M.config = function()
 				R = { "<cmd>Telescope registers<cr>", "Registers" },
 				k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 				C = { "<cmd>Telescope commands<cr>", "Commands" },
-				m = { "<cmd>Telescope media_files<cr>", "Media" },
+				m = { "<cmd>Telescope media_files theme=ivy<cr>", "Media" },
 				f = {
 					"<cmd>Telescope find_files<cr>",
 					"Find files",

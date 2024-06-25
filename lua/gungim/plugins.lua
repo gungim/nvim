@@ -49,6 +49,10 @@ return packer.startup(function(use)
 	use("folke/neodev.nvim")
 	-- C++ development
 	use("Civitasv/cmake-tools.nvim")
+	use({ "Mythos-404/xmake.nvim", requires = {
+		"MunifTanjim/nui.nvim",
+		"nvim-lua/plenary.nvim",
+	} })
 	-- Vue development
 	use("catgoose/vue-goto-definition.nvim")
 	-- Java development

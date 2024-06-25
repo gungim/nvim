@@ -6,7 +6,7 @@ local builtins = {
 	"gungim.core.aerial",
 
 	"gungim.core.devicons",
-	"gungim.core.nvim-tree-preview",
+	-- "gungim.core.nvim-tree-preview",
 	"gungim.core.nvim-tree",
 	"gungim.core.bufferline",
 	-- "gungim.core.cokeline",
@@ -23,6 +23,7 @@ local builtins = {
 	"gungim.core.indentline",
 
 	"gungim.core.cmake",
+	"gungim.core.xmake",
 	"gungim.core.lualine",
 	"gungim.core.vue-goto-definition",
 

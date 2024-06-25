@@ -169,6 +169,12 @@ ins_left({
 	color = { fg = colors.yellow, gui = "bold" },
 })
 
+ins_left({
+	"filetype",
+	cond = conditions.buffer_not_empty,
+	color = { fg = colors.yellow, gui = "bold" },
+})
+
 ins_left({ "location", color = { fg = colors.sapphire } })
 
 ins_left({ "progress", color = { fg = colors.overlay1, gui = "bold" } })
@@ -200,17 +206,10 @@ ins_left({
 ins_left({
 	-- Lsp server name .
 	function()
-		local msg = "No Lsp"
-		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-		local clients = vim.lsp.get_active_clients()
-		if next(clients) == nil then
-			return msg
-		end
+		local msg = ""
+		local clients = vim.lsp.get_clients({})
 		for _, client in ipairs(clients) do
-			local filetypes = client.config.filetypes
-			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				return client.name
-			end
+			msg = msg .. client.name ..", "
 		end
 		return msg
 	end,

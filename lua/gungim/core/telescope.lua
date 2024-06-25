@@ -26,7 +26,6 @@ M.config = function()
 			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 		},
-		extensions_list = { "themes", "terms" },
 		pickers = {
 			find_files = {
 				theme = "dropdown", -- ivy, cursor
@@ -41,7 +40,7 @@ M.config = function()
 				-- filetypes whitelist
 				-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
 				filetypes = { "png", "webp", "jpg", "jpeg", "ico" },
-				find_cmd = "fd", -- find command (defaults to `fd`)
+				find_cmd = "rg", -- find command (defaults to `fd`)
 			},
 		},
 	}
@@ -52,7 +51,6 @@ M.setup = function()
 	if not status_ok then
 		return
 	end
-	local builtin = require("telescope.builtin")
 
 	telescope.setup(GG.builtin.telescope)
 
@@ -67,12 +65,3 @@ M.setup = function()
 	end
 end
 return M
-
--- local userful_keys = {
--- 	["<leader>sf"] = { builtin.find_files, {} },
--- 	["<leader>sl"] = { builtin.live_grep, {} },
--- 	["<leader>sb"] = { builtin.buffers, {} },
--- 	["<leader>sh"] = { builtin.help_tags, {} },
--- }
---
--- require("gungim.config.keymaps").load_mode("n", userful_keys)
