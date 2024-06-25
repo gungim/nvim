@@ -1,6 +1,15 @@
 local lspconfig = require("lspconfig")
 
-local opts = {
+return {
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+				languages = { "javascript", "typescript", "vue" },
+			},
+		},
+	},
 	root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
 	filetypes = {
 		"javascript",
@@ -8,7 +17,6 @@ local opts = {
 		"typescript",
 		"typescriptreact",
 		"svelte",
+		"vue",
 	},
 }
-
-return opts
