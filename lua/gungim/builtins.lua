@@ -23,7 +23,7 @@ local builtins = {
 	"gungim.core.indentline",
 
 	"gungim.core.cmake",
-	"gungim.core.xmake",
+	-- "gungim.core.xmake",
 	"gungim.core.lualine",
 	"gungim.core.vue-goto-definition",
 
@@ -37,7 +37,6 @@ local builtins = {
 	"gungim.core.context-commentstring",
 	"gungim.core.mini",
 
-	"gungim.core.gitblame",
 	"gungim.core.lsp-signature",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",

@@ -127,7 +127,6 @@ M.config = function()
 		view = {
 			width = 50,
 			side = "left",
-			-- auto_resize = true,
 			number = true,
 			relativenumber = true,
 			centralize_selection = false,

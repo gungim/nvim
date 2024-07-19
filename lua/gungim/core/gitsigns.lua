@@ -6,34 +6,19 @@ M.config = function()
 		on_config_done = nil,
 		signs = {
 			add = {
-				hl = "GitSignsAdd",
 				text = icons.ui.BoldLineLeft,
-				numhl = "GitSignsAddNr",
-				linehl = "GitSignsAddLn",
 			},
 			change = {
-				hl = "GitSignsChange",
 				text = icons.ui.BoldLineLeft,
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
 			},
 			delete = {
-				hl = "GitSignsDelete",
 				text = icons.ui.BoldLineLeft,
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
 			},
 			topdelete = {
-				hl = "GitSignsDelete",
 				text = icons.ui.BoldLineLeft,
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
 			},
 			changedelete = {
-				hl = "GitSignsChange",
 				text = icons.ui.BoldLineLeft,
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
 			},
 		},
 		update_debounce = 200,

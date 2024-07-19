@@ -40,7 +40,7 @@ M.config = function()
 			max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 			tab_size = 21,
 			diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
-			diagnostics_update_in_insert = true,
+			update_in_insert = true,
 			diagnostics_indicator = diagnostics_indicator,
 			offsets = {
 				{
