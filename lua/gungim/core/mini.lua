@@ -4,7 +4,6 @@ M.config = function()
 	GG.builtin.mini = {
 		on_config_done = nil,
 		comment = {
-
 			options = {
 				ignore_blank_line = true,
 				custom_commentstring = function()

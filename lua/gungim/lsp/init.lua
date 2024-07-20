@@ -4,7 +4,7 @@ local Log = require("gungim.log")
 
 local function add_lsp_buffer_options(bufnr)
 	for k, v in pairs(GG.lsp.buffer_options) do
-		vim.api.nvim_buf_set_option(bufnr, k, v)
+		vim.api.nvim_set_option_value(k, v, { buf = bufnr })
 	end
 end
 
@@ -30,7 +30,7 @@ end
 local function add_lsp_keymap(bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local keymaps = {
-		["gd"] = { "<cmd>Telescope lsp_definitions<CR>", bufopts },
+		["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts },
 		["gi"] = { "<cmd>Telescope lsp_implementations<CR>", bufopts },
 		["gr"] = { "<cmd>Telescope lsp_references<CR>", bufopts },
 		["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts },
@@ -49,22 +49,9 @@ local function attach_navic(client, bufnr)
 	navic.attach(client, bufnr)
 end
 
-function M.common_on_init(client, bufnr)
-	if GG.lsp.on_init_callback then
-		GG.lsp.on_init_callback(client, bufnr)
-		Log:debug("Called lsp.on_init_callback")
-		return
-	end
-end
-
 M.common_on_attach = function(client, bufnr)
 	add_lsp_keymap(bufnr)
 	add_lsp_buffer_options(bufnr)
-
-	if GG.lsp.on_attach_callback then
-		GG.lsp.on_attach_callback(client, bufnr)
-		Log:debug("Called lsp.on_attach_callback")
-	end
 
 	attach_navic(client, bufnr)
 end
@@ -73,8 +60,6 @@ M.common_on_exit = function(_, _) end
 function M.get_common_opts()
 	return {
 		on_attach = M.common_on_attach,
-		on_init = M.common_on_init,
-		on_exit = M.common_on_exit,
 		capabilities = M.common_capabilities(),
 	}
 end

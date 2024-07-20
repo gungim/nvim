@@ -37,11 +37,6 @@ M.config = function()
 			enable = true,
 			disable = { "yaml", "python", "TelescopePrompt" },
 		},
-		rainbow = {
-			enable = false,
-			disable = { "python", "yaml" },
-			strategy = require("ts-rainbow").strategy.global,
-		},
 	}
 end
 

@@ -15,7 +15,6 @@ vim.g.symbols_outline = {
 		hover_symbol = "<C-space>",
 		toggle_preview = "K",
 		rename_symbol = "r",
-		code_actions = "a",
 	},
 	lsp_blacklist = {},
 	symbol_blacklist = {},

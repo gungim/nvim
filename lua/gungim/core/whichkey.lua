@@ -4,7 +4,7 @@ M.config = function()
 	GG.builtin.which_key = {
 		on_config_done = nil,
 		config = {
-			preset="modern",
+			preset = "modern",
 			plugins = {
 				presets = {
 					operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
@@ -39,7 +39,7 @@ M.setup = function()
 	wk.setup(GG.builtin.which_key.config)
 
 	wk.add({
-		{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Aerial Toggle" },
+		{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Aerial Toggle", mode = "n" },
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", icon = "" },
 		{ "<leader>q", "<cmd>Bdelete<CR>", desc = "Close Buffer" },
 		{ "<leader>h", "<cmd>set nohlsearch!<CR>", desc = "No Highlight", icon = "" },

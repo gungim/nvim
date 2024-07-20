@@ -1,5 +1,4 @@
 return {
-	on_attach_callback = nil,
 	automatic_configuration = {
 		---@usage list of servers that the automatic installer will skip
 		mason_servers = {

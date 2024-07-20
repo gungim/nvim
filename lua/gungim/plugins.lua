@@ -161,7 +161,7 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/playground")
-	use("HiPhish/nvim-ts-rainbow2")
+	use("hiphish/rainbow-delimiters.nvim")
 	use("stevearc/aerial.nvim")
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
 
