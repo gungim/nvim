@@ -1,71 +1,32 @@
 local M = {}
 
-local Log = require("gungim.log")
-
-local function add_lsp_buffer_options(bufnr)
-	for k, v in pairs(GG.lsp.buffer_options) do
-		vim.api.nvim_set_option_value(k, v, { buf = bufnr })
-	end
-end
-
-function M.common_capabilities()
-	local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-	if status_ok then
-		return cmp_nvim_lsp.default_capabilities()
-	end
-
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	capabilities.textDocument.completion.completionItem.resolveSupport = {
-		properties = {
-			"documentation",
-			"detail",
-			"additionalTextEdits",
-		},
-	}
-
-	return capabilities
-end
-
-local function add_lsp_keymap(bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	local keymaps = {
-		["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts },
-		["gi"] = { "<cmd>Telescope lsp_implementations<CR>", bufopts },
-		["gr"] = { "<cmd>Telescope lsp_references<CR>", bufopts },
-		["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts },
-	}
-	require("gungim.config.keymaps").load_mode("n", keymaps)
-end
-
-local function attach_navic(client, bufnr)
-	vim.g.navic_silence = true
-	local status_ok, navic = pcall(require, "nvim-navic")
-	if not status_ok then
-		return
-	end
-
-	client.server_capabilities["documentSymbolProvider"] = true
-	navic.attach(client, bufnr)
-end
-
-M.common_on_attach = function(client, bufnr)
-	add_lsp_keymap(bufnr)
-	add_lsp_buffer_options(bufnr)
-
-	attach_navic(client, bufnr)
-end
-M.common_on_exit = function(_, _) end
-
-function M.get_common_opts()
-	return {
-		on_attach = M.common_on_attach,
-		capabilities = M.common_capabilities(),
-	}
+local function lauch_server(server_name, config)
+	require("lspconfig")[server_name].setup(config)
 end
 
 M.setup = function()
-	require("gungim.lsp.lsp-servers").setup()
+
+	local mason_servers = GG.lsp.automatic_configuration.mason_servers
+	local other_servers = GG.lsp.automatic_configuration.other_servers
+	local lsp_config = require("gungim.lsp.lsp-servers")
+	local server_default_config = require("gungim.lsp.server-config")
+
+	--- Lauch config for mason server
+	for _, server in ipairs(mason_servers) do
+		local opts = {
+			on_attach = lsp_config.on_attach,
+			capabilities = lsp_config.common_capabilities(),
+		}
+		local server_config = server_default_config[server] or {}
+		vim.tbl_deep_extend("force", opts, server_config)
+		lauch_server(server, opts)
+	end
+
+	--- Lauch config for other server
+	-- for _, server in ipairs(other_servers) do
+	-- local config = reslove_config(server, {})
+	-- lauch_server(server, config)
+	-- end
 end
 
 return M

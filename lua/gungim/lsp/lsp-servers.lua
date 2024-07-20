@@ -1,37 +1,55 @@
 local M = {}
 
-local function reslove_config(server_name, ...)
-	local defaults = require("gungim.lsp").get_common_opts()
+local Log = require("gungim.log")
+local bufopts = { noremap = true, silent = true }
 
-	local has_custom_setting, custom_config = pcall(require, "gungim/lsp/settings/" .. server_name)
-	if has_custom_setting then
-		defaults = vim.tbl_deep_extend("force", defaults, custom_config)
-	end
-
-	defaults = vim.tbl_deep_extend("force", defaults, ...)
-
-	return defaults
-end
-
-local function lauch_server(server_name, config)
-	require("lspconfig")[server_name].setup(config)
-end
-
-M.setup = function()
-	local mason_servers = GG.lsp.automatic_configuration.mason_servers
-	local other_servers = GG.lsp.automatic_configuration.other_servers
-
-	--- Lauch config for mason server
-	for _, server in ipairs(mason_servers) do
-		local config = reslove_config(server, {})
-		lauch_server(server, config)
-	end
-
-	--- Lauch config for other server
-	for _, server in ipairs(other_servers) do
-		local config = reslove_config(server, {})
-		lauch_server(server, config)
+local function add_lsp_buffer_options(bufnr)
+	for k, v in pairs(GG.lsp.buffer_options) do
+		vim.api.nvim_set_option_value(k, v, { buf = bufnr })
 	end
 end
+
+function M.common_capabilities()
+	local cmp_nvim_lsp = require("cmp_nvim_lsp")
+	local caps = vim.lsp.protocol.make_client_capabilities()
+	local capabilities = cmp_nvim_lsp.default_capabilities(caps)
+
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	capabilities.textDocument.completion.completionItem.resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	}
+
+	return capabilities
+end
+
+local function add_lsp_keymap(bufnr)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", bufopts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
+end
+
+local function attach_navic(client, bufnr)
+	vim.g.navic_silence = true
+	local status_ok, navic = pcall(require, "nvim-navic")
+	if not status_ok then
+		return
+	end
+
+	client.server_capabilities["documentSymbolProvider"] = true
+	navic.attach(client, bufnr)
+end
+
+M.on_attach = function(client, bufnr)
+	add_lsp_keymap(bufnr)
+	add_lsp_buffer_options(bufnr)
+
+	attach_navic(client, bufnr)
+end
+M.common_on_exit = function(_, _) end
 
 return M

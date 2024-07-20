@@ -1,2 +1,0 @@
-local otps = {}
-return otps
