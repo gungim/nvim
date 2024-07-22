@@ -13,8 +13,8 @@ M.config = function()
 			},
 			mappings = {
 				comment = "gc",
-				comment_line = "gcc",
-				textobject = "gc",
+				comment_line = "<leader>c",
+				textobject = "gcc",
 			},
 		},
 	}

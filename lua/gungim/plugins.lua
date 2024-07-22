@@ -128,7 +128,7 @@ return packer.startup(function(use)
 		require = { "MunifTanjim/nui.nvim" },
 	})
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use({ "echasnovski/mini.comment", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
+	use({ "echasnovski/mini.comment", version = "*", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("NvChad/nvim-colorizer.lua")
 	use({ "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" }, run = "make install_jsregexp" })

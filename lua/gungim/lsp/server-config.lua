@@ -1,4 +1,4 @@
-local util= require("lspconfig.util")
+local util = require("lspconfig.util")
 
 local tsdk = function()
 	return vim.fn.getcwd() .. "/node_modules/typescript/lib"
@@ -10,13 +10,10 @@ return {
 		filetypes = { "zsh", "sh" },
 	},
 	clangd = {
-		filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-		capabilities = {
-			offsetEncoding = "utf-8",
-		},
+		cmd = { "clangd", "--offset-encoding=utf-16" },
 	},
 	cmake = {
-		--root_dir = util.root_patter("CMakeLists.txt"),
+		root_dir = util.root_pattern("CMakeLists.txt"),
 		filetypes = { "cmake" },
 	},
 	cssls = {
@@ -55,42 +52,32 @@ return {
 				mode = "location",
 			},
 		},
-		-- root_dir = util.root_pattern(
-		--	".eslintrc.js",
-		--	".eslintrc.cjs",
-		--	".eslintrc.yaml",
-		--	".eslintrc.yml",
-		--	".eslintrc.json",
-		--	".eslintrc"
-		--),
+		root_dir = util.root_pattern(
+			".eslintrc.js",
+			".eslintrc.cjs",
+			".eslintrc.yaml",
+			".eslintrc.yml",
+			".eslintrc.json",
+			".eslintrc"
+		),
 	},
 	lua_ls = {
 		settings = {
 			Lua = {
 				diagnostics = {
-					enable = true,
-					globals = { "vim", "system", "display" },
+					globals = { "vim" },
 				},
-				runtime = { version = "LuaJIT" },
 				workspace = {
-					library = vim.list_extend({ [vim.fn.expand("$VIMRUNTIME/lua")] = true }, {}),
+					library = {
+						vim.fn.stdpath("config"),
+					},
+					checkThirdParty = false,
 				},
-				completion = {
-					callSnippet = "Replace",
+				telemetry = {
+					enable = false,
 				},
 			},
 		},
-		--root_dir = util.root_pattern(
-		--	".luarc.json",
-		--	".luarc.jsonc",
-		--	".luacheckrc",
-		--	".stylua.toml",
-		--	"stylua.toml",
-		--	"selene.toml",
-		--	"selene.yml",
-		--	".git"
-		--),
-		filetypes = { "lua" },
 	},
 	gdscript = {},
 	jdtls = {},
@@ -105,10 +92,10 @@ return {
 	},
 	svelte = {
 		filetype = { "svelte" },
-		--root_dir = util.root_pattern("package.json", ".git"),
+		root_dir = util.root_pattern("package.json", ".git"),
 	},
 	tailwindcss = {
-		--root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
+		root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
 	},
 	tsserver = {
 		init_options = {
@@ -120,7 +107,7 @@ return {
 				},
 			},
 		},
-		--root_dir = util.root_pattern("tsconfig.json", "jsconfig.json"),
+		root_dir = util.root_pattern("tsconfig.json", "jsconfig.json"),
 		filetypes = {
 			"javascript",
 			"javascriptreact",

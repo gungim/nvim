@@ -16,7 +16,8 @@ function M:init()
 end
 
 function M:load()
-	vim.g.mapleader = (GG.leader and " ")
+	vim.api.nvim_set_keymap("n", "<SPACE>", "<Nop>", { noremap = true, silent = true })
+	vim.g.mapleader = " "
 
 	require("gungim.builtins").setup()
 	require("gungim.lsp").setup()

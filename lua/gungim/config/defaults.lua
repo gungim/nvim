@@ -36,7 +36,6 @@ local colorscheme = {
 }
 
 return {
-	leader = "space",
 	colorscheme = colorscheme.catppuccin.mocha,
 	theme = "catppuccin",
 	builtin = {},

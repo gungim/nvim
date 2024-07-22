@@ -39,7 +39,7 @@ M.setup = function()
 	wk.setup(GG.builtin.which_key.config)
 
 	wk.add({
-		{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Aerial Toggle", mode = "n" },
+		{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Aerial Toggle" },
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", icon = "" },
 		{ "<leader>q", "<cmd>Bdelete<CR>", desc = "Close Buffer" },
 		{ "<leader>h", "<cmd>set nohlsearch!<CR>", desc = "No Highlight", icon = "" },
