@@ -11,11 +11,6 @@ M.config = function()
 						or vim.bo.commentstring
 				end,
 			},
-			mappings = {
-				comment = "gc",
-				comment_line = "<leader>c",
-				textobject = "gcc",
-			},
 		},
 	}
 end

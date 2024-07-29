@@ -87,7 +87,7 @@ M.setup = function()
 	formatter.setup(GG.builtin.formatter)
 
 	if GG.builtin.formatter.on_config_done then
-		GG.builtin.which_key.on_config_done(formatter)
+		GG.builtin.formatter.on_config_done(formatter)
 	end
 end
 return M

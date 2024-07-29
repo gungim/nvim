@@ -118,14 +118,10 @@ return {
 		},
 	},
 	volar = {
-
 		filetypes = { "vue" },
 		init_options = {
 			vue = {
-				hybridMode = false,
-			},
-			typescript = {
-				tsdk = tsdk(),
+				hybridMode = true,
 			},
 		},
 	},

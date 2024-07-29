@@ -1,5 +1,6 @@
 local M = {}
 local Log = require("gungim.log")
+local set = vim.keymap.set
 
 local function lauch_server(server_name, config)
 	require("lspconfig")[server_name].setup(config)
@@ -20,12 +21,12 @@ M.add_lsp_keymap = function()
 			local bufnr = args.buf
 			local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-			local bufopts = { buffer = bufnr }
+			local bufopts = { buffer = bufnr, silent = true }
 
-			vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts, "definition")
-			vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementations()<CR>", bufopts)
-			vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
-			vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
+			set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
+			set("n", "gi", "<cmd>lua vim.lsp.buf.implementations()<CR>", bufopts)
+			set("n", "gr", vim.lsp.buf.references, bufopts)
+			set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
 
 			-- auto show diagnostic when cursor hold
 			vim.api.nvim_create_autocmd("CursorHold", {
@@ -84,7 +85,6 @@ end
 
 M.setup = function()
 	M.add_lsp_keymap()
-
 	local mason_servers = GG.lsp.automatic_configuration.mason_servers
 	local other_servers = GG.lsp.automatic_configuration.other_servers
 	local server_default_config = require("gungim.lsp.server-config")
@@ -93,6 +93,7 @@ M.setup = function()
 	for _, server in ipairs(mason_servers) do
 		local config = server_default_config[server] or {}
 		local opts = vim.tbl_deep_extend("force", {
+			on_attach = M.on_attach,
 			capabilities = M.common_capabilities(),
 		}, config)
 		lauch_server(server, opts)
@@ -102,6 +103,7 @@ M.setup = function()
 	for _, server in ipairs(other_servers) do
 		local config = server_default_config[server] or {}
 		local opts = vim.tbl_deep_extend("force", {
+			on_attach = M.on_attach,
 			capabilities = M.common_capabilities(),
 		}, config)
 		lauch_server(server, opts)

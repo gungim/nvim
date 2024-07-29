@@ -94,7 +94,8 @@ return packer.startup(function(use)
 	use({ "SmiteshP/nvim-navic" })
 	use("RRethy/vim-illuminate")
 	use("goolord/alpha-nvim")
-	use("folke/which-key.nvim")
+	use({ "folke/which-key.nvim",       commit = "0119a83f6cd097701ff13044be4e1effc8dffe02",
+ })
 	use({ "akinsho/bufferline.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
 	use({
 		"willothy/nvim-cokeline",
