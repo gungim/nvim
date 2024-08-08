@@ -33,12 +33,12 @@ M.config = function()
 				u = { "<cmd>PackerUpdate<cr>", "Update" },
 			},
 			c = {
-				name = "Competi",
-				c = { "<cmd>CompetiTestRun<cr>", "Run" },
-				a = { "<cmd>CompetiTestAdd<cr>", "Add" },
-				e = { "<cmd>CompetiTestEdit<cr>", "Edit" },
-				d = { "<cmd>CompetiTestDelete<cr>", "Delete" },
-				t = { "<cmd>CompetiTestReceive<cr>", "Download" },
+				name = "CMake",
+				r = { "<cmd>CMakeRun<cr>", "Run" },
+				s = { "<cmd>CMakeStopRunner<cr>", "Stop runner" },
+				b = { "<cmd>CMakeBuild<cr>", "Build" },
+				i = { "<cmd>CMakeInstall<cr>", "Install" },
+				c = { "<cmd>CMakeClean<cr>", "Clean" },
 			},
 			b = {
 				name = "Buffer",

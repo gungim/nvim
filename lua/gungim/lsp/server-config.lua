@@ -1,11 +1,8 @@
 local util = require("lspconfig.util")
 
-local tsdk = function()
-	return vim.fn.getcwd() .. "/node_modules/typescript/lib"
-end
-
 return {
-	angularls = {},
+	angularls = {
+	},
 	bashls = {
 		filetypes = { "zsh", "sh" },
 	},
@@ -79,7 +76,9 @@ return {
 			},
 		},
 	},
-	gdscript = {},
+	gdscript = {
+		cmd = { "nc", "localhost", "6005" },
+	},
 	jdtls = {},
 	prettier = {},
 	prismals = {},
