@@ -22,6 +22,7 @@ M.config = function()
 			},
 		},
 		update_debounce = 200,
+		current_line_blame = true,
 	}
 end
 
