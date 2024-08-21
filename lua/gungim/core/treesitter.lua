@@ -21,7 +21,6 @@ M.config = function()
 			"bash",
 			"markdown",
 			"markdown_inline",
-			"prisma",
 			"angular",
 			"gdscript",
 			"godot_resource",
@@ -29,14 +28,22 @@ M.config = function()
 		sync_install = true,
 		highlight = {
 			enable = true,
+			disable = function(_, buf)
+					local max_filesize = 100 * 1024 -- 100 KB
+					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+					if ok and stats and stats.size > max_filesize then
+							return true
+					end
+					return false
+			end,
 		},
 		autopairs = {
 			enable = true,
 		},
-		indent = {
-			enable = true,
-			disable = { "yaml", "python", "TelescopePrompt" },
-		},
+		-- indent = {
+		-- 	enable = true,
+		-- 	disable = { "yaml", "python", "TelescopePrompt" },
+		-- },
 	}
 end
 
