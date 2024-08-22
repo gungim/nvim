@@ -34,6 +34,9 @@ return {
 		Unit = "",
 		Value = "",
 		Variable = "",
+		Script = "󰅴",
+		Alias ="",
+		Macro = ""
 	},
 	git = {
 		LineAdded = "",

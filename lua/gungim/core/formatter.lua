@@ -1,5 +1,4 @@
 local M = {}
-local Log = require("gungim.log")
 
 M.config = function()
 	local util = require("formatter.util")

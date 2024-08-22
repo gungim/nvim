@@ -84,7 +84,6 @@ M.config = function()
 		sidebar = {
 			---@type string | string[]
 			filetype = { "NvimTree", "neo-tree", "SidebarNvim" },
-			---@type Component[]
 			components = {
 				{
 					text = function(buf)

@@ -19,7 +19,7 @@ M.config = function()
 			["c"] = { api.fs.copy.node, opts("Copy") },
 			["d"] = { api.fs.remove, opts("Delete") },
 			["e"] = { api.fs.rename_basename, opts("Rename: Basename") },
-			["H"] = { api.tree.toGGle_hidden_filter, opts("ToGGle Dotfiles") },
+			["H"] = { api.tree.toggle_hidden_filter, opts("Toggle Dotfiles") },
 			["o"] = { api.node.open.edit, opts("Open") },
 			["p"] = { api.fs.paste, opts("Paste") },
 			["r"] = { api.fs.rename, opts("Rename") },
@@ -115,7 +115,7 @@ M.config = function()
 		update_focused_file = {
 			enable = true,
 			update_cwd = true,
-			ignore_list = { "toGGleterm" },
+			ignore_list = { "toggleterm" },
 		},
 		git = {
 			enable = true,
