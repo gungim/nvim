@@ -40,7 +40,8 @@ local builtins = {
 	"gungim.core.lsp-signature",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
-	"gungim.core.whichkey",
+	-- "gungim.core.whichkey",
+	"gungim.core.whichkeyv3",
 	"gungim.core.todo",
 	-- "gungim.core.ufo"
 	--

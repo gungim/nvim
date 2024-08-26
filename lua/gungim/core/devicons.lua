@@ -14,7 +14,12 @@ M.config = function()
 	local eslint = {
 		icon = "󰃠",
 		color = "#A6A6ED",
-		name = "Eslint",
+		name = "DevIconEslint",
+	}
+	local eslintrc = {
+		icon = "󰃠",
+		color = "#4b32c3",
+		name = "DevIconEslintrc",
 	}
 	local node = {
 		icon = "",
@@ -48,10 +53,17 @@ M.config = function()
 			["webpack.config.js"] = webpack,
 			["webpack.dev.js"] = webpack,
 			["webpack.prod.js"] = webpack,
+
 			[".eslintrc"] = eslint,
 			[".eslintrc.cjs"] = eslint,
 			[".eslintrc.js"] = eslint,
 			[".eslintignore"] = eslint,
+
+			["eslint.config.ts"] = eslintrc,
+			["eslint.config.mjs"] = eslintrc,
+			["eslint.config.js"] = eslintrc,
+			["eslint.config.cjs"] = eslintrc,
+
 			[".babelrc"] = babel,
 			["images"] = {
 				icon = "󰉏",
@@ -125,7 +137,6 @@ M.config = function()
 				color = "#0EBFCF",
 				name = "ConfigF",
 			},
-
 			[".svelte-kit"] = {
 				icon = "󱁿",
 				color = "#ff3e00",
@@ -196,6 +207,18 @@ M.config = function()
 				icon = "",
 				color = "#478CBF",
 				name = "GDScript",
+			},
+
+			tres = {
+				icon = "",
+				color = "#89e051",
+				name = "DevIconGodotTextResource",
+			},
+
+			tscn = {
+				icon = "",
+				color = "#89e051",
+				name = "DevIconGodotTextScene",
 			},
 			zip = {
 				icon = "",

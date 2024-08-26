@@ -80,7 +80,7 @@ M.config = function()
 			s = {
 				name = "Search",
 				c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-				h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+				h = { "<cmd>Telescope help_tags<cr>", "Find Help",  },
 				M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 				R = { "<cmd>Telescope registers<cr>", "Registers" },
@@ -97,7 +97,6 @@ M.config = function()
 					"Buffers",
 				},
 				P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-				T = { "<cmd>Telescope<cr>", "Telescope" },
 			},
 			t = { "<cmd>TodoLocList keywords=TODO,FIX<cr>", "Todo list" },
 			w = {
