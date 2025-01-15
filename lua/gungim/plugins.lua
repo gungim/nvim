@@ -49,10 +49,6 @@ return packer.startup(function(use)
 	use("folke/neodev.nvim")
 	-- C++ development
 	use("Civitasv/cmake-tools.nvim")
-	use({ "Mythos-404/xmake.nvim", requires = {
-		"MunifTanjim/nui.nvim",
-		"nvim-lua/plenary.nvim",
-	} })
 	-- Vue development
 	use("catgoose/vue-goto-definition.nvim")
 	-- Java development
@@ -153,6 +149,8 @@ return packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 		},
 	})
+	use { "zbirenbaum/copilot.lua" }
+
 
 	-- Formatter
 	use("MunifTanjim/prettier.nvim")

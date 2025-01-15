@@ -1,8 +1,7 @@
 local util = require("lspconfig.util")
 
 return {
-	angularls = {
-	},
+	angularls = {},
 	bashls = {
 		filetypes = { "zsh", "sh" },
 	},
@@ -91,18 +90,18 @@ return {
 	},
 	svelte = {
 		filetype = { "svelte" },
-		root_dir = util.root_pattern("package.json", ".git"),
+		root_dir = util.root_pattern("svelte.config.js"),
 	},
 	tailwindcss = {
 		root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
 	},
-	tsserver = {
+	ts_ls= {
 		init_options = {
 			plugins = {
 				{
 					name = "@vue/typescript-plugin",
 					location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-					languages = { "javascript", "typescript", "vue" },
+					languages = { "vue" },
 				},
 			},
 		},
@@ -117,11 +116,6 @@ return {
 		},
 	},
 	volar = {
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-		init_options = {
-			vue = {
-				hybridMode = true,
-			},
-		},
+		filetypes = { "vue" },
 	},
 }

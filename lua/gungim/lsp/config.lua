@@ -3,7 +3,7 @@ return {
 		---@usage list of servers that the automatic installer will skip
 		mason_servers = {
 
-			"tsserver",
+			"ts_ls",
 			"tailwindcss",
 			"lua_ls",
 			"clangd",
