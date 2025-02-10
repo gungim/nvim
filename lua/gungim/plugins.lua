@@ -120,10 +120,6 @@ return packer.startup(function(use)
 	use("oxfist/night-owl.nvim")
 
 	-- Coding
-	use({
-		"Bryley/neoai.nvim",
-		require = { "MunifTanjim/nui.nvim" },
-	})
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({ "echasnovski/mini.comment", version = "*", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
 	use("ziontee113/color-picker.nvim") -- color picker
@@ -132,6 +128,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("lewis6991/hover.nvim")
+	-- use("nvimdev/lspsaga.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use({
 		"williamboman/mason.nvim",
@@ -149,8 +146,25 @@ return packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 		},
 	})
-	use { "zbirenbaum/copilot.lua" }
+	use({
+		"zbirenbaum/copilot.lua",
+	})
 
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = {
+			"copilot.lua",
+			"nvim-cmp",
+		},
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	})
+
+	-- requires = {
+	-- },
+	-- cmd = "Copilot",
+	-- event = "InsertEnter",
 
 	-- Formatter
 	use("MunifTanjim/prettier.nvim")

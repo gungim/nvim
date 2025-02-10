@@ -38,15 +38,15 @@ local builtins = {
 	"gungim.core.mini",
 
 	"gungim.core.lsp-signature",
+	-- "gungim.core.lsp-saga",
 	"gungim.core.barbecue",
 	"gungim.core.diagnostic",
 	-- "gungim.core.whichkey",
 	"gungim.core.whichkeyv3",
 	"gungim.core.todo",
 	-- "gungim.core.ufo"
-	--
-	-- "gungim.core.neoai",
 	"gungim.core.rainbow",
+	"gungim.core.copilot",
 }
 
 M.config = function()

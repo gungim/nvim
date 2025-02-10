@@ -91,11 +91,14 @@ return {
 	svelte = {
 		filetype = { "svelte" },
 		root_dir = util.root_pattern("svelte.config.js"),
+		plugin = {
+			html = { completions = true }, -- Enable HTML completions
+		},
 	},
 	tailwindcss = {
 		root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
 	},
-	ts_ls= {
+	ts_ls = {
 		init_options = {
 			plugins = {
 				{

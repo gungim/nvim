@@ -26,7 +26,7 @@ return {
 		Package = "",
 		Property = "",
 		Reference = "",
-		Snippet = "",
+		Snippet = "󱠀",
 		String = "",
 		Struct = "",
 		Text = "",
@@ -36,7 +36,8 @@ return {
 		Variable = "",
 		Script = "󰅴",
 		Alias ="",
-		Macro = ""
+		Macro = "",
+		Copilot = ""
 	},
 	git = {
 		LineAdded = "",

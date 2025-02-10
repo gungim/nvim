@@ -29,7 +29,6 @@ M.config = function()
 		}),
 
 		formatting = {
-			fields = { "kind", "abbr", "menu" },
 			format = function(_, vim_item)
 				if icons.kind[vim_item.kind] then
 					vim_item.kind = icons.kind[vim_item.kind]
@@ -45,9 +44,10 @@ M.config = function()
 			disallow_prefix_unmatching = false,
 		},
 		sources = {
-			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
-			{ name = "buffer" },
+			{ name = "copilot", group_index = 2 },
+			{ name = "nvim_lsp",group_index = 2},
+			{ name = "luasnip",group_index = 2},
+			{ name = "buffer", group_index = 2},
 			{ name = "path" },
 		},
 		window = {

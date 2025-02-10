@@ -19,16 +19,13 @@ M.add_lsp_keymap = function()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(args)
 			local bufnr = args.buf
-			local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-			local bufopts = { buffer = bufnr, silent = true }
+			local bufopts = { buffer = bufnr, silent = true, noremap = true }
 
 			set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
 			set("n", "gi", "<cmd>lua vim.lsp.buf.implementations()<CR>", bufopts)
 			set("n", "gr", vim.lsp.buf.references, bufopts)
 			set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
 
-			-- auto show diagnostic when cursor hold
 			vim.api.nvim_create_autocmd("CursorHold", {
 				buffer = bufnr,
 				callback = function()
@@ -52,18 +49,6 @@ M.add_lsp_keymap = function()
 					vim.b.diagnostics_pos = cursor_pos
 				end,
 			})
-
-			if client and client.server_capabilities.documentHighlightProvider then
-				vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-					buffer = bufnr,
-					callback = vim.lsp.buf.document_highlight,
-				})
-
-				vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-					buffer = bufnr,
-					callback = vim.lsp.buf.clear_references,
-				})
-			end
 		end,
 	})
 end
