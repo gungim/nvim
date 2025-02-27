@@ -24,6 +24,7 @@ M.config = function()
 			"angular",
 			"gdscript",
 			"godot_resource",
+			"json"
 		},
 		sync_install = true,
 		highlight = {

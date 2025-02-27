@@ -17,8 +17,6 @@ M.setup = function()
 		return
 	end
 
-	-- error("DEV")
-
-	copilot.setup(GG.builtin.copilot)
+	-- copilot.setup(GG.builtin.copilot)
 end
 return M
