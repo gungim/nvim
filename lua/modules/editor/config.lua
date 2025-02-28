@@ -1,151 +1,5 @@
 local icons = require("core.icons")
 local config = {}
-function config.formatter()
-	local util = require("formatter.util")
-	require("formatter").setup({
-		logging = true,
-		log_level = vim.log.levels.WARN,
-		filetype = {
-			lua = {
-				require("formatter.filetypes.lua").stylua,
-			},
-			c = {
-				require("formatter.filetypes.c").clangformat,
-			},
-			cpp = {
-				require("formatter.filetypes.cpp").clangformat,
-			},
-			vue = {
-				require("formatter.filetypes.vue").prettier,
-			},
-			typescript = {
-				require("formatter.filetypes.typescript").prettier,
-			},
-			typescriptreact = {
-				require("formatter.filetypes.typescriptreact").prettier,
-			},
-			html = {
-				require("formatter.filetypes.html").prettier,
-			},
-			css = {
-				require("formatter.filetypes.css").prettier,
-			},
-			less = {
-				require("formatter.filetypes.css").prettier,
-			},
-			scss = {
-				require("formatter.filetypes.css").prettier,
-			},
-			json = {
-				require("formatter.filetypes.json").prettier,
-			},
-			javascript = {
-				require("formatter.filetypes.javascript").prettier,
-			},
-			javascriptreact = {
-				require("formatter.filetypes.javascriptreact").prettier,
-			},
-			svelte = {
-				require("formatter.filetypes.svelte").prettier,
-			},
-			rust = {
-				require("formatter.filetypes.rust").rustfmt(),
-			},
-			sh = {
-				require("formatter.filetypes.sh").shfmt(),
-			},
-			["zsh"] = {
-				require("formatter.filetypes.sh").shfmt(),
-			},
-			gdscript = {
-
-				function()
-					return {
-						exe = "gdformat",
-						args = {
-							util.escape_path(util.get_current_buffer_file_path()),
-						},
-						stdin = false,
-						ignore_exitcode = true,
-					}
-				end,
-			},
-			["*"] = {
-				require("formatter.filetypes.any").remove_trailing_whitespace,
-			},
-		},
-	})
-end
-function config.cmp()
-	local cmp = require("cmp")
-	cmp.setup({
-		completion = {
-			completeopt = "menu,menuone,noinsert,noselect",
-		},
-		-- snippet = {
-		-- 	expand = function(args)
-		-- 		require("luasnip").lsp_expand(args.body)
-		-- 	end,
-		-- },
-		mapping = cmp.mapping.preset.insert({
-			["<S-Tab>"] = cmp.mapping.select_prev_item(),
-			["<Tab>"] = cmp.mapping.select_next_item(),
-			["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-			["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-			["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-			["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-			["<C-e>"] = cmp.mapping({
-				i = cmp.mapping.abort(),
-				c = cmp.mapping.close(),
-			}),
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
-		}),
-
-		formatting = {
-			format = function(_, vim_item)
-				if icons.kind[vim_item.kind] then
-					vim_item.kind = icons.kind[vim_item.kind]
-				end
-				return vim_item
-			end,
-		},
-		matching = {
-			disallow_fuzzy_matching = true,
-			disallow_fullfuzzy_matching = true,
-			disallow_partial_fuzzy_matching = true,
-			disallow_partial_matching = true,
-			disallow_prefix_unmatching = false,
-		},
-		sources = {
-			{ name = "copilot", group_index = 2 },
-			{ name = "nvim_lsp", group_index = 2 },
-			-- { name = "luasnip", group_index = 2 },
-			{ name = "buffer", group_index = 2 },
-			{ name = "path" },
-		},
-		window = {
-			-- border = { "╭", "─", "╮", "│", "╯", "─", "|", "|" },
-			documentation = cmp.config.window.bordered(),
-			completion = cmp.config.window.bordered(),
-		},
-	})
-	-- `/` cmdline setup.
-	cmp.setup.cmdline({ "/", "?" }, {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = {
-			{ name = "buffer" },
-		},
-	})
-
-	-- `:` cmdline setup.
-	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources({
-			{ name = "path" },
-			{ name = "cmdline" },
-		}),
-	})
-end
 
 function config.whichkey()
 	local wk = require("which-key")
@@ -233,8 +87,8 @@ function config.whichkey()
 	})
 end
 
-function config.nvim_treesiter()
-	require("nvim-tressitter.configs").setup({
+function config.nvim_treesitter()
+	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"lua",
 			"c",
@@ -258,7 +112,8 @@ function config.nvim_treesiter()
 			"godot_resource",
 			"json",
 		},
-		sync_install = true,
+		sync_install = false,
+		auto_install = false,
 		highlight = {
 			enable = true,
 			disable = function(_, buf)
@@ -341,4 +196,148 @@ function config.toggleterm()
 		},
 	})
 end
+
+function config.nvim_tree()
+	local function on_attach(bufnr)
+		local api = require("nvim-tree.api")
+		local preview = require("nvim-tree-preview")
+
+		local function opts(desc)
+			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+		end
+		-- Default mappings. Feel free to modify or remove as you wish.
+		api.config.mappings.default_on_attach(bufnr)
+
+		--
+		-- BEGIN_DEFAULT_ON_ATTACH
+		vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
+		vim.keymap.set("n", "<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
+		vim.keymap.set("n", "a", api.fs.create, opts("Create"))
+		vim.keymap.set("n", "c", api.fs.copy.node, opts("Copy"))
+		vim.keymap.set("n", "d", api.fs.remove, opts("Delete"))
+		vim.keymap.set("n", "e", api.fs.rename_basename, opts("Rename: Basename"))
+		vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
+		vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
+		vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
+		vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
+		vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
+		vim.keymap.set("n", "S", api.tree.search_node, opts("Search"))
+		vim.keymap.set("n", "x", api.fs.cut, opts("Cut"))
+		vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy Name"))
+		vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
+		vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+		vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
+		vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+		vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+		vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+		vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+		vim.keymap.set("n", "<Tab>", preview.node_under_cursor, opts("Preview"))
+	end
+	require("nvim-tree").setup({
+		on_attach = on_attach,
+		auto_reload_on_write = false,
+		reload_on_bufenter = true,
+		root_dirs = { "Root" },
+		filters = {
+			-- custom = { ".git", "node_modules", "\\.cache" },
+			exclude = { ".gitignore" },
+		},
+		renderer = {
+			highlight_git = true,
+			root_folder_label = function(path)
+				return " " .. vim.fn.fnamemodify(path, ":t")
+			end,
+
+			indent_markers = {
+				enable = true,
+				icons = {
+					corner = "└",
+					edge = "│",
+					item = "│",
+					bottom = "─",
+					none = " ",
+				},
+			},
+			icons = {
+				web_devicons = {
+					folder = {
+						enable = true,
+						color = true,
+					},
+				},
+				git_placement = "after",
+				show = {
+					folder_arrow = false,
+				},
+				glyphs = {
+					default = icons.ui.Text,
+					bookmark = icons.ui.BookMark,
+					symlink = icons.ui.FolderSymlink,
+					folder = {
+						arrow_closed = icons.ui.TriangleShortArrowRight,
+						arrow_open = icons.ui.TriangleShortArrowDown,
+						default = icons.ui.Folder,
+						open = icons.ui.FolderOpen,
+						empty = icons.ui.EmptyFolder,
+						empty_open = icons.ui.EmptyFolderOpen,
+						symlink = icons.ui.FolderSymlink,
+						symlink_open = icons.ui.FolderOpen,
+					},
+					git = {
+						unstaged = icons.git.FileUnstaged,
+						staged = icons.git.FileStaged,
+						unmerged = icons.git.FileUnmerged,
+						renamed = icons.git.FileRenamed,
+						untracked = icons.git.FileUntracked,
+						deleted = icons.git.FileDeleted,
+						ignored = icons.git.FileIgnored,
+					},
+				},
+			},
+		},
+		diagnostics = {
+			enable = true,
+			icons = {
+				hint = icons.diagnostics.BoldHint,
+				info = icons.diagnostics.BoldInformation,
+				warning = icons.diagnostics.BoldWarning,
+				error = icons.diagnostics.BoldError,
+			},
+		},
+		update_focused_file = {
+			enable = true,
+			update_cwd = true,
+			ignore_list = { "toggleterm" },
+		},
+		git = {
+			enable = true,
+			ignore = false,
+			timeout = 500,
+			show_on_dirs = true,
+			show_on_open_dirs = true,
+		},
+		view = {
+			width = 50,
+			side = "left",
+			number = true,
+			relativenumber = true,
+			centralize_selection = false,
+		},
+		actions = {
+			change_dir = {
+				enable = true,
+				global = true,
+				restrict_above_cwd = false,
+			},
+			expand_all = {
+				max_folder_discovery = 300,
+				exclude = {},
+			},
+		},
+		filesystem_watchers = {
+			enable = true,
+		},
+	})
+end
+
 return config

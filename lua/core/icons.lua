@@ -35,9 +35,9 @@ return {
 		Value = "",
 		Variable = "",
 		Script = "󰅴",
-		Alias ="",
+		Alias = "",
 		Macro = "",
-		Copilot = ""
+		Copilot = "",
 	},
 	git = {
 		LineAdded = "",

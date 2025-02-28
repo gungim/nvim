@@ -22,7 +22,6 @@ local mode_adapters = {
 	operator_pending_mode = "o",
 }
 
-
 function M.set_keymaps(mode, key, val)
 	local opt = generic_opts[mode] or generic_opts_any
 	if type(val) == "table" then

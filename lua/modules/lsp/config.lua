@@ -1,29 +1,30 @@
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
+local keymap = require("core.keymap")
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"ts_ls",
-		"tailwindcss",
-		"lua_ls",
-		"clangd",
-		"diagnosticls",
-		"eslint",
-		"html",
-		"jsonls",
-		"lemminx",
-		"cssls",
-		"svelte",
-		"rust_analyzer",
-		"bashls",
-		"volar",
-		"angularls",
-		"cmake",
-		"prismals",
-		"jdtls",
-	},
+local au = vim.api.nvim_create_autocmd
+
+au("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_clients({ id = args.data.client_id })[1]
+		client.server_capabilities.semanticTokensProvider = nil
+
+		keymap.load({
+			normal_mode = {
+				["gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>",
+				["gi"] = "<cmd>lua vim.lsp.buf.implementations()<CR>",
+				["gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
+				["gl"] = "<cmd>lua vim.diagnostic.open_float()<CR>",
+			},
+		})
+	end,
 })
+
+-- au("CursorHold", {
+-- 	callback = function()
+-- 		vim.lsp.buf.hover()
+-- 	end,
+-- })
 
 lspconfig.bashls.setup({
 	filetypes = { "zsh", "sh" },
@@ -39,7 +40,7 @@ lspconfig.cmake.setup({
 lspconfig.cssls.setup({
 	filetypes = { "css", "scss", "less", "postcss" },
 })
-lspconfig.emmet_ls.setup({
+lspconfig.emmet_language_server.setup({
 	settings = {
 		filetypes = { "hbs", "html" },
 	},
@@ -116,9 +117,9 @@ lspconfig.svelte.setup({
 		html = { completions = true }, -- Enable HTML completions
 	},
 })
-lspconfig.tailwindcss = {
+lspconfig.tailwindcss.setup({
 	root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
-}
+})
 lspconfig.ts_ls.setup({
 	init_options = {
 		plugins = {
@@ -147,6 +148,7 @@ local servers = {
 	"jdtls",
 	"prismals",
 	"angularls",
+	"rust_analyzer",
 }
 
 for _, server in ipairs(servers) do

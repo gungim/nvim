@@ -7,7 +7,7 @@ require("core.options")
 --   vim.cmd.colorscheme(vim.env.COLORSCHEME)
 --   return
 -- end
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 local signs = {
 	{ name = "DiagnosticSignError", text = icons.diagnostics.Error },

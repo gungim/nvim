@@ -1,15 +1,15 @@
 local conf = require("modules.ui.config")
 
+packadd({
+	"nvim-tree/nvim-web-devicons",
+	config = function()
+		local config = require("modules.ui.devicon")
+		require("nvim-web-devicons").setup(config)
+	end,
+})
+
 packadd({ "catppuccin/nvim", name = "catppuccin", priority = 1000, config = conf.theme })
 
-packadd({
-	"nvim-tree/nvim-tree.lua",
-	version = "*",
-	lazy = false,
-	dependencies = { "b0o/nvim-tree-preview.lua", "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
-
-	config = conf.nvim_tree,
-})
 
 packadd({
 	"akinsho/bufferline.nvim",
@@ -30,7 +30,17 @@ packadd({
 	config = conf.lualine,
 })
 
+-- packadd({
+-- 	"lewis6991/gitsigns.nvim",
+-- 	config = conf.gitsigns,
+-- })
+
 packadd({
-	"lewis6991/gitsigns.nvim",
-	config = conf.gitsigns,
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify",
+	},
+	config = conf.noice,
 })

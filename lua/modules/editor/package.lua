@@ -1,26 +1,10 @@
 local conf = require("modules.editor.config")
-packadd({
-	"mhartington/formatter.nvim",
-	config = conf.formatter,
-})
-packadd({
-	"hrsh7th/nvim-cmp",
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip",
-	},
-	config = conf.cmp,
-})
 
 packadd({ "folke/which-key.nvim", config = conf.whichkey })
 
 packadd({
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufRead", "BufNewFile" },
-	build = ":TSUpdate",
+	event = { "BufReadPost", "BufNewFile" },
 	config = conf.nvim_treesitter,
 })
 
@@ -31,9 +15,18 @@ packadd({
 })
 
 packadd({
-	"m4xshen/autoclose.nvim",
+	"echasnovski/mini.pairs",
+	version = "*",
 	config = function()
-		require("autoclose").setup()
+		require("mini.pairs").setup({})
+	end,
+})
+
+packadd({
+
+	"windwp/nvim-ts-autotag",
+	config = function()
+		require("nvim-ts-autotag").setup()
 	end,
 })
 
@@ -61,3 +54,12 @@ packadd({
 -- })
 
 packadd({ "famiu/bufdelete.nvim" })
+
+packadd({
+	"nvim-tree/nvim-tree.lua",
+	version = "*",
+	lazy = false,
+	dependencies = { "b0o/nvim-tree-preview.lua", "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
+
+	config = conf.nvim_tree,
+})

@@ -1,150 +1,20 @@
 local icons = require("core.icons")
+local colors = require("core.colors")
 local config = {}
 
 function config.theme()
-	require("catppuccin").setup()
-end
-
-function config.nvim_tree()
-	local function on_attach(bufnr)
-		local api = require("nvim-tree.api")
-		local preview = require("nvim-tree-preview")
-
-		local function opts(desc)
-			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		end
-		-- Default mappings. Feel free to modify or remove as you wish.
-		api.config.mappings.default_on_attach(bufnr)
-
-		--
-		-- BEGIN_DEFAULT_ON_ATTACH
-		vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
-		vim.keymap.set("n", "<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-		vim.keymap.set("n", "a", api.fs.create, opts("Create"))
-		vim.keymap.set("n", "c", api.fs.copy.node, opts("Copy"))
-		vim.keymap.set("n", "d", api.fs.remove, opts("Delete"))
-		vim.keymap.set("n", "e", api.fs.rename_basename, opts("Rename: Basename"))
-		vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
-		vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
-		vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
-		vim.keymap.set("n", "r", api.fs.rename, opts("Rename"))
-		vim.keymap.set("n", "R", api.tree.reload, opts("Refresh"))
-		vim.keymap.set("n", "S", api.tree.search_node, opts("Search"))
-		vim.keymap.set("n", "x", api.fs.cut, opts("Cut"))
-		vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy Name"))
-		vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
-		vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
-		vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
-		vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
-		vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
-		vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
-		vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
-		vim.keymap.set("n", "<Tab>", preview.node_under_cursor, opts("Preview"))
-	end
-	require("nvim-tree").setup({
-		on_attach = on_attach,
-		auto_reload_on_write = false,
-		reload_on_bufenter = true,
-		root_dirs = { "Root" },
-		filters = {
-			-- custom = { ".git", "node_modules", "\\.cache" },
-			exclude = { ".gitignore" },
-		},
-		renderer = {
-			highlight_git = true,
-			root_folder_label = function(path)
-				return " " .. vim.fn.fnamemodify(path, ":t")
-			end,
-
-			indent_markers = {
-				enable = true,
-				icons = {
-					corner = "└",
-					edge = "│",
-					item = "│",
-					bottom = "─",
-					none = " ",
-				},
-			},
-			icons = {
-				web_devicons = {
-					folder = {
-						enable = true,
-						color = true,
-					},
-				},
-				git_placement = "after",
-				show = {
-					folder_arrow = false,
-				},
-				glyphs = {
-					default = icons.ui.Text,
-					bookmark = icons.ui.BookMark,
-					symlink = icons.ui.FolderSymlink,
-					folder = {
-						arrow_closed = icons.ui.TriangleShortArrowRight,
-						arrow_open = icons.ui.TriangleShortArrowDown,
-						default = icons.ui.Folder,
-						open = icons.ui.FolderOpen,
-						empty = icons.ui.EmptyFolder,
-						empty_open = icons.ui.EmptyFolderOpen,
-						symlink = icons.ui.FolderSymlink,
-						symlink_open = icons.ui.FolderOpen,
-					},
-					git = {
-						unstaged = icons.git.FileUnstaged,
-						staged = icons.git.FileStaged,
-						unmerged = icons.git.FileUnmerged,
-						renamed = icons.git.FileRenamed,
-						untracked = icons.git.FileUntracked,
-						deleted = icons.git.FileDeleted,
-						ignored = icons.git.FileIgnored,
-					},
-				},
-			},
-		},
-		diagnostics = {
-			enable = true,
-			icons = {
-				hint = icons.diagnostics.BoldHint,
-				info = icons.diagnostics.BoldInformation,
-				warning = icons.diagnostics.BoldWarning,
-				error = icons.diagnostics.BoldError,
-			},
-		},
-		update_focused_file = {
-			enable = true,
-			update_cwd = true,
-			ignore_list = { "toggleterm" },
-		},
-		git = {
-			enable = true,
-			ignore = false,
-			timeout = 500,
-			show_on_dirs = true,
-			show_on_open_dirs = true,
-		},
-		view = {
-			width = 50,
-			side = "left",
-			number = true,
-			relativenumber = true,
-			centralize_selection = false,
-		},
-		actions = {
-			change_dir = {
-				enable = true,
-				global = true,
-				restrict_above_cwd = false,
-			},
-			expand_all = {
-				max_folder_discovery = 300,
-				exclude = {},
-			},
-		},
-		filesystem_watchers = {
-			enable = true,
-		},
+	require("catppuccin").setup({
+		custom_highlights = function(_)
+			return {
+				Normal = { bg = colors.mantle },
+				NvimTreeNormal = { bg = colors.mantle },
+				NvimTreeNormalNC = { bg = colors.base },
+				NvimTreeWinSeparator = { fg = colors.teal },
+				WinSeparator = { fg = colors.teal },
+				Search = { bg = colors.sky, fg = colors.surface0 },
+				TabLineSel = { bg = colors.teal },
+			}
+		end,
 	})
 end
 
@@ -263,7 +133,8 @@ function config.telescope()
 end
 
 function config.lualine()
-	require("lualine").setup()
+	local conf = require("modules.ui.lualine")
+	require("lualine").setup(conf)
 end
 
 function config.gitsigns()
@@ -287,6 +158,48 @@ function config.gitsigns()
 		},
 		update_debounce = 200,
 		current_line_blame = true,
+	})
+end
+
+function config.noice()
+	require("noice").setup({
+		lsp = {
+			override = {
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.stylize_markdown"] = true,
+				["cmp.entry.get_documentation"] = true,
+			},
+			signature = { enabled = false },
+			progress = {
+				format_done = {
+					{ icons.ui.Check .. " ", hl_group = "NoiceLspProgressSpinner" },
+					{ "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+					{ "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+				},
+			},
+		},
+		presets = {
+			bottom_search = true, -- use a classic bottom cmdline for search
+			command_palette = true, -- position the cmdline and popupmenu together
+			long_message_to_split = true, -- long messages will be sent to a split
+			inc_rename = true, -- enables an input dialog for inc-rename.nvim
+			lsp_doc_border = true, -- add a border to hover docs and signature help
+		},
+		popupmenu = {
+			kind_icons = icons.kind,
+		},
+		views = {
+			cmdline_popup = {
+				position = {
+					row = "40%",
+					col = "50%",
+				},
+				size = {
+					width = 60,
+					height = "auto",
+				},
+			},
+		},
 	})
 end
 return config
