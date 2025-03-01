@@ -4,10 +4,28 @@ local keymap = require("core.keymap")
 
 local au = vim.api.nvim_create_autocmd
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 au("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_clients({ id = args.data.client_id })[1]
+		local bufnr = args.buf
+
 		client.server_capabilities.semanticTokensProvider = nil
+		require("lsp_signature").on_attach({
+			floating_window = false,
+
+			fix_pos = true,
+			hint_prefix = "🐼" .. " ",
+			hint_scheme = "String",
+			close_timeout = 1000,
+			hi_parameter = "LspSignatureActiveParameter",
+
+			-- handler_opts = { border = "single" },
+
+			auto_close_after = 3,
+			transparency = 50,
+		}, bufnr)
 
 		keymap.load({
 			normal_mode = {
@@ -19,6 +37,28 @@ au("LspAttach", {
 		})
 	end,
 })
+au("CursorHold", {
+	callback = function()
+		local float_opts = {
+			focusable = false,
+			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+		}
+
+		if not vim.b.diagnostics_pos then
+			vim.b.diagnostics_pos = { nil, nil }
+		end
+
+		local cursor_pos = vim.api.nvim_win_get_cursor(0)
+		if
+			(cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
+			and #vim.diagnostic.get() > 0
+		then
+			vim.diagnostic.open_float(nil, float_opts)
+		end
+
+		vim.b.diagnostics_pos = cursor_pos
+	end,
+})
 
 -- au("CursorHold", {
 -- 	callback = function()
@@ -27,25 +67,31 @@ au("LspAttach", {
 -- })
 
 lspconfig.bashls.setup({
+	capabilities = capabilities,
 	filetypes = { "zsh", "sh" },
 })
 lspconfig.clangd.setup({
+	capabilities = capabilities,
 	cmd = { "clangd", "--offset-encoding=utf-16" },
 })
 lspconfig.cmake.setup({
+	capabilities = capabilities,
 	root_dir = util.root_pattern("CMakeLists.txt"),
 	filetypes = { "cmake" },
 })
 
 lspconfig.cssls.setup({
+	capabilities = capabilities,
 	filetypes = { "css", "scss", "less", "postcss" },
 })
 lspconfig.emmet_language_server.setup({
+	capabilities = capabilities,
 	settings = {
 		filetypes = { "hbs", "html" },
 	},
 })
 lspconfig.eslint.setup({
+	capabilities = capabilities,
 	settings = {
 		codeAction = {
 			disableRuleComment = {
@@ -83,6 +129,7 @@ lspconfig.eslint.setup({
 	),
 })
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -101,9 +148,11 @@ lspconfig.lua_ls.setup({
 	},
 })
 lspconfig.gdscript.setup({
+	capabilities = capabilities,
 	cmd = { "nc", "localhost", "6005" },
 })
 lspconfig.stylelint_lsp.setup({
+	capabilities = capabilities,
 	filetypes = {
 		"css",
 		"less",
@@ -111,6 +160,7 @@ lspconfig.stylelint_lsp.setup({
 	},
 })
 lspconfig.svelte.setup({
+	capabilities = capabilities,
 	filetype = { "svelte" },
 	root_dir = util.root_pattern("svelte.config.js"),
 	plugin = {
@@ -118,9 +168,11 @@ lspconfig.svelte.setup({
 	},
 })
 lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
 	root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
 })
 lspconfig.ts_ls.setup({
+	capabilities = capabilities,
 	init_options = {
 		plugins = {
 			{

@@ -15,3 +15,51 @@ packadd({
 	},
 	config = conf.cmp,
 })
+
+packadd({
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	config = function()
+		require("ts_context_commentstring").setup({
+			enable_autocmd = false,
+			languages = {
+				typescript = {
+					__default = "// %s",
+					jsx_element = "{/* %s */}",
+					jsx_fragment = "{/* %s */}",
+					jsx_attribute = "// %s",
+					comment = "// %s",
+				},
+				javascript = {
+					__default = "// %s",
+					jsx_element = "{/* %s */}",
+					jsx_fragment = "{/* %s */}",
+					jsx_attribute = "// %s",
+					comment = "// %s",
+				},
+				css = "/* %s */",
+				scss = "/* %s */",
+				less = "/* %s */",
+				html = "<!-- %s -->",
+				svelte = "<!-- %s -->",
+				vue = "<!-- %s -->",
+				gdscript = "# %s",
+				rust = { __default = "// %s", __multiline = "/* %s */" },
+			},
+		})
+	end,
+})
+
+packadd({
+	"echasnovski/mini.comment",
+	version = "*",
+	config = function()
+		require("mini.comment").setup({
+			options = {
+				ignore_blank_line = true,
+				custom_commentstring = function()
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+				end,
+			},
+		})
+	end,
+})

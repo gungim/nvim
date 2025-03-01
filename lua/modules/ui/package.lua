@@ -30,10 +30,10 @@ packadd({
 	config = conf.lualine,
 })
 
--- packadd({
--- 	"lewis6991/gitsigns.nvim",
--- 	config = conf.gitsigns,
--- })
+packadd({
+	"lewis6991/gitsigns.nvim",
+	config = conf.gitsigns,
+})
 
 packadd({
 	"folke/noice.nvim",
