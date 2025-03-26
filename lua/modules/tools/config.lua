@@ -58,7 +58,6 @@ function config.formatter()
 				require("formatter.filetypes.sh").shfmt(),
 			},
 			gdscript = {
-
 				function()
 					return {
 						exe = "gdformat",
@@ -83,11 +82,6 @@ function config.cmp()
 		completion = {
 			completeopt = "menu,menuone,noinsert,noselect",
 		},
-		-- snippet = {
-		-- 	expand = function(args)
-		-- 		require("luasnip").lsp_expand(args.body)
-		-- 	end,
-		-- },
 		mapping = cmp.mapping.preset.insert({
 			["<S-Tab>"] = cmp.mapping.select_prev_item(),
 			["<Tab>"] = cmp.mapping.select_next_item(),
@@ -118,10 +112,9 @@ function config.cmp()
 			disallow_prefix_unmatching = false,
 		},
 		sources = {
-			{ name = "copilot", group_index = 2 },
-			{ name = "nvim_lsp", group_index = 2 },
-			-- { name = "luasnip", group_index = 2 },
-			{ name = "buffer", group_index = 2 },
+			{ name = "copilot" },
+			{ name = "nvim_lsp" },
+			{ name = "buffer" },
 			{ name = "path" },
 		},
 		window = {
