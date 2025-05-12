@@ -65,6 +65,7 @@ packadd({
 
 packadd({
 	"zbirenbaum/copilot.lua",
+	cmd = "Copilot disable",
 	config = function()
 		require("copilot").setup({
 			suggestion = { enabled = false },

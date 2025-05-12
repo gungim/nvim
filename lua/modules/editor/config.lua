@@ -111,6 +111,8 @@ function config.nvim_treesitter()
 			"gdscript",
 			"godot_resource",
 			"json",
+			"blade",
+			"php"
 		},
 		sync_install = false,
 		auto_install = false,

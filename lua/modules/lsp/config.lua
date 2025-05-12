@@ -84,12 +84,6 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 	filetypes = { "css", "scss", "less", "postcss" },
 })
-lspconfig.emmet_language_server.setup({
-	capabilities = capabilities,
-	settings = {
-		filetypes = { "hbs", "html" },
-	},
-})
 lspconfig.eslint.setup({
 	capabilities = capabilities,
 	settings = {
@@ -201,6 +195,7 @@ local servers = {
 	"prismals",
 	"angularls",
 	"rust_analyzer",
+	"intelephense"
 }
 
 for _, server in ipairs(servers) do
