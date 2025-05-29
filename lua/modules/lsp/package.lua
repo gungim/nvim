@@ -22,7 +22,9 @@ packadd({
 	version = "^1.0.0",
 	config = function()
 		require("mason-lspconfig").setup({
-			automatic_enable = true,
+			automatic_enable = {
+				exclude = { "gdtoolkit" },
+			},
 			ensure_installed = {
 				"ts_ls",
 				"tailwindcss",

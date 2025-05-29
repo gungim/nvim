@@ -133,7 +133,7 @@ function config.telescope()
 end
 
 function config.lualine()
-	local conf = require("modules.ui.lualine")
+	local conf = require("modules.ui.ll")
 	require("lualine").setup(conf)
 end
 
