@@ -48,4 +48,5 @@ return {
 	base = "#1e1e2e",
 	mantle = "#181825",
 	crust = "#11111b",
+	primary = "#cba6f7",
 }

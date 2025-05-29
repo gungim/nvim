@@ -112,7 +112,7 @@ function config.nvim_treesitter()
 			"godot_resource",
 			"json",
 			"blade",
-			"php"
+			"php",
 		},
 		sync_install = false,
 		auto_install = false,
@@ -305,11 +305,6 @@ function config.nvim_tree()
 				warning = icons.diagnostics.BoldWarning,
 				error = icons.diagnostics.BoldError,
 			},
-		},
-		update_focused_file = {
-			enable = true,
-			update_cwd = true,
-			ignore_list = { "toggleterm" },
 		},
 		git = {
 			enable = true,

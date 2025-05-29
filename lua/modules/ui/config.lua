@@ -7,12 +7,16 @@ function config.theme()
 		custom_highlights = function(_)
 			return {
 				Normal = { bg = colors.mantle },
+				WinSeparator = { fg = colors.primary },
+				Search = { bg = colors.primary, fg = colors.surface0 },
+				TabLineSel = { bg = colors.primary },
+
 				NvimTreeNormal = { bg = colors.mantle },
 				NvimTreeNormalNC = { bg = colors.base },
-				NvimTreeWinSeparator = { fg = colors.teal },
-				WinSeparator = { fg = colors.teal },
-				Search = { bg = colors.sky, fg = colors.surface0 },
-				TabLineSel = { bg = colors.teal },
+				NvimTreeWinSeparator = { fg = colors.primary },
+				NvimTreeRootFolder = { fg = colors.primary },
+
+				WhichKeyBorder = { fg = colors.primary },
 			}
 		end,
 	})
@@ -43,9 +47,7 @@ function config.bufferline()
 			middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 			indicator = {
 				icon = nil,
-				style = "underline",
 			},
-
 			buffer_close_icon = icons.ui.BoldClose,
 			modified_icon = icons.ui.BoldClose,
 			close_icon = icons.ui.BoldClose,
@@ -72,9 +74,15 @@ function config.bufferline()
 			show_close_icon = false,
 			show_tab_indicators = false,
 			persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-			separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
+			separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 			enforce_regular_tabs = false,
 			always_show_bufferline = true,
+		},
+		highlights = {
+			buffer_selected = {
+				underline = true,
+				sp = colors.primary,
+			},
 		},
 	})
 end
