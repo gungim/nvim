@@ -7,7 +7,7 @@ function config.whichkey()
 	wk.add({
 		{ "<leader>;", "<cmd>AerialToggle!<CR>", desc = "Aerial Toggle" },
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", icon = "" },
-		{ "<leader>q", "<cmd>Bdelete<CR>", desc = "Close Buffer" },
+		{ "<leader>q", "<cmd>BufDel<CR>", desc = "Close Buffer" },
 		{ "<leader>h", "<cmd>set nohlsearch!<CR>", desc = "No Highlight", icon = "" },
 		{ "<leader>f", "<cmd>Format<cr>", desc = "Format" },
 		-- Packer
@@ -19,7 +19,8 @@ function config.whichkey()
 		{ "<leader>pu", "<cmd>PackerUpdate<cr>", desc = "Update", icon = "󰏔" },
 		-- Buffer
 		{ "<leader>b", group = "Buffer" },
-		{ "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close Others", icon = "󱪓" },
+		{ "<leader>bo", "<cmd>BufDelOthers<cr>", desc = "Close Others", icon = "󱪓" },
+		{ "<leader>ba", "<cmd>BufDelAll<cr>", desc = "Close All", icon = "󱪟" },
 		{ "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close Left", icon = "󱪟" },
 		{ "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close Right", icon = "󱪟" },
 		{ "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "Pin" },
@@ -305,6 +306,11 @@ function config.nvim_tree()
 				warning = icons.diagnostics.BoldWarning,
 				error = icons.diagnostics.BoldError,
 			},
+		},
+		update_focused_file = {
+			enable = true,
+			update_cwd = false,
+			ignore_list = { "toggleterm" },
 		},
 		git = {
 			enable = true,

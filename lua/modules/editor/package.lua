@@ -53,8 +53,6 @@ packadd({
 -- 	end,
 -- })
 
-packadd({ "famiu/bufdelete.nvim" })
-
 packadd({
 	"nvim-tree/nvim-tree.lua",
 	version = "*",

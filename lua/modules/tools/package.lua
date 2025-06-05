@@ -64,6 +64,17 @@ packadd({
 })
 
 packadd({
+	"ojroques/nvim-bufdel",
+	version = false,
+	config = function()
+		require("bufdel").setup({
+			next = "tabs",
+			quit = false, -- quit Neovim when last buffer is closed
+		})
+	end,
+})
+
+packadd({
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot disable",
 	config = function()

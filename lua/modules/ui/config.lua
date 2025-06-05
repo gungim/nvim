@@ -10,6 +10,7 @@ function config.theme()
 				WinSeparator = { fg = colors.primary },
 				Search = { bg = colors.primary, fg = colors.surface0 },
 				TabLineSel = { bg = colors.primary },
+				CursorLineNr = { fg = colors.primary },
 
 				NvimTreeNormal = { bg = colors.mantle },
 				NvimTreeNormalNC = { bg = colors.base },
@@ -42,7 +43,7 @@ function config.bufferline()
 		options = {
 			mode = "buffers",
 			numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-			close_command = "Bdelete", -- can be a string | function, see "Mouse actions"
+			close_command = "BufDel", -- can be a string | function, see "Mouse actions"
 			left_mouse_command = "none", -- can be a string | function, see "Mouse actions"
 			middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
 			indicator = {
@@ -127,17 +128,15 @@ function config.telescope()
 			media_files = {
 				-- filetypes whitelist
 				-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-				filetypes = { "png", "webp", "jpg", "jpeg", "ico" },
+				filetypes = { "png", "webp", "jpg", "jpeg", "ico", "svg" },
 				find_cmd = "fd", -- find command (defaults to `fd`)
 			},
 		},
 	})
 
-	pcall(function()
-		require("telescope").load_extension("aerial")
-		require("telescope").load_extension("media_files")
-		require("telescope").load_extension("notify")
-	end)
+	-- require("telescope").load_extension("aerial")
+	require("telescope").load_extension("media_files")
+	-- require("telescope").load_extension("notify")
 end
 
 function config.lualine()

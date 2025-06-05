@@ -10,7 +10,6 @@ packadd({
 
 packadd({ "catppuccin/nvim", name = "catppuccin", priority = 1000, config = conf.theme })
 
-
 packadd({
 	"akinsho/bufferline.nvim",
 	version = "*",
@@ -20,7 +19,7 @@ packadd({
 
 packadd({
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-media-files.nvim" },
 	config = conf.telescope,
 })
 

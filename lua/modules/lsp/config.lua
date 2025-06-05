@@ -163,7 +163,7 @@ lspconfig.svelte.setup({
 })
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
-	root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts"),
+	root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts", "vite.config.ts"),
 })
 lspconfig.ts_ls.setup({
 	capabilities = capabilities,
@@ -195,7 +195,7 @@ local servers = {
 	"prismals",
 	"angularls",
 	"rust_analyzer",
-	"intelephense"
+	"intelephense",
 }
 
 for _, server in ipairs(servers) do
