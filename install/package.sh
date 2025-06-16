@@ -11,6 +11,7 @@ declare -a os_pack=(
 	"lazygit"
 	"luarocks"
 	"luajit"
+	"imagemagick"
 )
 
 function build_command() {
@@ -36,4 +37,4 @@ function install_pack() {
 
 install_pack
 
-nvim --headless -c "MasonInstall clang-format shfmt rustfmt prettier stylua shellcheck" -c "qall"
+nvim --headless -c "MasonInstall clang-format shfmt prettier stylua shellcheck" -c "qall"

@@ -157,10 +157,29 @@ ins_left({
 })
 
 ins_left({
-	-- filesize component
-	"filesize",
-	cond = conditions.buffer_not_empty,
-	color = { fg = colors.pink },
+	"branch",
+	icon = icons.git.Branch,
+	color = function()
+		-- auto change color according to neovims mode
+		return { fg = mode_color[vim.fn.mode()], gui = "bold" }
+	end,
+})
+
+
+ins_left({
+	"diff",
+	-- Is it me or the symbol for modified us really weird
+	symbols = {
+		added = icons.git.LineAdded .. " ",
+		modified = icons.git.LineModified .. " ",
+		removed = icons.git.LineRemoved .. " ",
+	},
+	diff_color = {
+		added = { fg = colors.git.add },
+		modified = { fg = colors.git.change },
+		removed = { fg = colors.git.delete },
+	},
+	cond = conditions.hide_in_width,
 })
 
 ins_left({
@@ -169,15 +188,6 @@ ins_left({
 	color = { fg = colors.yellow, gui = "bold" },
 })
 
-ins_left({
-	"filetype",
-	cond = conditions.buffer_not_empty,
-	color = { fg = colors.yellow, gui = "bold" },
-})
-
-ins_left({ "location", color = { fg = colors.sapphire } })
-
-ins_left({ "progress", color = { fg = colors.overlay1, gui = "bold" } })
 
 ins_left({
 	"diagnostics",
@@ -220,29 +230,20 @@ ins_left({
 -- Add components to right sections
 
 ins_right({
-	"diff",
-	-- Is it me or the symbol for modified us really weird
-	symbols = {
-		added = icons.git.LineAdded .. " ",
-		modified = icons.git.LineModified .. " ",
-		removed = icons.git.LineRemoved .. " ",
-	},
-	diff_color = {
-		added = { fg = colors.git.add },
-		modified = { fg = colors.git.change },
-		removed = { fg = colors.git.delete },
-	},
-	cond = conditions.hide_in_width,
+	"filetype",
+	cond = conditions.buffer_not_empty,
+	color = { fg = colors.yellow, gui = "bold" },
 })
 
+ins_right({ "location", color = { fg = colors.sapphire } })
+
 ins_right({
-	"branch",
-	icon = icons.git.Branch,
-	color = function()
-		-- auto change color according to neovims mode
-		return { fg = mode_color[vim.fn.mode()], gui = "bold" }
-	end,
+	-- filesize component
+	"filesize",
+	cond = conditions.buffer_not_empty,
+	color = { fg = colors.pink },
 })
+
 
 ins_right({
 	"o:encoding", -- option component same as &encoding in viml

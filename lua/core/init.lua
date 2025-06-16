@@ -1,6 +1,6 @@
 local icons = require("core.icons")
-require("core.pack"):boot_strap()
 require("core.options")
+require("core.pack"):boot_strap()
 
 -- read colorscheme from environment vairable COLORSCHEME
 -- if vim.env.COLORSCHEME then
