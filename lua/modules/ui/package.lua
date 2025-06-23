@@ -12,7 +12,6 @@ packadd({ "catppuccin/nvim", name = "catppuccin", priority = 1000, config = conf
 
 packadd({
 	"akinsho/bufferline.nvim",
-	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = conf.bufferline,
 })

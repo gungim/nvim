@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-local util = require("lspconfig.util")
 local keymap = require("core.keymap")
 
 local au = vim.api.nvim_create_autocmd
@@ -60,144 +58,111 @@ au("CursorHold", {
 	end,
 })
 
--- au("CursorHold", {
--- 	callback = function()
--- 		vim.lsp.buf.hover()
--- 	end,
--- })
+local vue_language_server_path = vim.fn.expand("$MASON/packages")
+	.. "/vue-language-server"
+	.. "/node_modules/@vue/language-server"
+-- or even
+-- local vue_language_server_path = vim.fn.stdpath('data') .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+local vue_plugin = {
+	name = "@vue/typescript-plugin",
+	location = vue_language_server_path,
+	languages = { "vue" },
+	configNamespace = "typescript",
+}
 
-lspconfig.bashls.setup({
-	capabilities = capabilities,
-	filetypes = { "zsh", "sh" },
-})
-lspconfig.clangd.setup({
-	capabilities = capabilities,
-	cmd = { "clangd", "--offset-encoding=utf-16" },
-})
-lspconfig.cmake.setup({
-	capabilities = capabilities,
-	root_dir = util.root_pattern("CMakeLists.txt"),
-	filetypes = { "cmake" },
-})
-
-lspconfig.cssls.setup({
-	capabilities = capabilities,
-	filetypes = { "css", "scss", "less", "postcss" },
-})
-lspconfig.eslint.setup({
-	capabilities = capabilities,
-	settings = {
-		codeAction = {
-			disableRuleComment = {
-				enable = true,
-				location = "separateLine",
-			},
-			showDocumentation = {
-				enable = true,
-			},
-		},
-		codeActionOnSave = {
-			enable = false,
-			mode = "all",
-		},
-		format = true,
-		nodePath = "",
-		onIgnoredFiles = "off",
-		packageManager = "npm",
-		quiet = false,
-		rulesCustomizations = {},
-		run = "onType",
-		useESLintClass = false,
-		validate = "on",
-		workingDirectory = {
-			mode = "location",
-		},
-	},
-	root_dir = util.root_pattern(
-		".eslintrc.js",
-		".eslintrc.cjs",
-		".eslintrc.yaml",
-		".eslintrc.yml",
-		".eslintrc.json",
-		".eslintrc"
-	),
-})
-lspconfig.lua_ls.setup({
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = {
-					vim.fn.stdpath("config"),
-				},
-				checkThirdParty = false,
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
-lspconfig.gdscript.setup({
-	capabilities = capabilities,
-	cmd = { "nc", "localhost", "6005" },
-})
-lspconfig.stylelint_lsp.setup({
-	capabilities = capabilities,
-	filetypes = {
-		"css",
-		"less",
-		"scss",
-	},
-})
-lspconfig.svelte.setup({
-	capabilities = capabilities,
-	filetype = { "svelte" },
-	root_dir = util.root_pattern("svelte.config.js"),
-	plugin = {
-		html = { completions = true }, -- Enable HTML completions
-	},
-})
-lspconfig.tailwindcss.setup({
-	capabilities = capabilities,
-	root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts", "vite.config.ts"),
-})
-lspconfig.ts_ls.setup({
-	capabilities = capabilities,
-	init_options = {
-		plugins = {
-			{
-				name = "@vue/typescript-plugin",
-				location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-				languages = { "vue" },
-			},
-		},
-	},
-	root_dir = util.root_pattern("tsconfig.json", "jsconfig.json"),
-	filetypes = {
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"svelte",
-		"vue",
-	},
-})
-lspconfig.volar.setup({
-	filetypes = { "vue" },
-})
-
-local servers = {
+local lsp_servers = {
+	"vtsls",
+	"vue_ls",
 	"jdtls",
 	"prismals",
 	"angularls",
 	"rust_analyzer",
 	"intelephense",
+	"bashls",
+	"clangd",
+	"cmake",
+	"cssls",
+	"eslint",
+	"lua_ls",
+	"gdscript",
+	"stylelint_lsp",
+	"svelte",
+	"tailwindcss",
+	"ts_ls",
+}
+local config = {
+	bashls = {
+		filetypes = { "zsh", "sh", "bash" },
+	},
+	clangd = {
+
+		cmd = { "clangd", "--offset-encoding=utf-16" },
+	},
+	lua_ls = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					library = {
+						vim.fn.stdpath("config"),
+					},
+					checkThirdParty = false,
+				},
+				telemetry = {
+					enable = false,
+				},
+			},
+		},
+	},
+	gdscript = {
+		cmd = { "nc", "localhost", "6005" },
+	},
+	vue_ls = {
+		on_init = function(client)
+			client.handlers["tsserver/request"] = function(_, result, context)
+				local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = "vtsls" })
+				if #clients == 0 then
+					vim.notify(
+						"Could not found `vtsls` lsp client, vue_lsp would not work without it.",
+						vim.log.levels.ERROR
+					)
+					return
+				end
+				local ts_client = clients[1]
+
+				local param = unpack(result)
+				local id, command, payload = unpack(param)
+				ts_client:exec_cmd({
+					command = "typescript.tsserverRequest",
+					arguments = {
+						command,
+						payload,
+					},
+				}, { bufnr = context.bufnr }, function(_, r)
+					local response_data = { { id, r.body } }
+					---@diagnostic disable-next-line: param-type-mismatch
+					client:notify("tsserver/response", response_data)
+				end)
+			end
+		end,
+	},
+	vtsls = {
+		init_options = {
+			plugins = {
+				vue_plugin,
+			},
+		},
+		filetypes = { "vue" },
+	},
 }
 
-for _, server in ipairs(servers) do
-	lspconfig[server].setup({})
+-- Mapping servers to config
+for _, name in ipairs(lsp_servers) do
+	local conf = config[name]
+	if conf then
+		vim.lsp.config(name, conf)
+	end
 end
+vim.lsp.enable(lsp_servers)

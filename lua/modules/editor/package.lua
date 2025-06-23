@@ -16,7 +16,6 @@ packadd({
 
 packadd({
 	"echasnovski/mini.pairs",
-	version = "*",
 	config = function()
 		require("mini.pairs").setup({})
 	end,
@@ -30,7 +29,7 @@ packadd({
 	end,
 })
 
-packadd({ "akinsho/toggleterm.nvim", version = "*", config = conf.toggleterm })
+packadd({ "akinsho/toggleterm.nvim", config = conf.toggleterm })
 
 packadd({
 	"norcalli/nvim-colorizer.lua",
@@ -55,7 +54,6 @@ packadd({
 
 packadd({
 	"nvim-tree/nvim-tree.lua",
-	version = "*",
 	lazy = false,
 	dependencies = { "b0o/nvim-tree-preview.lua", "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
 

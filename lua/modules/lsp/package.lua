@@ -11,7 +11,6 @@ packadd({
 })
 packadd({
 	"mason-org/mason.nvim",
-	version = "^1.0.0",
 	config = function()
 		require("mason").setup()
 	end,
@@ -19,7 +18,6 @@ packadd({
 
 packadd({
 	"mason-org/mason-lspconfig.nvim",
-	version = "^1.0.0",
 	config = function()
 		require("mason-lspconfig").setup({
 			automatic_enable = {
@@ -39,7 +37,8 @@ packadd({
 				"svelte",
 				"rust_analyzer",
 				"bashls",
-				"volar",
+				"vue_ls",
+				"vtsls",
 				"angularls",
 				"cmake",
 				"prismals",
