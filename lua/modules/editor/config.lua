@@ -9,7 +9,7 @@ function config.whichkey()
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", icon = "" },
 		{ "<leader>q", "<cmd>BufDel<CR>", desc = "Close Buffer" },
 		{ "<leader>h", "<cmd>set nohlsearch!<CR>", desc = "No Highlight", icon = "" },
-		{ "<leader>f", "<cmd>Format<cr>", desc = "Format" },
+		{ "<leader>f", "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>", desc = "Format" },
 		-- Packer
 		{ "<leader>p", group = "Packer", icon = "󰏖" },
 		{ "<leader>pc", "<cmd>PackerCompile<cr>", desc = "Compile" },

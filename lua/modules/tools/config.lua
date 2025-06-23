@@ -1,80 +1,5 @@
 local icons = require("core.icons")
 local config = {}
-function config.formatter()
-	local util = require("formatter.util")
-	require("formatter").setup({
-		logging = true,
-		log_level = vim.log.levels.WARN,
-		filetype = {
-			lua = {
-				require("formatter.filetypes.lua").stylua,
-			},
-			c = {
-				require("formatter.filetypes.c").clangformat,
-			},
-			cpp = {
-				require("formatter.filetypes.cpp").clangformat,
-			},
-			vue = {
-				require("formatter.filetypes.vue").prettier,
-			},
-			typescript = {
-				require("formatter.filetypes.typescript").prettier,
-			},
-			typescriptreact = {
-				require("formatter.filetypes.typescriptreact").prettier,
-			},
-			html = {
-				require("formatter.filetypes.html").prettier,
-			},
-			css = {
-				require("formatter.filetypes.css").prettier,
-			},
-			less = {
-				require("formatter.filetypes.css").prettier,
-			},
-			scss = {
-				require("formatter.filetypes.css").prettier,
-			},
-			json = {
-				require("formatter.filetypes.json").prettier,
-			},
-			javascript = {
-				require("formatter.filetypes.javascript").prettier,
-			},
-			javascriptreact = {
-				require("formatter.filetypes.javascriptreact").prettier,
-			},
-			svelte = {
-				require("formatter.filetypes.svelte").prettier,
-			},
-			rust = {
-				require("formatter.filetypes.rust").rustfmt(),
-			},
-			sh = {
-				require("formatter.filetypes.sh").shfmt(),
-			},
-			["zsh"] = {
-				require("formatter.filetypes.sh").shfmt(),
-			},
-			gdscript = {
-				function()
-					return {
-						exe = "gdformat",
-						-- args = {
-						-- 	util.escape_path(util.get_current_buffer_file_path()),
-						-- },
-						stdin = false,
-						ignore_exitcode = true,
-					}
-				end,
-			},
-			["*"] = {
-				require("formatter.filetypes.any").remove_trailing_whitespace,
-			},
-		},
-	})
-end
 
 function config.cmp()
 	local cmp = require("cmp")
@@ -138,6 +63,31 @@ function config.cmp()
 			{ name = "path" },
 			{ name = "cmdline" },
 		}),
+	})
+end
+
+function config.conform()
+	require("conform").setup({
+		formatters_by_ft = {
+			lua = { "stylua" },
+			rust = { "rustfmt" },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
+			htmlangular = { "prettier" },
+			gdscript = { "gdformat" },
+			less = { "stylelint", "prettier" },
+			scss = { "stylelint", "prettier" },
+			css = { "stylelint", "prettier" },
+		},
+		formatters = {
+			gdformat = {
+				command = "gdformat",
+				args = { "$FILENAME" },
+				stdin = false, -- gdformat works with files
+			},
+		},
 	})
 end
 return config

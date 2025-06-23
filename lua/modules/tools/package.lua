@@ -1,7 +1,7 @@
 local conf = require("modules.tools.config")
 packadd({
-	"mhartington/formatter.nvim",
-	config = conf.formatter,
+	"stevearc/conform.nvim",
+	config = conf.conform,
 })
 
 packadd({
