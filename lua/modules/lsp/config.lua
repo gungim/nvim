@@ -156,6 +156,17 @@ local config = {
 		},
 		filetypes = { "vue" },
 	},
+	stylelint_lsp = {
+		filetypes = {
+			"astro",
+			"css",
+			"less",
+			"scss",
+			"sugarss",
+			"vue",
+			"wxss",
+		},
+	},
 }
 
 -- Mapping servers to config
