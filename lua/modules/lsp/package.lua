@@ -43,7 +43,6 @@ packadd({
 				"cmake",
 				"prismals",
 				"jdtls",
-				"emmet_language_server",
 				"intelephense",
 			},
 		})

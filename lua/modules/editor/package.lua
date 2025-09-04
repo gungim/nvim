@@ -39,10 +39,8 @@ packadd({
 })
 
 packadd({
-	"hiphish/rainbow-delimiters.nvim",
-	config = function()
-		require("rainbow-delimiters.setup").setup({})
-	end,
+	"HiPhish/rainbow-delimiters.nvim",
+	config = conf.ibl,
 })
 
 -- packadd({

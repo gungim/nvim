@@ -1,4 +1,5 @@
 local keymap = require("core.keymap")
+local util = require("lspconfig.util")
 
 local au = vim.api.nvim_create_autocmd
 
@@ -14,11 +15,9 @@ au("LspAttach", {
 			floating_window = false,
 
 			fix_pos = true,
-			hint_prefix = "🐼" .. " ",
+			hint_prefix = "" .. " ",
 			hint_scheme = "String",
 			close_timeout = 1000,
-			hi_parameter = "LspSignatureActiveParameter",
-
 			-- handler_opts = { border = "single" },
 
 			auto_close_after = 3,
@@ -166,6 +165,10 @@ local config = {
 			"vue",
 			"wxss",
 		},
+	},
+	angularls = {
+		filetypes = { "typescript", "html", "htmlangular" },
+		root_markers = { "angular.json" },
 	},
 }
 
